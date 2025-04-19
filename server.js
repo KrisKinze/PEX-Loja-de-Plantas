@@ -1,9 +1,14 @@
-require('dotenv').config(); // Carrega variáveis de ambiente do arquivo .env
+require('dotenv').config(); 
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const cors = require('cors'); 
 
 const app = express();
+
+
+app.use(cors()); 
+
 app.use(bodyParser.json());
 
 // Configuração do Content Security Policy (CSP)
