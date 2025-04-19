@@ -6,8 +6,10 @@ const cors = require('cors');
 
 const app = express();
 
-
-app.use(cors()); 
+const corsOptions = {
+  origin: 'https://kriskinze.github.io/PEX-Loja-de-Plantas/'
+};
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 

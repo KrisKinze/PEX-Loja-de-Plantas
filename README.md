@@ -72,10 +72,12 @@ A página apresenta informações sobre a loja, um catálogo visual de produtos,
 
 *(O envio de e-mail pelo formulário só funcionará se as credenciais no `.env` estiverem corretas).*
 
-## 🔗 Deploy 
+## 🔗 Deploy
 
-Você pode visualizar o projeto em funcionamento [aqui](link-para-seu-deploy.com). *(Substitua pelo link real se você hospedar o site)*
+Você pode visualizar o projeto em funcionamento [aqui](https://kriskinze.github.io/PEX-Loja-de-Plantas/). <!-- SUBSTITUA pela sua URL do GitHub Pages -->
+
+*(O backend que processa o formulário de contato está hospedado separadamente no Render).*
 
 ## 👨‍💻 Autor
 
-*   **[Cristhian Campelo]** - [campelo.cfc@gmail.com]
+*   **Cristhian Campelo** - [campelo.cfc@gmail.com]
