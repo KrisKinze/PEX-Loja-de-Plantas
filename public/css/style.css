@@ -34,18 +34,19 @@ html {
 }
 
 /* Configurando o fundo da página */
-html::before {
+body::before {
   content: "";
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/images/Background/Background da Pagina - 1920 x 1080.svg");
+  background-image: url("../images/Background/Background da Pagina - 1920 x 1080.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: -1; /* Garante que o fundo fique atrás de todo o conteúdo */
+  transition: background-image 0.3s ease; /* Adiciona transição suave */
 }
 
 html,
@@ -536,12 +537,12 @@ header nav ul li a {
 .redes-contatos-item a {
   color: inherit; /* Herda a cor do elemento pai */
   text-decoration: none; /* Remove o sublinhado do link */
-  transition: transform 0.6s ease; /* Animação suave para o efeito de hover */
+  transition: transform 0.6s ease; /* Animação suave para o efeito de hover */ 
 
   display: flex; /* Flexbox para alinhar o conteúdo */
   flex-direction: column;
 
-  align-items: center; /* Centraliza verticalmente o conteúdo */
+  align-items: center; /* Centraliza verticalmente o conteúdo */ 
   justify-content: center;
   text-align: center;
   gap: 15px; /* Espaçamento entre o ícone e o texto */
@@ -574,6 +575,23 @@ header nav ul li a {
   background-color: #f9f9f9; /* Cor de fundo */
   font-size: 1rem; /* Tamanho do texto */
   resize: none; /* Impede o redimensionamento manual */
+}
+
+/* Botão de Enviar */
+#botao-enviar {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#botao-enviar:hover {
+  background-color: #45a049;
 }
 
 /* secao de Localizacao */
@@ -878,8 +896,8 @@ footer {
 /* Ajuste do background para dispositivos móveis */
 
 @media (max-width: 768px) {
-  html::before {
-    background-image: url("/images/Background/Background da Pagina - 1280 x 720.svg"); /* Imagem otimizada para dispositivos móveis */
+  body::before {
+    background-image: url("../images/Background/Background da Pagina - 1280 x 720.svg"); /* Imagem otimizada para dispositivos móveis */
   }
 }
 

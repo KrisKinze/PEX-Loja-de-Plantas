@@ -1,33 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const toggleModoNoturno = document.getElementById('toggle-modo-noturno');
+    const toggleButton = document.getElementById('toggle-modo-noturno');
     const body = document.body;
+    const icon = toggleButton.querySelector('sl-icon'); // Seleciona o ícone dentro do botão
 
-    // Verifica se o modo noturno está ativado no armazenamento local
-    const modoNoturnoAtivo = localStorage.getItem('modoNoturno') === 'true';
-
-    if (modoNoturnoAtivo) {
-        body.classList.add('modo-noturno');
-        toggleModoNoturno.querySelector('sl-icon').name = 'sun'; // Altera o ícone para "sol"
-    }
-
-    toggleModoNoturno.addEventListener('click', (e) => {
-        e.preventDefault(); // Impede o comportamento padrão do link
-
-        body.classList.toggle('modo-noturno');
-
-        // Salva o estado do modo noturno no armazenamento local
-        const modoAtivo = body.classList.contains('modo-noturno');
-        localStorage.setItem('modoNoturno', modoAtivo);
-
-        // Alterna o ícone
-        const icon = toggleModoNoturno.querySelector('sl-icon');
-        icon.name = modoAtivo ? 'sun' : 'moon';
-
-        // Força a atualização do background-image
+    // Função para aplicar o modo baseado no estado salvo e atualizar ícone
+    const aplicarModo = (modoAtivo) => {
         if (modoAtivo) {
-            body.style.backgroundImage = 'url("/images/Background/MODO ESCURO MAIOR.svg")';
+            body.classList.add('modo-noturno');
+            icon.setAttribute('name', 'brightness-high-fill'); // Ícone de sol para desativar
         } else {
-            body.style.backgroundImage = 'url("/images/Background/MODO CLARO MAIOR.svg")';
+            body.classList.remove('modo-noturno');
+            icon.setAttribute('name', 'moon-stars-fill'); // Ícone de lua para ativar
         }
+    };
+
+    // Verifica o modo salvo no localStorage ao carregar a página
+    let modoNoturnoAtivo = localStorage.getItem('modoNoturno') === 'true';
+    aplicarModo(modoNoturnoAtivo);
+
+    // Adiciona o evento de clique ao botão
+    toggleButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Previne qualquer comportamento padrão do link/botão
+
+        // Inverte o estado atual
+        modoNoturnoAtivo = !modoNoturnoAtivo;
+
+        // Aplica o novo modo
+        aplicarModo(modoNoturnoAtivo);
+
+        // Salva a preferência no localStorage
+        localStorage.setItem('modoNoturno', modoNoturnoAtivo);
     });
 });

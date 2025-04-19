@@ -6,8 +6,9 @@ const cors = require('cors');
 
 const app = express();
 
+// === Configuração do CORS ===
 const corsOptions = {
-  origin: 'https://kriskinze.github.io/PEX-Loja-de-Plantas/' 
+  origin: 'https://kriskinze.github.io' 
 };
 app.use(cors(corsOptions));
 
@@ -26,17 +27,17 @@ app.use((req, res, next) => {
         "img-src 'self' data: https://*; " +
         "img-src 'self' data: https://cdn.jsdelivr.net https://*; " +
         "font-src 'self' https://fonts.gstatic.com; " +
-        "frame-src 'self' https://www.google.com; " + // Permite frames do Google Maps
+        "frame-src 'self' https://www.google.com; " + 
         "object-src 'none'; " +
         "frame-ancestors 'none';"
     );
     next();
 });
 
-// Servir arquivos estáticos da pasta "views" e "public"
-app.use(express.static('public')); // Para CSS, JS, imagens, etc.
+// Servir arquivos estáticos de TODO o diretório raiz do projeto
+app.use(express.static(__dirname)); 
 
-// Endpoint para servir o arquivo HTML principal
+// Endpoint para servir o arquivo HTML principal da RAIZ
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
@@ -80,10 +81,10 @@ app.post('/enviar-email', (req, res) => {
             <ul>
                 ${
                     itensCarrinhoTexto
-                        .split('\n') // Divide os itens do carrinho em linhas
-                        .filter(item => item.trim() !== '') // Remove linhas vazias
-                        .map(item => `<li>${item}</li>`) // Envolve cada item em uma tag <li>
-                        .join('') // Junta todos os itens em uma única string
+                        .split('\n') 
+                        .filter(item => item.trim() !== '') 
+                        .map(item => `<li>${item}</li>`) 
+                        .join('') 
                 }
             </ul>
             <p>Enquanto isso, você pode acessar nossas redes sociais:</p>

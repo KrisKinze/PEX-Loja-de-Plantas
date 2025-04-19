@@ -4,8 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const toastContainer = document.getElementById('toast-container');
     const botaoEnviar = document.getElementById('botao-enviar');
 
-    // URL do seu backend implantado no Render
-    const backendUrl = 'https://jardim-vital-backend.onrender.com'; 
+    // Define a URL do backend baseada no ambiente (local vs produção)
+    let backendUrl;
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        // Ambiente local
+        backendUrl = 'http://localhost:3000/enviar-email'; // URL do servidor local
+    } else {
+        // Ambiente de produção (GitHub Pages, etc.)
+        backendUrl = 'https://jardim-vital-backend.onrender.com/enviar-email'; // URL do Render
+    }
+
+    console.log(`Usando backend URL: ${backendUrl}`); // Útil para depuração
 
     if (form && mensagemCarrinho && toastContainer && botaoEnviar) {
         form.addEventListener('submit', async (event) => {
@@ -24,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const mensagemCompleta = `${mensagemUsuario}\n\nItens do Carrinho:\n${itensCarrinho || 'Nenhum item adicionado'}`;
 
             try {
-                const response = await fetch(backendUrl, { // <-- Usa a URL completa do backend
+                // Usa a backendUrl definida dinamicamente
+                const response = await fetch(backendUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -32,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify({
                         nome: nome,
                         email: email,
-                        mensagem: mensagemCompleta // Envia a mensagem combinada
+                        mensagem: mensagemCompleta
                     }),
                 });
 

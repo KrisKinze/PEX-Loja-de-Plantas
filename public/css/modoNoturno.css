@@ -21,11 +21,12 @@ body.modo-noturno::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/images/Background/MODO ESCURO MAIOR.svg");
+  background-image: url("../images/Background/MODO ESCURO MAIOR.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: -1; /* Garante que o fundo fique atrás de todo o conteúdo */
+  transition: background-image 0.3s ease; /* Adiciona transição suave */
 }
 
 /* Cabeçalho */
@@ -154,11 +155,11 @@ body.modo-noturno #menu-catalogo .menu-item:hover {
 
 /*imagens do catálogo*/
 body.modo-noturno .tituloDoCatalogo {
-  content: url("/images/Icons/Modo Escuro - Inicio Catalogo.svg");
+  content: url("../images/Icons/Modo Escuro - Inicio Catalogo.svg");
 }
 
 body.modo-noturno .finaldocatalogo {
-  content: url("/images/Icons/Modo Escuro - Final Catalogo.svg");
+  content: url("../images/Icons/Modo Escuro - Final Catalogo.svg");
 }
 
 body.modo-noturno #catalogo {
@@ -208,6 +209,6 @@ body.modo-noturno #toast-container .toast {
 /* Responsividade para Dispositivos Móveis */
 @media (max-width: 768px) {
   body.modo-noturno::before {
-    background-image: url("/images/Background/MODO ESCURO MENOR.svg"); /* Imagem otimizada para telas menores */
+    background-image: url("../images/Background/MODO ESCURO MENOR.svg"); /* Imagem otimizada para telas menores */
   }
 }
