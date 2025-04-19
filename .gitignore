@@ -1,9 +1,8 @@
-// filepath: c:\Users\Campe\OneDrive\Documents\VSCode Repositories\PEX - Loja de Plantas\.gitignore
 # Arquivos do Sistema Operacional
 .DS_Store
 Thumbs.db
 
-# Arquivos de IDEs (exemplo)
+# Arquivos de IDEs
 .vscode/
 *.swp
 
@@ -11,4 +10,7 @@ Thumbs.db
 node_modules/
 
 # Arquivo de Variáveis de Ambiente
-.env 
+.env
+
+# Outros arquivos
+domain.txt
