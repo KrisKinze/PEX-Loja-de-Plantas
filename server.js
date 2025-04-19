@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 
 // Configuração do transporte de email com Nodemailer
 const transporter = nodemailer.createTransport({
-    service: 'gmail', // Use o serviço de email desejado (Gmail, Outlook, etc.)
+    service: 'gmail', 
     auth: {
         user: process.env.EMAIL_USER, // Email do remetente (definido no .env)
         pass: process.env.EMAIL_PASS  // Senha do remetente (definido no .env)
