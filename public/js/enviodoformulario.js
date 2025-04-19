@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         backendUrl = 'http://localhost:3000/enviar-email'; // URL do servidor local
     } else {
         // Ambiente de produção (GitHub Pages, etc.)
-        backendUrl = 'https://jardim-vital-backend-qxd7.onrender.com'; // URL do Render
+        backendUrl = 'https://jardim-vital-backend-qxd7.onrender.com/enviar-email'; // URL do Render
     }
 
     console.log(`Usando backend URL: ${backendUrl}`); // Útil para depuração
