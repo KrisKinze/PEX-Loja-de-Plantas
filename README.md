@@ -57,8 +57,7 @@ A página apresenta informações sobre a loja, um catálogo visual de produtos,
 
 ## 🔧 Como Executar Localmente
 
-
-1.  Clone este repositório: `git clone https://github.com/seu-usuario/seu-repositorio.git`
+1.  Clone este repositório: `git clone https://github.com/KrisKinze/PEX-Loja-de-Plantas.git`
 2.  Navegue até a pasta do projeto: `cd PEX---Loja-de-Plantas`
 3.  Instale as dependências do Node.js: `npm install`
 4.  Crie um arquivo `.env` na raiz do projeto com a seguinte estrutura, substituindo pelos seus dados:
@@ -68,13 +67,14 @@ A página apresenta informações sobre a loja, um catálogo visual de produtos,
     EMAIL_DESTINO=seu_email_destino@exemplo.com
     ```
 5.  Inicie o servidor: `node server.js`
-6.  Abra seu navegador e acesse `http://localhost:3000`.
+6.  Abra seu navegador e acesse `http://localhost:3000`. *(O servidor agora serve o index.html da raiz)* 
 
 *(O envio de e-mail pelo formulário só funcionará se as credenciais no `.env` estiverem corretas).*
 
+
 ## 🔗 Deploy
 
-Você pode visualizar o projeto em funcionamento [aqui](https://kriskinze.github.io/PEX-Loja-de-Plantas/). <!-- SUBSTITUA pela sua URL do GitHub Pages -->
+Você pode visualizar o projeto em funcionamento [aqui](https://kriskinze.github.io/PEX-Loja-de-Plantas/). 
 
 *(O backend que processa o formulário de contato está hospedado separadamente no Render).*
 

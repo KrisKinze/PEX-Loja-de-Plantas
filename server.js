@@ -34,12 +34,11 @@ app.use((req, res, next) => {
 });
 
 // Servir arquivos estáticos da pasta "views" e "public"
-app.use(express.static('views')); // Para arquivos HTML
 app.use(express.static('public')); // Para CSS, JS, imagens, etc.
 
 // Endpoint para servir o arquivo HTML principal
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/views/index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
 // Configuração do transporte de email com Nodemailer
