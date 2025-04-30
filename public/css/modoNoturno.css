@@ -1,16 +1,3 @@
-/* PALETA DECORES
-#160d18 - Preto
-
-#23145b - Azul Escuro
-
-#09456c - Azul Médio
-
-#026f6e - Verde Escuro
-
-#1ca39e - Verde Claro
-
-*/
-
 /* ========================== MODO NOTURNO ========================== */
 
 /* Fundo da página */
@@ -31,7 +18,7 @@ body.modo-noturno::before {
 
 /* Cabeçalho */
 body.modo-noturno header {
-  background-color: #160d18; /* Cor de fundo do cabeçalho */
+  background-color: #160d18; 
   color: #fff;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -45,7 +32,7 @@ body.modo-noturno header nav ul li a {
 body.modo-noturno #toggle-modo-noturno {
   text-decoration: none;
   cursor: pointer;
-  color: #ffffff; /* Cor padrão para o modo claro */
+  color: #ffffff; 
   transition: color 0.3s ease;
 
   position: relative;
@@ -53,21 +40,21 @@ body.modo-noturno #toggle-modo-noturno {
 }
 
 body.modo-noturno #toggle-modo-noturno:hover {
-  color: #fff649; /* Cor ao passar o mouse */
+  color: #fff649; 
 }
 
 /* Seção de Produtos (Carrossel) */
 body.modo-noturno #produtos {
-  background-color: #160d18; /* Cor de fundo */
+  background-color: #160d18; 
 }
 
 body.modo-noturno .thumbnails__image.active {
-  border-color: #026f6e; /* Destaque para a thumb ativa */
+  border-color: #026f6e; 
 }
 
 /* Menu de Abas */
 body.modo-noturno #abasMenu {
-  background-color: #160d18; /* Cor de fundo para o menu */
+  background-color: #160d18; 
   border: none;
   box-shadow: none;
 }
@@ -77,62 +64,62 @@ body.modo-noturno #abasMenu .nav-link {
   border: none;
   box-shadow: none;
 
-  background-color: #23145b; /* Cor de fundo padrão */
-  color: rgb(255, 255, 255); /* Cor do texto padrão */
-  box-shadow: #026f6e; /* Sombra suave */
+  background-color: #23145b; 
+  color: rgb(255, 255, 255); 
+  box-shadow: #026f6e; 
 }
 
 body.modo-noturno #abasMenu .nav-link:hover {
-  text-decoration: none; /* Garante que o sublinhado não apareça */
-  border: none; /* Remove bordas */
-  box-shadow: none; /* Remove sombras */
+  text-decoration: none; 
+  border: none; 
+  box-shadow: none; 
 
-  background-color: #026f6e; /* Cor ao passar o mouse */
-  cursor: pointer; /* Muda o cursor para indicar interatividade */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ao passar o mouse */
-  transform: scale(1.05); /* Aumenta levemente o botão */
-  color: rgb(255, 255, 255); /* Cor do texto ao passar o mouse */
+  background-color: #026f6e; 
+  cursor: pointer; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  transform: scale(1.05); 
+  color: rgb(255, 255, 255); 
 }
 
 /* Seção de Contato */
 body.modo-noturno #contato {
-  background-color: #160d18; /* Cor de fundo */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  background-color: #160d18; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   color: white;
 }
 
 /* Redes Sociais no Contato */
 body.modo-noturno #redes-contatos {
-  background-color: #160d18; /* Cor de fundo */
+  background-color: #160d18; 
   color: white;
 }
 
 body.modo-noturno .redes-contatos-item span {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
-  transition: color 0.3s ease, transform 0.3s ease; /* Transição suave */
-  color: #ffffff; /* Cor do texto padrão */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+  transition: color 0.3s ease, transform 0.3s ease; 
+  color: #ffffff; 
 }
 
 body.modo-noturno .redes-contatos-item span:hover {
-  color: #1ca39e; /* Cor ao passar o mouse */
-  transform: scale(1.1); /* Aumenta levemente o texto */
+  color: #1ca39e; 
+  transform: scale(1.1); 
 }
 
 /* Campo de Mensagem dos itens do carrinho*/
 body.modo-noturno #mensagem-carrinho {
-  background-color: #434343; /* Cor de fundo */
+  background-color: #434343; 
   color: white;
 }
 
 /* Seção de Localização */
 body.modo-noturno #local {
-  background-color: #160d18; /* Cor de fundo */
+  background-color: #160d18; 
   color: white;
 }
 
 /* Texto de Atenção */
 body.modo-noturno #atencao {
-  font-weight: bold; /* Negrito */
+  font-weight: bold; 
   color: rgb(255, 43, 78);
   text-decoration: underline;
 }
@@ -140,15 +127,15 @@ body.modo-noturno #atencao {
 /* Menu do Catálogo */
 
 body.modo-noturno #menu-catalogo .menu-item {
-  background-color: #23145b; /* Cor de fundo dos botões */
-  transition: background-color 0.3s ease; /* Animação suave */
+  background-color: #23145b; 
+  transition: background-color 0.3s ease; 
   color: #ffffff;
 }
 
 body.modo-noturno #menu-catalogo .menu-item:hover {
-  background-color: #026f6e; /* Cor ao passar o mouse */
-  transform: translateY(-2px); /* Levanta o botão ao passar o mouse */
-  transform: scale(1.05); /* Aumenta levemente o botão */
+  background-color: #026f6e; 
+  transform: translateY(-2px); 
+  transform: scale(1.05); 
 }
 
 /* Seção do Catálogo */
@@ -176,20 +163,19 @@ body.modo-noturno .planta-card h3 {
 }
 
 body.modo-noturno .planta-card p:nth-of-type(2) {
-  /* Tamanho da Planta */
-  color: #8e8e8e; /* Cor cinza para menor destaque */
+  color: #8e8e8e;  /* Cor do texto "Tamanho da Planta" */
 }
 
 body.modo-noturno .planta-card:hover h3,
 body.modo-noturno .planta-card:hover p {
-  transform: scale(1.05); /* Aumenta levemente o texto */
-  transition: transform 0.3s ease, color 0.3s ease; /* Animação suave */
-  color: #fff649; /* Muda a cor do texto ao passar o mouse */
+  transform: scale(1.05); 
+  transition: transform 0.3s ease, color 0.3s ease; 
+  color: #fff649; 
 }
 
 body.modo-noturno .planta-card :hover {
-  transform: scale(1.05); /* Aumenta levemente o cartão */
-  transition: transform 0.3s ease; /* Animação suave */
+  transform: scale(1.05); 
+  transition: transform 0.3s ease; 
 }
 
 /* Rodapé */
@@ -201,8 +187,8 @@ body.modo-noturno footer {
 
 /* Notificações */
 body.modo-noturno #toast-container .toast {
-  background-color: #1ca39e; /* Cor chamativa */
-  color: white; /* Cor do texto */
+  background-color: #1ca39e; 
+  color: white; 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 

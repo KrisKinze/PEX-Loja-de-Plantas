@@ -1,9 +1,5 @@
-
-.carousel-thumbnails {
-    --slide-aspect-ratio: 3 / 2;
-  }
-
-  .thumbnails {
+/* Estilos para o carrossel de imagens com miniaturas */
+.thumbnails {
     display: flex;
     justify-content: center;
   }
@@ -28,11 +24,48 @@
 
     opacity: 0.3;
     will-change: opacity;
-    transition: 250ms opacity;
-
+    border: 2px solid transparent; 
+    transition: border-color 0.3s ease;
+    border-radius: 5px;
     cursor: pointer;
+
+    /* 
+      Explicação:
+      - As miniaturas (thumbnails) devem ter proporção 16:9 para consistência visual com o carrossel.
+      - Dimensões recomendadas para as miniaturas:
+        - 160x90: Pequenas e leves, mantendo a proporção 16:9.
+        - 320x180: Para miniaturas de maior qualidade.
+      - Use ferramentas de otimização como TinyPNG para reduzir o tamanho do arquivo.
+  
+      Configuração no Canvas:
+      - Configure o tamanho do canvas para 160x90 ou 320x180.
+      - Certifique-se de que a proporção seja 16:9.
+      - Ajuste a imagem dentro do canvas e exporte no formato desejado (ex.: JPEG ou PNG).
+    */
   }
 
   .thumbnails__image.active {
     opacity: 1;
   }
+
+  /* Ajuste das thumbs */
+.thumbnails {
+  position: absolute;
+  bottom: 20px; 
+  left: 50%;
+  transform: translateX(-50%); 
+  display: flex;
+  gap: 10px;
+  z-index: 10; 
+}
+
+.thumbnails__image.active {
+  border-color: #edffb3; /* Destaque para a thumb ativa */
+}
+
+/* Retirando as miniaturs do carrousel para telas menores */
+@media (max-width: 768px) {
+  .thumbnails {
+    display: none; /* Esconde as miniaturas em telas muito pequenas */
+  }
+}

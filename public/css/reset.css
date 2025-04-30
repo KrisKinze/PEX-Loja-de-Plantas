@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: none;
+}
+
+/*reset dos estilos dos botoes dentro do html*/
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+}

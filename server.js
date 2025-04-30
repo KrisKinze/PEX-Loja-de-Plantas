@@ -90,7 +90,6 @@ app.post('/enviar-email', (req, res) => {
             <p>Enquanto isso, você pode acessar nossas redes sociais:</p>
             <ul>
                 <li><a href="https://www.instagram.com/jardimdavital/" target="_blank">Instagram: @jardimdavital</a></li>
-                <li><a href="https://wa.me/5511999999999" target="_blank">WhatsApp: (11) 99999-9999</a></li>
             </ul>
             <p>Agradecemos pelo seu interesse e entraremos em contato em breve!</p>
             <p>Atenciosamente,<br>Equipe Jardim Vital</p>

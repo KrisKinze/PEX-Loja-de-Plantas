@@ -1,0 +1,203 @@
+/* Seção de Contato */
+#contato {
+  display: flex;
+  flex-direction: column;
+
+  padding: 30px;
+  margin-top: 50px; 
+  border-radius: 20px; 
+
+  background-color: #dbedc2; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+
+  width: 100%; 
+}
+
+/* Formulario de contato */
+
+#form-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#form-contato label {
+  font-weight: bold;
+}
+
+#form-contato input,
+#form-contato textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Redes sociais dentro do contato - Posicionamento e centralizacao */
+
+#redes-contatos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Três colunas de tamanhos iguais */
+  align-items: center; 
+  justify-items: center; 
+  gap: 20px;
+  padding: 10px; 
+  width: 100%; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  background-color: #fff2d4;
+  margin: 30px 0;
+  border-radius: 20px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  overflow: hidden; 
+}
+
+.redes-contatos-item {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center; 
+  justify-content: center;
+  text-align: center;
+
+  font-size: 1.5rem; 
+  transition: color 0.3s ease; 
+  text-decoration: none; 
+
+  max-width: 100%;
+  height: auto;
+  gap: 20px;
+}
+
+/* Centralizando o segundo item dentro do container de redes sociais */
+#redes-contatos-item-instagram {
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+/* ajustando altura do texto para o tamanho do icone dentro das redes*/
+.redes-contatos-item span {
+  display: block;
+
+  text-align: center;
+  justify-content: center;
+
+  line-height: 1;
+  font-size: 1.5rem; /* Tamanho do texto */
+
+  width: 100%;
+  height: auto;
+
+  margin: 0; 
+  padding: 0; 
+
+  word-wrap: break-word; /* Quebra palavras longas */
+  overflow-wrap: break-word; /* Garante que palavras longas sejam quebradas */
+  white-space: normal; /* Permite quebras de linha */
+}
+
+/* Estilizando os ícones das redes sociais */
+
+.redes-contatos-item span {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+
+  transition: color 0.3s ease, transform 0.3s ease; 
+  color: #000; 
+}
+
+.redes-contatos-item span:hover {
+  color: #94b81f; 
+  transform: scale(1.1);
+}
+
+/* alinhando o texto e o icone  dentro das redes em Contatos*/
+.redes-contatos-item a {
+  color: inherit; /* Herda a cor do elemento pai */
+  text-decoration: none; 
+  transition: transform 0.6s ease; 
+
+  display: flex; 
+  flex-direction: column;
+
+  align-items: center; 
+  justify-content: center;
+  text-align: center;
+  gap: 15px; 
+}
+
+/* Concertando as sobrescricoes dos icones e textos das redes sociais dentro dos contatos */
+
+.redes-contatos-item a {
+  width: 100%; /* Garante que o link ocupe toda a largura do contêiner pai */
+
+  overflow-wrap: break-word; 
+  word-wrap: break-word; 
+  white-space: normal; 
+}
+
+.redes-contatos-item sl-icon {
+  font-size: 2rem; /* Tamanho dos ícones */
+  display: block;
+  align-items: center;
+}
+
+/* Personalizando o espaco da mensagem dentro do formulario de contato */
+
+#mensagem-carrinho {
+  width: 100%; 
+  height: 150px; 
+  padding: 10px; 
+  border: 1px solid #ccc; /* Borda padrão */
+  border-radius: 10px; 
+  background-color: #f9f9f9; 
+  font-size: 1rem; 
+  resize: none; 
+}
+
+/* Botão de Enviar */
+#botao-enviar {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#botao-enviar:hover {
+  background-color: #45a049;
+}
+
+/* ----------------------------------------------------- */
+/*---AJUSTE PARA REDES SOCIAIS DENTRO DO MENU CONTATOS EM TELAS MENORES --*/
+/* ----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #redes-contatos {
+      grid-template-columns: 1fr; /* Exibe 1 coluna */
+      gap: 20px; 
+    }
+  }
+
+@media (max-width: 991px) {
+  #redes-contatos {
+    grid-template-columns: 1fr 1fr; /* Duas colunas de tamanhos iguais */
+    gap: 10px; 
+    font-size: 1.5rem; 
+  }
+
+  .redes-contatos-item a {
+    font-size: 1.5rem; 
+    padding: 10px;
+    gap: 5px; 
+    margin-bottom: 15px;
+  }
+}
+
+

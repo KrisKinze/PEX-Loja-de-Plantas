@@ -1,0 +1,168 @@
+/* Tema Global da Fonte */
+* {
+  font-family: monospace;
+  font-size: large;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Configurando o fundo da página */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/Background/Background da Pagina - 1920 x 1080.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; /* Garante que o fundo fique atrás de todo o conteúdo */
+  transition: background-image 0.3s ease; /* Adiciona transição suave */
+}
+
+/* Espacamento entre os containers */
+section {
+  margin-bottom: 30px; /* Espaçamento uniforme entre as seções */
+}
+
+/* Container centralizado */
+.container {
+  width: 90%; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 20px; 
+}
+
+/*Alinhamento Vertical e Horizontal dos elementos*/
+#produtos,
+#abas {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+}
+
+/*==================================*/
+/*======== RESPONSIVIDADE========== */
+/*==================================*/
+
+/* Ajustes para telas muito pequenas Resolucao 480px*/
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    max-width: 400px;
+    padding: 5px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #produtos,
+  #abas,
+  #catalogo {
+    padding: 10px;
+  }
+
+  section {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Reduz ainda mais o tamanho da fonte */
+  h1,
+  h2,
+  h3 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  /* Ajusta os elementos internos */
+  #produtos,
+  #abas,
+  #catalogo {
+    padding: 5px;
+    margin: 5px auto;
+  }
+
+  /* Ajusta o tamanho das imagens */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Ajustes para telas muito pequenas Resolucao 768px*/
+
+@media (max-width: 768px) {
+  /* Ajuste do background para dispositivos móveis */
+  body::before {
+    background-image: url("../images/Background/Background da Pagina - 1280 x 720.svg");
+  }
+
+  .container {
+    width: auto;
+    max-width: 600px;
+    padding: 10px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #produtos,
+  #abas,
+  #catalogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  section {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Reduz o tamanho da fonte */
+  h1,
+  h2,
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  /* Ajusta os elementos internos */
+  #produtos,
+  #abas,
+  #catalogo {
+    padding: 10px;
+    margin: 10px auto;
+  }
+
+  /* Ajusta o tamanho das imagens 768px */
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* --- Ajustes para telas pequenas Resolucao 991px*/
+@media (max-width: 991px) {
+    
+    .container {
+        max-width: 800px;
+        padding: 10px;
+    }
+}

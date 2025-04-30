@@ -1,0 +1,21 @@
+#container-logo-central {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: clamp(500px, 60vh, 900px);
+  width: auto;
+}
+
+.logo-central {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: auto;
+}
+
+.logo-central img {
+  height: 130%;
+  width: auto;
+  display: block;
+}

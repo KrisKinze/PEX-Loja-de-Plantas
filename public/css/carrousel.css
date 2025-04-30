@@ -1,0 +1,138 @@
+/* Seção de Produtos carrossel */
+
+/* Ajuste do container de produtos/carrousel */
+#produtos {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #dbedc2;
+
+  margin-top: 50px;
+  margin-bottom: 50px; 
+  border-radius: 20px;
+
+  width: 95%; 
+  height: auto; 
+
+  overflow: hidden; 
+  position: relative; 
+}
+
+#produtos .produtos-grid {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+  height: auto; 
+  gap: 20px; 
+}
+
+.carousel-thumbnails {
+  --slide-aspect-ratio: 3 / 2;
+}
+
+/* Ajuste do carrossel */
+#produtos .produtos-grid sl-carousel {
+  width: 100%; 
+  height: auto; 
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+
+/* Ajuste dos itens do carrossel */
+.produtos-grid sl-carousel-item {
+  height: auto; 
+  width: 100%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px; 
+  overflow: hidden; 
+}
+
+/* Ajuste das imagens dentro do carrossel */
+
+.carousel-thumbnails {
+  --slide-aspect-ratio: 3 / 2;
+  --aspect-ratio: 0; /*Resetando a proporção padrão*/
+}
+
+.produtos-grid sl-carousel-item img {
+  border-radius: 20px; 
+  width: 100%; 
+  height: auto; 
+  max-height: 600px;
+  object-fit: cover; 
+  display: block; 
+  -webkit-mask-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+
+  /* 
+      Explicação:
+      - As imagens do carrossel devem ter proporção 16:9 para evitar cortes ou distorções.
+      - Dimensões recomendadas para as imagens do carrossel:
+        - 1920x1080 (Full HD): Alta qualidade para telas grandes.
+        - 1280x720 (HD): Boa qualidade e carregamento mais rápido.
+        - 960x540 (SD): Para dispositivos menores ou otimização de desempenho.
+      - Use ferramentas de otimização como TinyPNG para reduzir o tamanho do arquivo.
+  
+      Configuração no Canvas:
+      - Abra o editor de imagens (ex.: Photoshop, GIMP ou Canva).
+      - Configure o tamanho do canvas para 1920x1080, 1280x720 ou 960x540.
+      - Certifique-se de que a proporção seja 16:9.
+      - Ajuste a imagem dentro do canvas e exporte no formato desejado (ex.: JPEG ou PNG).
+    */
+}
+
+
+/*=======RESPONSIVIDADE=======*/
+
+@media (max-width: 768px) {
+
+  #produtos {
+    background-color: transparent;
+    width: 100%; 
+    height: auto; 
+    padding: 0%;
+  }
+
+  #produtos .produtos-grid {
+    display: block;
+    width: 100%; 
+    height: auto; 
+    max-height: 500px;
+    gap: 10px;
+  }
+
+  #produtos .produtos-grid sl-carousel-item {
+    width: 100%; 
+    height: auto; 
+  }
+
+  #produtos .produtos-grid sl-carousel-item img {
+    width: 100%; 
+    height: auto; 
+    object-fit: contain; 
+    border-radius: 20px; 
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .carousel-thumbnails {
+    --slide-aspect-ratio: 3 / 2;
+    --aspect-ratio: 0;
+  }
+}

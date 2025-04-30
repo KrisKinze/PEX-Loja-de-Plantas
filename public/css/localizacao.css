@@ -1,0 +1,72 @@
+/* secao de Localizacao */
+#local {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #dbedc2; 
+    width: 100%; 
+    max-width: 1200px; 
+  
+    margin: 0 auto; 
+    padding: 20px; 
+    border-radius: 20px; 
+    margin-top: 50px; 
+  }
+  
+  #local h3 {
+    font-size: 1.8rem; 
+    text-align: center; 
+    margin: 20px 0; 
+  }
+  
+  .paragrafosdelocal {
+    text-align: start; 
+    padding: 20px; 
+    overflow-wrap: break-word; 
+  }
+  
+  .paragrafosdelocal p {
+    font-size: 5.2rem; 
+    font-size: large; 
+    font-weight: bold; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 20px; 
+  }
+  
+  #atencao {
+    font-weight: bold; 
+    color: rgb(255, 43, 78);
+    text-decoration: underline;
+  }
+  
+  /* Estilo do mapa */
+  .google-maps {
+    width: 100%; 
+    margin: 20px auto; 
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .google-maps iframe {
+    width: 900px;
+    height: 300px;
+    border: 0; 
+  }
+
+/*=======RESPONSIVIDADE=======*/
+
+@media (max-width: 480x) {
+    .google-maps iframe {
+        width: 100%; 
+        height: 200px; 
+        }
+    }
+
+@media (max-width: 768px) {
+    .google-maps iframe {
+        width: 100%; 
+        height: 250px; 
+    }
+}
+

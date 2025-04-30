@@ -1,0 +1,89 @@
+/* Estilização do container de abas */
+
+#aba {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 50px; 
+
+  border-radius: 20px;
+  padding: 20px;
+
+  width: auto;
+  height: auto;
+}
+
+#abasConteudo h2 {
+  font-size: 2rem; 
+  margin-bottom: 20px; 
+  margin-top: 20px; 
+  text-align: center; 
+}
+
+#abasMenu {
+  position: sticky;
+  top: 0; /* Fixa o menu no topo do container */
+  z-index: 10; /* Garante que o menu fique acima do conteúdo */
+  background-color: #fff2d4;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  border-radius: 20px; 
+
+  margin-bottom: 20px; 
+  margin-left: auto; 
+  margin-right: auto; 
+  display: flex; 
+  justify-content: center; 
+  gap: 10px; 
+}
+
+#abasMenu .nav-link {
+  font-size: 1.5rem; 
+  border-radius: 8px; 
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+  gap: 10px; 
+  line-height: 1; 
+  background-color: #dbedc2;
+  color: #000; 
+  transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+#abasMenu .nav-link:hover {
+  background-color: #edffb3; 
+  cursor: pointer; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  transform: translateY(-2px); 
+  transform: scale(1.05); 
+  color: #000; 
+}
+
+#abasMenu .nav-link sl-icon {
+  font-size: 1.8rem; 
+}
+
+/* RESPONSIVIDADE PARA TELAS MENORES  768px*/
+
+@media (max-width: 768px) {
+  /* Ajustar tamanho dos botões das ABAS */
+  #abasMenu .nav-link {
+    font-size: 1rem;
+    padding: 8px 12px; 
+    width: auto; 
+  }
+}
+
+/* RESPONSIVIDADE PARA TELAS MENORES  480px*/
+
+@media (max-width: 480px) {
+  /* Ajustar tamanho dos botões das ABAS */
+  #abasMenu .nav-link {
+    font-size: 0.9rem; 
+    padding: 6px 10px; 
+    width: 100%; 
+    text-align: center;
+  }
+}

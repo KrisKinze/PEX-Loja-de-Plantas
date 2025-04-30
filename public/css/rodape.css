@@ -1,0 +1,125 @@
+/* Rodapé */
+footer {
+  background-color: #66615f;
+  color: #fff;
+  text-align: center;
+  margin-top: 40px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+footer .container {
+  margin: 0 auto;
+}
+
+/* Linha divisória */
+.footer-divisor {
+  border: none;
+  border-top: 1px solid #ccc;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*==========Container das redes sociais=========*/
+
+#redesRodape p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+#redesRodape {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+}
+
+#links-redesRodape {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: row;
+  margin: 20px 0;
+}
+
+/* Estilo personalizado para botões do Bootstrap */
+
+#links-redesRodape .btn {
+  background-color: #2e7d32;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  font-weight: lighter;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#links-redesRodape .btn:hover {
+  background-color: #1b5e20;
+  transform: scale(1.05);
+  color: #fff;
+}
+
+/*=====Container do direitos=====*/
+
+#direitosRodape {
+  font-size: 0.9rem;
+}
+
+#direitosRodape a {
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: bold; 
+  }
+  
+  #direitosRodape a:hover {
+    color: #edffb3; 
+    text-decoration: underline; 
+  }
+
+/* =========Responsividade para telas menores ========*/
+
+@media (max-width: 1198px) {
+  #links-redesRodape .btn {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+  }
+
+  #direitosRodape {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 991px) {
+    #links-redesRodape .btn {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+  #links-redesRodape {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  #links-redesRodape .btn {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+
+  #direitosRodape {
+    font-size: 0.75rem;
+    text-align: center;
+  }
+}

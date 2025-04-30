@@ -1,0 +1,92 @@
+/* Estilização das Logos no cabecalho */
+
+#logo-redonda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#logo-redonda img {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Estilização do Cabeçalho */
+header {
+  display: flex;
+  background-color: #bfe3c3;
+  color: #fff;
+  font-family: fantasy;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+
+header h1 {
+  font-size: 2em;
+  position: relative;
+  text-align: center;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Icones das Redes do Header */
+
+#iconesdasredes {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.icone-contato {
+  font-size: 2rem;
+}
+
+.icone-localizacao {
+  color: yellow;
+}
+
+.icone-whatsapp {
+  color: green;
+}
+
+.icone-instagram {
+  color: rgb(255, 43, 78);
+}
+
+.icone-email {
+  color: rgb(226, 0, 0);
+  font-size: 2.2rem;
+}
+
+/* Estilização do botão MODO NOTURNO */
+
+#toggle-modo-noturno {
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  color: #000;
+  transition: color 0.3s ease;
+  top: 2px;
+}
+
+#toggle-modo-noturno:hover {
+  color: #8500d2;
+}

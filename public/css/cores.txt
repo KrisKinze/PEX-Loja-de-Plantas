@@ -1,0 +1,27 @@
+/* PALETA DE CORES MODO CLARO
+
+#edffb3
+
+#99928e
+
+#bfe3c3
+
+#dbedc2
+
+#fff2d4
+
+*/
+
+/* PALETA DECORES MODO ESCURO
+
+#160d18 - Preto
+
+#23145b - Azul Escuro
+
+#09456c - Azul Médio
+
+#026f6e - Verde Escuro
+
+#1ca39e - Verde Claro
+
+*/

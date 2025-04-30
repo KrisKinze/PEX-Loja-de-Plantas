@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     toastMessage = 'E-mail enviado com sucesso! Verifique sua caixa de entrada.';
                     form.reset(); // Limpa o formulário
                     mensagemCarrinho.value = ''; // Limpa a área do carrinho também
-                    // Você pode querer limpar a variável totalCarrinho em adicionaraocarrinho.js também
                 } else {
                     const errorData = await response.text();
                     toastMessage = `Erro ao enviar e-mail: ${errorData}`;
