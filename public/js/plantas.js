@@ -37,7 +37,7 @@ function renderizarCatalogo(plantas) {
     plantas.forEach(planta => {
         const plantaCard = `
             <div class="planta-card">
-                <img src="/${planta.imagem}" alt="${planta.nome}" class="planta-img">
+                <img src="${planta.imagem}" alt="${planta.nome}" class="planta-img">
                 <div class="planta-info">
                     <h3 class="planta-nome">${planta.nome}</h3>
                     <p class="planta-valor">R$ ${planta.valor.toFixed(2)}</p>

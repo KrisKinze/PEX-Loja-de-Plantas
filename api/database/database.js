@@ -58,25 +58,25 @@ function inserirDadosExemplo() {
         {
             nome: 'Suculenta Echeveria',
             valor: 25.90,
-            imagem: 'public/images/Plantas/Carousel/PlantasCarousel1.svg', // Use suas imagens do carrossel
+            imagem: 'images/Plantas/Carousel/PlantasCarousel1.svg',
             disponibilidade: 1
         },
         {
             nome: 'Cacto San Pedro',
             valor: 45.50,
-            imagem: 'public/images/Plantas/Carousel/PlantasCarousel2.svg',
+            imagem: 'images/Plantas/Carousel/PlantasCarousel2.svg',
             disponibilidade: 1
         },
         {
             nome: 'Planta Jibóia',
             valor: 35.00,
-            imagem: 'public/images/Plantas/Carousel/PlantasCarousel3.svg',
+            imagem: 'images/Plantas/Carousel/PlantasCarousel3.svg',
             disponibilidade: 1
         },
         {
             nome: 'Rosa Vermelha',
             valor: 28.90,
-            imagem: 'public/images/Plantas/Carousel/PlantasCarousel4.svg',
+            imagem: 'images/Plantas/Carousel/PlantasCarousel4.svg',
             disponibilidade: 1
         }
     ];
