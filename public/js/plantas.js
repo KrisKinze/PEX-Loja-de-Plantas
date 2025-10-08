@@ -1,7 +1,12 @@
+// URL da API - usar Render em produção, localhost em desenvolvimento
+const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:3000'
+    : 'https://jardim-vital-backend-qxd7.onrender.com';
+
 // Função para buscar plantas da API
 async function buscarPlantas() {
     try {
-        const response = await fetch('http://localhost:3000/api/plantas');
+        const response = await fetch(`${API_URL}/api/plantas`);
         const plantas = await response.json();
         
         if (response.ok) {
