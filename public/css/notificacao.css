@@ -35,7 +35,6 @@
   overflow: visible; 
 }
 
-/** Animação de fade in e fade out para notificacao*/
 @keyframes fadeInOut {
   0% {
     opacity: 0;
@@ -53,6 +52,33 @@
     opacity: 0;
     transform: translateY(10px);
   } 
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+
+.toast-carrinho {
+  background-color: #2e7d32 !important;
+  animation: slideUp 0.5s ease-out !important;
 }
 
 /* --------------------------------------------- */

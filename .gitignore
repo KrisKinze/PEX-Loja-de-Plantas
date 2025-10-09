@@ -6,11 +6,20 @@ Thumbs.db
 .vscode/
 *.swp
 
-# Arquivos de Dependências (se você usar npm/yarn)
+# Arquivos de Dependências
 node_modules/
 
 # Arquivo de Variáveis de Ambiente
 .env
 
-# Outros arquivos
+# Banco de Dados SQLite
+*.db
+api/database/*.db
+
+# Arquivos de trabalho/temporários
+*.md.backup
+limpar_*.py
+LIMPEZA_*.md
+CONFIGURACAO_*.md
 domain.txt
+GUIA.md

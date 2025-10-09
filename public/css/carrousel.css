@@ -1,23 +1,24 @@
 /* Seção de Produtos carrossel */
 
-/* Ajuste do container de produtos/carrousel */
 #produtos {
-  padding: 20px;
+  padding: 10px; /* Zoom 70% */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #dbedc2;
 
-  margin-top: 50px;
-  margin-bottom: 50px; 
+  margin-top: 30px; /* Zoom 70% */
+  margin-bottom: 30px; /* Zoom 70% */
   border-radius: 20px;
 
-  width: 95%; 
+  width: 70%; /* Zoom 70% */
+  max-width: 100%;
   height: auto; 
 
   overflow: hidden; 
-  position: relative; 
+  position: relative;
+  box-sizing: border-box;
 }
 
 #produtos .produtos-grid {
@@ -25,35 +26,41 @@
   justify-content: center; 
   align-items: center; 
   width: 100%; 
+  max-width: 100%;
   height: auto; 
-  gap: 20px; 
+  gap: 20px;
+  box-sizing: border-box;
 }
 
 .carousel-thumbnails {
   --slide-aspect-ratio: 3 / 2;
 }
 
-/* Ajuste do carrossel */
 #produtos .produtos-grid sl-carousel {
   width: 100%; 
+  max-width: 100%;
   height: auto; 
   display: flex;
   align-items: center; 
   justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  will-change: transform;
+  contain: layout;
 }
 
-/* Ajuste dos itens do carrossel */
 .produtos-grid sl-carousel-item {
   height: auto; 
   width: 100%; 
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 20px; 
-  overflow: hidden; 
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-/* Ajuste das imagens dentro do carrossel */
 
 .carousel-thumbnails {
   --slide-aspect-ratio: 3 / 2;
@@ -63,10 +70,12 @@
 .produtos-grid sl-carousel-item img {
   border-radius: 20px; 
   width: 100%; 
+  max-width: 100%;
   height: auto; 
   max-height: 600px;
   object-fit: cover; 
-  display: block; 
+  display: block;
+  box-sizing: border-box;
   -webkit-mask-image: radial-gradient(
     circle,
     rgba(0, 0, 0, 1) 90%,
@@ -97,42 +106,178 @@
     */
 }
 
+sl-carousel,
+sl-carousel-item,
+sl-carousel-item::part(base) {
+  max-width: 100% !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+sl-carousel-item img,
+sl-carousel img {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important; /* Mudado de contain para cover */
+  box-sizing: border-box !important;
+}
+
+sl-carousel::part(base),
+sl-carousel::part(scroll-container) {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+
+#produtos sl-carousel-item img,
+#produtos sl-carousel img {
+  width: 100% !important;
+  height: 100% !important; /* Força altura total */
+  object-fit: cover !important; /* Preenche todo o espaço */
+  max-height: 600px;
+}
+
 
 /*=======RESPONSIVIDADE=======*/
+
+@media (max-width: 991px) {
+  #produtos {
+    width: 85% !important; /* Aumenta a largura em tablets */
+    padding: 15px !important;
+  }
+
+  #produtos .produtos-grid sl-carousel-item img {
+    max-height: 500px; /* Limita a altura em tablets */
+    min-height: 350px;
+  }
+}
 
 @media (max-width: 768px) {
 
   #produtos {
-    background-color: transparent;
-    width: 100%; 
+    background-color: #dbedc2; /* Restaurando o fundo colorido */
+    width: 95% !important; /* Aumentado de 100% para 95% para dar respiro nas bordas */
+    max-width: 100vw !important;
     height: auto; 
-    padding: 0%;
+    padding: 20px !important; /* Aumentado de 10px para 20px */
+    margin: 30px auto !important; /* Centralizado com margin auto */
+    border-radius: 20px; /* Restaurando border-radius */
+    box-sizing: border-box;
+    overflow-x: hidden !important;
+  }
+
+  #produtos sl-carousel::part(navigation-button) {
+    display: none !important;
+  }
+  
+  #produtos sl-carousel::part(navigation) {
+    display: none !important;
+  }
+
+  #produtos .produtos-grid sl-carousel {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 500px; /* Aumentado de 400px para 500px */
+    height: 500px !important; /* ADICIONADO: Altura fixa */
+    box-sizing: border-box;
+    padding: 0 !important; /* Remove padding lateral */
   }
 
   #produtos .produtos-grid {
     display: block;
-    width: 100%; 
+    width: 100% !important;
+    max-width: 100% !important;
     height: auto; 
-    max-height: 500px;
+    min-height: 500px; /* Aumentado de 400px para 500px */
     gap: 10px;
+    box-sizing: border-box;
+  }
+
+  #produtos .produtos-grid sl-carousel {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 500px; /* Aumentado de 400px para 500px */
+    height: 500px !important; /* ADICIONADO: Altura fixa */
+    box-sizing: border-box;
   }
 
   #produtos .produtos-grid sl-carousel-item {
-    width: 100%; 
-    height: auto; 
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 500px !important; /* ALTERADO: Altura fixa ao invés de auto */
+    min-height: 500px; /* Aumentado de 400px para 500px */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #produtos .produtos-grid sl-carousel-item img {
-    width: 100%; 
-    height: auto; 
-    object-fit: contain; 
-    border-radius: 20px; 
-
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important; /* ALTERADO: 100% ao invés de auto */
+    min-height: 450px !important; /* Aumentado de 350px para 450px */
+    max-height: 600px !important; /* Aumentado de 500px para 600px */
+    object-fit: cover !important; /* Mudado de contain para cover para melhor preenchimento */
+    border-radius: 20px !important; 
+    box-sizing: border-box !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
   }
 
   .carousel-thumbnails {
     --slide-aspect-ratio: 3 / 2;
     --aspect-ratio: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #produtos {
+    background-color: #dbedc2; /* Mantém o fundo colorido */
+    padding: 15px !important; /* Aumentado de 5px para 15px */
+    margin: 20px auto !important; /* Centralizado */
+    width: 95% !important;
+    border-radius: 20px;
+  }
+
+  #produtos sl-carousel::part(navigation-button) {
+    display: none !important;
+  }
+  
+  #produtos sl-carousel::part(navigation) {
+    display: none !important;
+  }
+
+  #produtos .produtos-grid sl-carousel {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  #produtos .produtos-grid {
+    min-height: 450px; /* Aumentado de 350px para 450px */
+  }
+
+  #produtos .produtos-grid sl-carousel {
+    min-height: 450px; /* Aumentado de 350px para 450px */
+    height: 450px !important; /* ADICIONADO: Altura fixa */
+  }
+
+  #produtos .produtos-grid sl-carousel-item {
+    min-height: 450px; /* Aumentado de 350px para 450px */
+    height: 450px !important; /* ALTERADO: Altura fixa ao invés de auto */
+  }
+
+  #produtos .produtos-grid sl-carousel-item img {
+    height: 100% !important; /* ALTERADO: 100% ao invés de auto */
+    width: 100% !important;
+    min-height: 400px !important; /* Aumentado de 300px para 400px */
+    max-height: 500px !important; /* Aumentado de 400px para 500px */
+    object-fit: cover !important;
+    border-radius: 15px !important;
+    box-sizing: border-box !important;
   }
 }

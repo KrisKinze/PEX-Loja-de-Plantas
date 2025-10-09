@@ -1,6 +1,5 @@
 /* ========================== MODO NOTURNO ========================== */
 
-/* Fundo da página */
 body.modo-noturno::before {
   content: "";
   position: fixed;
@@ -16,7 +15,6 @@ body.modo-noturno::before {
   transition: background-image 0.3s ease; /* Adiciona transição suave */
 }
 
-/* Cabeçalho */
 body.modo-noturno header {
   background-color: #160d18; 
   color: #fff;
@@ -28,7 +26,6 @@ body.modo-noturno header nav ul li a {
   text-decoration: none;
 }
 
-/* Botão de Modo Noturno */
 body.modo-noturno #toggle-modo-noturno {
   text-decoration: none;
   cursor: pointer;
@@ -52,7 +49,6 @@ body.modo-noturno .thumbnails__image.active {
   border-color: #026f6e; 
 }
 
-/* Menu de Abas */
 body.modo-noturno #abasMenu {
   background-color: #160d18; 
   border: none;
@@ -88,7 +84,6 @@ body.modo-noturno #contato {
   color: white;
 }
 
-/* Redes Sociais no Contato */
 body.modo-noturno #redes-contatos {
   background-color: #160d18; 
   color: white;
@@ -105,7 +100,6 @@ body.modo-noturno .redes-contatos-item span:hover {
   transform: scale(1.1); 
 }
 
-/* Campo de Mensagem dos itens do carrinho*/
 body.modo-noturno #mensagem-carrinho {
   background-color: #434343; 
   color: white;
@@ -117,14 +111,12 @@ body.modo-noturno #local {
   color: white;
 }
 
-/* Texto de Atenção */
 body.modo-noturno #atencao {
   font-weight: bold; 
   color: rgb(255, 43, 78);
   text-decoration: underline;
 }
 
-/* Menu do Catálogo */
 
 body.modo-noturno #menu-catalogo .menu-item {
   background-color: #23145b; 
@@ -140,7 +132,6 @@ body.modo-noturno #menu-catalogo .menu-item:hover {
 
 /* Seção do Catálogo */
 
-/*imagens do catálogo*/
 body.modo-noturno .tituloDoCatalogo {
   content: url("../images/Icons/Modo Escuro - Inicio Catalogo.svg");
 }
@@ -153,7 +144,47 @@ body.modo-noturno #catalogo {
   background-color: #160d18; /* Cor de fundo da seção */
 }
 
-/* Cartões de Plantas */
+body.modo-noturno #filtros-tamanho {
+  background-color: transparent; /* Removido fundo */
+}
+
+body.modo-noturno .filtro-btn {
+  background-color: rgba(2, 111, 110, 0.3); /* Transparente quando desativado */
+  color: rgba(28, 163, 158, 0.6); /* Cor mais opaca quando desativado */
+  border-color: rgba(9, 69, 108, 0.5);
+  opacity: 0.6; /* Mais transparente quando desativado */
+}
+
+body.modo-noturno .filtro-btn::before {
+  color: rgba(211, 47, 47, 0.6); /* Mais opaco quando desativado */
+}
+
+body.modo-noturno .filtro-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.modo-noturno .filtro-btn.ativo {
+  background-color: #1ca39e; /* Cor sólida quando ativo */
+  color: #160d18; /* Texto escuro para contraste */
+  border-color: #1ca39e;
+  box-shadow: 0 4px 8px rgba(28, 163, 158, 0.4);
+  opacity: 1; /* Totalmente visível quando ativo */
+}
+
+body.modo-noturno .filtro-btn.ativo::before {
+  color: #160d18;
+  opacity: 1; /* Totalmente visível quando ativo */
+}
+
+
+body.modo-noturno .planta-tamanho {
+  background-color: #c62828; /* Vermelho escuro mais claro no modo noturno */
+  color: white; /* Texto branco para contraste */
+  border: none;
+  box-shadow: 0 2px 6px rgba(198, 40, 40, 0.6);
+}
+
 body.modo-noturno .planta-card {
   background-color: #271a45;
 }
@@ -178,21 +209,18 @@ body.modo-noturno .planta-card :hover {
   transition: transform 0.3s ease; 
 }
 
-/* Rodapé */
 body.modo-noturno footer {
   background-color: #160d18;
   color: #ffffff;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Notificações */
 body.modo-noturno #toast-container .toast {
   background-color: #1ca39e; 
   color: white; 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Responsividade para Dispositivos Móveis */
 @media (max-width: 768px) {
   body.modo-noturno::before {
     background-image: url("../images/Background/MODO ESCURO MENOR.svg"); /* Imagem otimizada para telas menores */

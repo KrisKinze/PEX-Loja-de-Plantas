@@ -1,0 +1,42 @@
+
+sl-carousel {
+  max-width: 100% !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+sl-carousel-item {
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+sl-carousel::part(base) {
+  max-width: 100% !important;
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+sl-carousel::part(scroll-container) {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+
+sl-carousel::part(slides) {
+  max-width: 100% !important;
+}
+
+sl-carousel-item img,
+sl-carousel img {
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+sl-carousel *,
+sl-carousel-item * {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}

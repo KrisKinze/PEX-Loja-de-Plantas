@@ -2,8 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: clamp(500px, 60vh, 900px);
-  width: auto;
+  height: clamp(450px, 55vh, 800px); /* Aumentado: 350→450px, 42vh→55vh, 630→800px */
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  margin: 40px 0px;
 }
 
 .logo-central {
@@ -12,10 +15,13 @@
   justify-content: center;
   height: 100%;
   width: auto;
+  max-width: 100%;
 }
 
 .logo-central img {
-  height: 130%;
+  height: 150%; /* Aumentado de 130% para 150% */
   width: auto;
+  max-width: 100%;
   display: block;
+  object-fit: contain;
 }

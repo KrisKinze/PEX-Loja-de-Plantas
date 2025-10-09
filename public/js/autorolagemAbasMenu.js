@@ -1,21 +1,31 @@
+/* ============================================================ */
+/* AUTO-ROLAGEM DO MENU DE ABAS */
+/* ============================================================ */
+
 document.addEventListener('DOMContentLoaded', () => {
   const abasLinks = document.querySelectorAll('#abasMenu .nav-link');
-  const abasConteudo = document.getElementById('abasConteudo');
+  const abasMenu = document.getElementById('abasMenu');
 
   abasLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-      // Permite o comportamento padrão para ativar a aba
+      e.preventDefault();
+      
+      const currentScrollY = window.scrollY;
       const targetId = link.getAttribute('data-bs-target');
       const targetElement = document.querySelector(targetId);
-
-      // Rola suavemente até o topo do contêiner interno
+      
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.querySelectorAll('.tab-pane').forEach(pane => {
+          pane.classList.remove('active', 'show');
+        });
+        
+        abasLinks.forEach(l => l.classList.remove('active'));
+        
+        targetElement.classList.add('active', 'show');
+        link.classList.add('active');
+        
+        window.scrollTo({ top: currentScrollY, behavior: 'instant' });
       }
-
-      // Ajusta a rolagem para compensar o menu fixo
-      const offset = abasConteudo.offsetTop - abasLinks[0].offsetHeight;
-      window.scrollTo({ top: offset, behavior: 'smooth' });
     });
   });
 });

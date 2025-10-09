@@ -1,17 +1,16 @@
-/* secao de Localizacao */
 #local {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #dbedc2; 
-    width: 100%; 
-    max-width: 1200px; 
+    width: 85%; /* Aumentado para 85% da largura da página */
+    max-width: 1200px; /* Largura máxima maior */
   
     margin: 0 auto; 
-    padding: 20px; 
+    padding: 20px; /* Aumentado o padding */
     border-radius: 20px; 
-    margin-top: 50px; 
+    margin-top: 30px; /* Zoom 70% */
   }
   
   #local h3 {
@@ -40,33 +39,86 @@
     text-decoration: underline;
   }
   
-  /* Estilo do mapa */
+  .mapa-local {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
   .google-maps {
-    width: 100%; 
-    margin: 20px auto; 
+    width: 100% !important; /* 100% da largura do container pai */
+    max-width: 100% !important; /* Garante que não ultrapasse o container */
+    margin: 20px 0; /* Margens verticais apenas */
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Impede que o iframe vaze */
+    padding: 0;
   }
   
   .google-maps iframe {
-    width: 900px;
-    height: 300px;
-    border: 0; 
+    width: 100% !important; /* 100% do container pai (.google-maps) */
+    max-width: 100% !important;
+    height: 400px !important; /* Aumentado de 300px para 400px */
+    border: 0;
+    border-radius: 20px;
+    display: block; /* Remove espaços brancos indesejados */
   }
 
 /*=======RESPONSIVIDADE=======*/
 
-@media (max-width: 480x) {
-    .google-maps iframe {
-        width: 100%; 
-        height: 200px; 
-        }
+@media (max-width: 771px) {
+    #local {
+        width: 95%; /* Mais largo em telas menores */
+        padding: 15px;
     }
+    
+    .google-maps iframe {
+        width: 100% !important;
+        height: 300px !important; 
+    }
+}
 
 @media (max-width: 768px) {
+    #local {
+        width: 95%;
+        padding: 15px;
+    }
+    
     .google-maps iframe {
-        width: 100%; 
-        height: 250px; 
+        width: 100% !important; 
+        height: 250px !important; 
+    }
+}
+
+@media (max-width: 480px) {
+    #local {
+        width: 100% !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 10px 5px !important;
+        box-sizing: border-box;
+    }
+    
+    .google-maps {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 20px 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box;
+    }
+    
+    .google-maps iframe {
+        width: 100% !important; 
+        max-width: 100% !important;
+        height: 200px !important;
+        box-sizing: border-box;
+    }
+    
+    .paragrafosdelocal {
+        width: 100%;
+        padding: 10px 5px;
+        box-sizing: border-box;
     }
 }
 

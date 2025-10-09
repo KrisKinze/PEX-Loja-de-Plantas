@@ -1,14 +1,30 @@
-/* Tema Global da Fonte */
 * {
   font-family: monospace;
   font-size: large;
+  box-sizing: border-box !important;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden !important; /* Previne scroll horizontal globalmente */
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
 }
 
-/* Configurando o fundo da página */
+body {
+  padding-top: 10vh; /* Mesmo valor da altura do header */
+  overflow-x: hidden !important; /* Previne scroll horizontal */
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box;
+  position: relative;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -24,54 +40,156 @@ body::before {
   transition: background-image 0.3s ease; /* Adiciona transição suave */
 }
 
-/* Espacamento entre os containers */
 section {
   margin-bottom: 30px; /* Espaçamento uniforme entre as seções */
 }
 
-/* Container centralizado */
 .container {
-  width: 90%; 
-  max-width: 1200px; 
+  width: 70%; /* Reduzido para 70% (zoom 70%) */
+  max-width: 840px; /* 1200px * 0.7 = 840px */
   margin: 0 auto; 
-  padding: 20px; 
+  padding: 10px; /* 15px reduzido proporcionalmente */
+  box-sizing: border-box;
 }
 
-/*Alinhamento Vertical e Horizontal dos elementos*/
 #produtos,
 #abas {
   display: flex;
   flex-direction: column;
   align-items: center; 
-  justify-content: center; 
+  justify-content: center;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /*==================================*/
 /*======== RESPONSIVIDADE========== */
 /*==================================*/
 
-/* Ajustes para telas muito pequenas Resolucao 480px*/
-@media (max-width: 480px) {
+@media (max-width: 771px) {
   .container {
-    width: 100%;
-    max-width: 400px;
-    padding: 5px;
-    text-align: center;
-    margin: 0 auto;
+    width: 90%;
+    max-width: 100%;
+    padding: 8px;
+    margin: 0 auto !important;
   }
 
   #produtos,
   #abas,
   #catalogo {
+    width: 95%;
+    margin: 0 auto !important;
     padding: 10px;
   }
 
   section {
-    margin: 0 auto;
-    text-align: center;
+    margin: 10px auto !important;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 650px) {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    overflow-x: hidden !important; /* Previne scroll horizontal */
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  body {
+    padding-top: 10vh !important; /* Mantém espaço do header */
+  }
+  
+  .container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 8px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box;
   }
 
-  /* Reduz ainda mais o tamanho da fonte */
+  #produtos,
+  #abas,
+  #catalogo,
+  #local,
+  #contato {
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 10px 5px !important;
+    box-sizing: border-box;
+  }
+
+  section {
+    margin: 10px 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .tituloDoCatalogo,
+  .finaldocatalogo {
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  img {
+    max-width: 100% !important;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 10vh; /* Mantém o mesmo padding do header */
+  }
+  
+  .container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 5px !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+
+  #produtos,
+  #abas,
+  #catalogo {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 10px 5px !important;
+    margin: 5px 0 !important;
+    box-sizing: border-box;
+  }
+
+  section {
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+  }
+
   h1,
   h2,
   h3 {
@@ -82,35 +200,25 @@ section {
     font-size: 0.8rem;
   }
 
-  /* Ajusta os elementos internos */
-  #produtos,
-  #abas,
-  #catalogo {
-    padding: 5px;
-    margin: 5px auto;
-  }
-
-  /* Ajusta o tamanho das imagens */
   img {
-    max-width: 100%;
+    max-width: 100% !important;
     height: auto;
+    box-sizing: border-box;
   }
 }
 
-/* Ajustes para telas muito pequenas Resolucao 768px*/
 
 @media (max-width: 768px) {
-  /* Ajuste do background para dispositivos móveis */
   body::before {
     background-image: url("../images/Background/Background da Pagina - 1280 x 720.svg");
   }
 
   .container {
-    width: auto;
-    max-width: 600px;
-    padding: 10px;
-    text-align: center;
-    margin: 0 auto;
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 10px 5px !important;
+    margin: 0 !important;
+    box-sizing: border-box;
   }
 
   #produtos,
@@ -120,17 +228,21 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: auto;
-    max-width: 100%;
-    margin: 0 auto;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 10px 0 !important;
+    padding: 10px 5px !important;
+    box-sizing: border-box;
   }
 
   section {
-    margin: 0 auto;
-    text-align: center;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
   }
 
-  /* Reduz o tamanho da fonte */
   h1,
   h2,
   h3 {
@@ -142,19 +254,10 @@ section {
     line-height: 1.4;
   }
 
-  /* Ajusta os elementos internos */
-  #produtos,
-  #abas,
-  #catalogo {
-    padding: 10px;
-    margin: 10px auto;
-  }
-
-  /* Ajusta o tamanho das imagens 768px */
-
   img {
-    max-width: 100%;
+    max-width: 100% !important;
     height: auto;
+    box-sizing: border-box;
   }
 }
 
@@ -165,4 +268,11 @@ section {
         max-width: 800px;
         padding: 10px;
     }
+}
+
+/* --- Ajustes para telas muito pequenas 368px */
+@media (max-width: 368px) {
+  body {
+    padding-top: 9vh; /* Ajusta para o header menor */
+  }
 }

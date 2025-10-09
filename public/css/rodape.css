@@ -1,9 +1,15 @@
-/* Rodapé */
 footer {
   background-color: #66615f;
   color: #fff;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px; /* Zoom 70% */
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
@@ -14,7 +20,6 @@ footer .container {
   margin: 0 auto;
 }
 
-/* Linha divisória */
 .footer-divisor {
   border: none;
   border-top: 1px solid #ccc;
@@ -48,7 +53,6 @@ footer .container {
   margin: 20px 0;
 }
 
-/* Estilo personalizado para botões do Bootstrap */
 
 #links-redesRodape .btn {
   background-color: #2e7d32;
@@ -109,6 +113,44 @@ footer .container {
   #links-redesRodape {
     flex-direction: column;
     gap: 15px;
+  }
+}
+
+@media (max-width: 650px) {
+  footer {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 15px 5px !important;
+    box-sizing: border-box;
+    overflow-x: hidden !important;
+  }
+  
+  footer .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 5px !important;
+    box-sizing: border-box;
+  }
+  
+  #links-redesRodape {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  #links-redesRodape .btn {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  #direitosRodape {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    word-wrap: break-word;
   }
 }
 

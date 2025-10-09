@@ -3,17 +3,16 @@
   display: flex;
   flex-direction: column;
 
-  padding: 30px;
-  margin-top: 50px; 
+  padding: 18px; /* Zoom 70% (~25px * 0.7) */
+  margin-top: 30px; /* Zoom 70% */
   border-radius: 20px; 
 
   background-color: #dbedc2; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 
-  width: 100%; 
+  width: 70%; /* Zoom 70% */
 }
 
-/* Formulario de contato */
 
 #form-contato {
   display: flex;
@@ -32,7 +31,6 @@
   border-radius: 4px;
 }
 
-/* Redes sociais dentro do contato - Posicionamento e centralizacao */
 
 #redes-contatos {
   display: grid;
@@ -72,13 +70,11 @@
   gap: 20px;
 }
 
-/* Centralizando o segundo item dentro do container de redes sociais */
 #redes-contatos-item-instagram {
   margin-left: auto; 
   margin-right: auto; 
 }
 
-/* ajustando altura do texto para o tamanho do icone dentro das redes*/
 .redes-contatos-item span {
   display: block;
 
@@ -99,7 +95,6 @@
   white-space: normal; /* Permite quebras de linha */
 }
 
-/* Estilizando os ícones das redes sociais */
 
 .redes-contatos-item span {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
@@ -113,7 +108,6 @@
   transform: scale(1.1);
 }
 
-/* alinhando o texto e o icone  dentro das redes em Contatos*/
 .redes-contatos-item a {
   color: inherit; /* Herda a cor do elemento pai */
   text-decoration: none; 
@@ -128,7 +122,6 @@
   gap: 15px; 
 }
 
-/* Concertando as sobrescricoes dos icones e textos das redes sociais dentro dos contatos */
 
 .redes-contatos-item a {
   width: 100%; /* Garante que o link ocupe toda a largura do contêiner pai */
@@ -144,7 +137,6 @@
   align-items: center;
 }
 
-/* Personalizando o espaco da mensagem dentro do formulario de contato */
 
 #mensagem-carrinho {
   width: 100%; 
@@ -157,7 +149,30 @@
   resize: none; 
 }
 
-/* Botão de Enviar */
+.btn-resetar-carrinho {
+  padding: 8px 16px;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.btn-resetar-carrinho:hover {
+  background-color: #b71c1c;
+  transform: scale(1.05);
+}
+
+.btn-resetar-carrinho:active {
+  transform: scale(0.98);
+}
+
 #botao-enviar {
   width: 100%;
   padding: 10px;
@@ -184,6 +199,62 @@
       gap: 20px; 
     }
   }
+
+@media (max-width: 495px) {
+  #redes-contatos {
+    grid-template-columns: 1fr !important; /* Uma única coluna */
+    gap: 25px;
+    padding: 20px 10px;
+  }
+  
+  .redes-contatos-item {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .redes-contatos-item a {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 650px) {
+  #contato {
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 15px 5px !important;
+    box-sizing: border-box;
+  }
+  
+  #redes-contatos {
+    width: 100%;
+    max-width: 100%;
+    padding: 30px 5px;
+    margin: 20px 0;
+    box-sizing: border-box;
+  }
+  
+  .redes-contatos-item {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 5px;
+    box-sizing: border-box;
+  }
+  
+  #form-contato {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  #form-contato input,
+  #form-contato textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
 
 @media (max-width: 991px) {
   #redes-contatos {

@@ -1,45 +1,52 @@
-// URL da API - usar Render em produção, localhost em desenvolvimento
+/* ============================================================ */
+/* API E CONFIGURAÇÃO */
+/* ============================================================ */
+
 const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:3000'
     : 'https://jardim-vital-backend-qxd7.onrender.com';
 
-// Função para buscar plantas da API
+let todasPlantas = [];
+
 async function buscarPlantas() {
     try {
         const response = await fetch(`${API_URL}/api/plantas`);
         const plantas = await response.json();
         
         if (response.ok) {
-            console.log('✅ Plantas carregadas:', plantas);
             return plantas;
         } else {
             throw new Error('Erro ao buscar plantas');
         }
     } catch (error) {
-        console.error('❌ Erro ao buscar plantas:', error);
+        console.error('Erro ao buscar plantas:', error);
         return [];
     }
 }
 
-// Função para renderizar plantas no catálogo
+/* ============================================================ */
+/* RENDERIZAÇÃO DO CATÁLOGO */
+/* ============================================================ */
+
 function renderizarCatalogo(plantas) {
     const catalogoContainer = document.getElementById('catalogosDePlantas');
     
-    if (!catalogoContainer) {
-        console.error('Container do catálogo não encontrado!');
+    if (!catalogoContainer) return;
+    
+    catalogoContainer.innerHTML = '';
+    
+    if (plantas.length === 0) {
+        catalogoContainer.innerHTML = '<p style="text-align: center; padding: 40px; font-size: 1.2rem; color: #666;">Nenhuma planta encontrada com os filtros selecionados.</p>';
         return;
     }
     
-    // Limpar conteúdo atual
-    catalogoContainer.innerHTML = '';
-    
-    // Criar HTML para cada planta
     plantas.forEach(planta => {
         const plantaCard = `
             <div class="planta-card">
                 <img src="${planta.imagem}" alt="${planta.nome}" class="planta-img">
                 <div class="planta-info">
                     <h3 class="planta-nome">${planta.nome}</h3>
+                    <span class="planta-tamanho">${planta.tamanho}</span>
                     <p class="planta-valor">R$ ${planta.valor.toFixed(2)}</p>
                     <div class="planta-actions">
                         <button class="btn-comprar" onclick="adicionarAoCarrinho(${planta.id})">
@@ -49,30 +56,65 @@ function renderizarCatalogo(plantas) {
                 </div>
             </div>
         `;
-        
         catalogoContainer.innerHTML += plantaCard;
     });
 }
 
-// Função para adicionar ao carrinho (placeholder por enquanto)
+/* ============================================================ */
+/* CARRINHO DE COMPRAS */
+/* ============================================================ */
+
 function adicionarAoCarrinho(plantaId) {
-    console.log(`Planta ${plantaId} adicionada ao carrinho!`);
-    // Aqui você pode implementar a lógica do carrinho depois
-    alert(`Planta adicionada ao carrinho! (ID: ${plantaId})`);
+    const planta = todasPlantas.find(p => p.id === plantaId);
+    if (!planta) return;
+    
+    const mensagemCarrinho = document.getElementById('mensagem-carrinho');
+    if (mensagemCarrinho) {
+        const itemCarrinho = `\n- ${planta.nome} (${planta.tamanho}) - R$ ${planta.valor.toFixed(2)}`;
+        mensagemCarrinho.value += itemCarrinho;
+    }
+    
+    mostrarNotificacaoCarrinho(planta.nome);
 }
 
-// Função principal que executa quando a página carrega
-async function inicializarCatalogo() {
-    console.log('🌱 Carregando catálogo de plantas...');
+function mostrarNotificacaoCarrinho(nomePlanta) {
+    const toastContainer = document.getElementById('toast-container');
+    if (!toastContainer) return;
     
+    const toast = document.createElement('div');
+    toast.className = 'toast toast-carrinho';
+    toast.innerHTML = `
+        <strong>✓ Planta adicionada!</strong><br>
+        <span>${nomePlanta}</span><br>
+        <small>Por favor, verifique a aba de Contatos</small>
+    `;
+    
+    toastContainer.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.style.animation = 'slideDown 0.5s ease-out forwards';
+        setTimeout(() => toast.remove(), 500);
+    }, 4000);
+}
+
+/* ============================================================ */
+/* INICIALIZAÇÃO */
+/* ============================================================ */
+
+async function inicializarCatalogo() {
     const plantas = await buscarPlantas();
     
     if (plantas.length > 0) {
-        renderizarCatalogo(plantas);
-        console.log('✅ Catálogo renderizado com sucesso!');
+        const plantasOrdenadas = plantas.sort((a, b) => a.valor - b.valor);
+        todasPlantas = plantasOrdenadas;
+        renderizarCatalogo(plantasOrdenadas);
+        
+        if (typeof salvarPlantasParaFiltro === 'function') {
+            salvarPlantasParaFiltro(plantasOrdenadas);
+        }
+        
+        inicializarCarrossel();
     } else {
-        console.log('⚠️ Nenhuma planta encontrada');
-        // Mostrar mensagem de erro na tela
         const catalogoContainer = document.getElementById('catalogosDePlantas');
         if (catalogoContainer) {
             catalogoContainer.innerHTML = '<p>Erro ao carregar plantas. Tente novamente.</p>';
@@ -80,5 +122,60 @@ async function inicializarCatalogo() {
     }
 }
 
-// Executar quando a página carregar
 document.addEventListener('DOMContentLoaded', inicializarCatalogo);
+
+/* ============================================================ */
+/* CARROSSEL */
+/* ============================================================ */
+
+function inicializarCarrossel() {
+    const catalogoContainer = document.getElementById('catalogosDePlantas');
+    const btnPrev = document.getElementById('btnPrev');
+    const btnNext = document.getElementById('btnNext');
+    
+    if (!catalogoContainer || !btnPrev || !btnNext) return;
+    
+    function getScrollAmount() {
+        const screenWidth = window.innerWidth;
+        if (screenWidth <= 480) return catalogoContainer.offsetWidth;
+        if (screenWidth <= 771) return catalogoContainer.offsetWidth / 2;
+        return 300;
+    }
+    
+    btnPrev.addEventListener('click', () => {
+        catalogoContainer.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+    });
+    
+    btnNext.addEventListener('click', () => {
+        catalogoContainer.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+    });
+    
+    let isDown = false, startX, scrollLeft;
+    
+    catalogoContainer.addEventListener('mousedown', (e) => {
+        isDown = true;
+        catalogoContainer.style.cursor = 'grabbing';
+        startX = e.pageX - catalogoContainer.offsetLeft;
+        scrollLeft = catalogoContainer.scrollLeft;
+    });
+    
+    catalogoContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+        catalogoContainer.style.cursor = 'grab';
+    });
+    
+    catalogoContainer.addEventListener('mouseup', () => {
+        isDown = false;
+        catalogoContainer.style.cursor = 'grab';
+    });
+    
+    catalogoContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - catalogoContainer.offsetLeft;
+        const walk = (x - startX) * 2;
+        catalogoContainer.scrollLeft = scrollLeft - walk;
+    });
+    
+    catalogoContainer.style.cursor = 'grab';
+}
