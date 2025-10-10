@@ -1,7 +1,16 @@
 * {
   font-family: monospace;
-  font-size: large;
-  box-sizing: border-box !important;
+  font-sizesection {
+  margin-bottom: 15px; /* Metade: 30px → 15px */
+}
+
+.container {
+  width: 70%; /* Voltando à largura original */
+  max-width: 840px; /* Largura máxima original */
+  margin: 0 auto;
+  padding: 5px; /* Metade: 10px → 5px */
+  box-sizing: border-box;
+} box-sizing: border-box !important;
 }
 
 html {
@@ -11,6 +20,7 @@ html {
   margin: 0 !important;
   padding: 0 !important;
   box-sizing: border-box;
+  /* Removido font-size - mantém tamanho original das letras */
 }
 
 body {
@@ -41,14 +51,14 @@ body::before {
 }
 
 section {
-  margin-bottom: 30px; /* Espaçamento uniforme entre as seções */
+  margin-bottom: 50px; /* Aumentado de 30px para 50px - mais espaço entre seções */
 }
 
 .container {
-  width: 70%; /* Reduzido para 70% (zoom 70%) */
-  max-width: 840px; /* 1200px * 0.7 = 840px */
+  width: 85%; /* Aumentado de 70% para 85% - containers mais largos mas com mais respiro */
+  max-width: 1100px; /* Aumentado de 840px */
   margin: 0 auto; 
-  padding: 10px; /* 15px reduzido proporcionalmente */
+  padding: 20px; /* Aumentado de 10px - mais espaço interno */
   box-sizing: border-box;
 }
 

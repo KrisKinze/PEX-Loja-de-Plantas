@@ -4,24 +4,62 @@
     align-items: center;
     justify-content: center;
     background-color: #dbedc2; 
-    width: 85%; /* Aumentado para 85% da largura da página */
-    max-width: 1200px; /* Largura máxima maior */
+    width: 70%;
+    max-width: 1200px;
   
     margin: 0 auto; 
-    padding: 20px; /* Aumentado o padding */
-    border-radius: 20px; 
-    margin-top: 30px; /* Zoom 70% */
+    padding: 8px;
+    border-radius: 20px; /* TODAS as pontas arredondadas */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Título centralizado */
+  .tituloDoLocal h2,
+  .tituloDoLocal h3 {
+    text-align: center;
+    margin: 8px 0;
+  }
+  
+  /* Ajuste font-size para evitar quebra de texto */
+  .tituloDoLocal h2 {
+    font-size: 2em;
+    line-height: normal;
+  }
+  
+  .tituloDoLocal h3 {
+    font-size: 1.8rem;
+  }
+  
+  @media (max-width: 450px) {
+    .tituloDoLocal h2 {
+      font-size: 1.6em; /* Reduz para não quebrar */
+    }
+    
+    .tituloDoLocal h3 {
+      font-size: 1.4rem;
+    }
+  }
+  
+  @media (max-width: 354px) {
+    .tituloDoLocal h2 {
+      font-size: 1.4em;
+    }
+    
+    .tituloDoLocal h3 {
+      font-size: 1.2rem;
+    }
   }
   
   #local h3 {
     font-size: 1.8rem; 
     text-align: center; 
-    margin: 20px 0; 
+    margin: 8px 0;
   }
   
   .paragrafosdelocal {
     text-align: start; 
-    padding: 20px; 
+    padding: 8px; /* Metade: 15px → 8px */
     overflow-wrap: break-word; 
   }
   
@@ -30,7 +68,7 @@
     font-size: large; 
     font-weight: bold; 
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); 
-    margin-bottom: 20px; 
+    margin-bottom: 8px; /* Metade: 15px → 8px */
   }
   
   #atencao {

@@ -3,21 +3,56 @@
   display: flex;
   flex-direction: column;
 
-  padding: 18px; /* Zoom 70% (~25px * 0.7) */
-  margin-top: 30px; /* Zoom 70% */
-  border-radius: 20px; 
+  padding: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px; /* TODAS as pontas arredondadas */
 
   background-color: #dbedc2; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 
-  width: 70%; /* Zoom 70% */
+  width: 70%;
+}
+
+/* Ajuste de font-size para evitar quebra de texto */
+#contato h2 {
+  font-size: 2em;
+  line-height: normal;
+  text-align: center;
+}
+
+/* Telas pequenas: reduz font-size para não quebrar */
+@media (max-width: 450px) {
+  #contato h2 {
+    font-size: 1.5em; /* Reduz tamanho */
+  }
+}
+
+@media (max-width: 354px) {
+  #contato h2 {
+    font-size: 1.3em; /* Ainda menor para telas muito pequenas */
+  }
+}tato */
+#contato {
+  display: flex;
+  flex-direction: column;
+
+  padding: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 0 0 20px 20px; /* Topo reto, base arredondada */
+
+  background-color: #dbedc2; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+
+  width: 70%;
 }
 
 
 #form-contato {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 8px; /* Metade: 15px → 8px */
 }
 
 #form-contato label {
@@ -34,20 +69,20 @@
 
 #redes-contatos {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* Três colunas de tamanhos iguais */
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center; 
   justify-items: center; 
-  gap: 20px;
-  padding: 10px; 
+  gap: 10px; /* Metade: 20px → 10px */
+  padding: 8px; /* Metade: 15px → 8px */
   width: 100%; 
-  max-width: 1200px; 
+  max-width: 1200px; /* Voltando ao tamanho original */
   margin: 0 auto; 
 
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 15px; /* Metade: 30px → 15px */
+  padding-bottom: 15px; /* Metade: 30px → 15px */
 
   background-color: #fff2d4;
-  margin: 30px 0;
+  margin: 10px 0; /* Metade: 20px → 10px */
   border-radius: 20px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   overflow: hidden; 
@@ -198,6 +233,10 @@
       grid-template-columns: 1fr; /* Exibe 1 coluna */
       gap: 20px; 
     }
+    
+    #contato {
+      width: 90%; /* Mantém largura consistente */
+    }
   }
 
 @media (max-width: 495px) {
@@ -256,19 +295,4 @@
   }
 }
 
-@media (max-width: 991px) {
-  #redes-contatos {
-    grid-template-columns: 1fr 1fr; /* Duas colunas de tamanhos iguais */
-    gap: 10px; 
-    font-size: 1.5rem; 
-  }
-
-  .redes-contatos-item a {
-    font-size: 1.5rem; 
-    padding: 10px;
-    gap: 5px; 
-    margin-bottom: 15px;
-  }
-}
-
-
+/* REMOVIDO media query @media (max-width: 991px) que causava problema de largura */

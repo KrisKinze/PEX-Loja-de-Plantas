@@ -54,12 +54,13 @@
 /* Configuração de rolagem na seção */
 
 #catalogo {
-  padding: 10px; /* Zoom 70% */
-  margin-top: 30px; /* Zoom 70% */
+  padding: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   background-color: #dbedc2; 
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 85%; /* Aumentado de 70% para 85% */
+  width: 85%;
   margin-left: auto; 
   margin-right: auto; 
 }
@@ -67,41 +68,42 @@
 /* ==== FILTROS DE TAMANHO ==== */
 #filtros-tamanho {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Alinhado à esquerda */
   align-items: center;
-  gap: 15px;
-  margin-bottom: 25px;
-  padding: 15px;
-  background-color: transparent; /* Removido fundo */
+  gap: 6px; /* Espaço bem pequeno entre botões */
+  margin-bottom: 8px; /* BEM próximo do carrossel */
+  margin-left: 15px; /* Pequeno espaçamento da borda */
+  padding: 0;
+  background-color: transparent;
   border-radius: 15px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Mantém todos em uma linha */
 }
 
 .filtro-btn {
-  padding: 12px 25px 12px 45px; /* Extra padding à esquerda para o ícone */
-  font-size: 1.1rem;
-  font-weight: bold;
-  border: 2px solid #bfe3c3;
-  border-radius: 25px; /* Mais arredondado */
-  background-color: rgba(219, 237, 194, 0.4); /* Transparente/Desativado */
-  color: rgba(46, 125, 50, 0.6); /* Cor mais opaca quando desativado */
+  padding: 4px 10px 4px 26px; /* MUITO menor verticalmente */
+  font-size: 0.85rem; /* Fonte bem menor */
+  font-weight: 600;
+  border: 2px solid rgba(139, 195, 74, 0.4); /* Verde claro transparente */
+  border-radius: 18px;
+  background-color: rgba(139, 195, 74, 0.25); /* Verde claro BEM transparente */
+  color: rgba(27, 94, 32, 0.8); /* Texto verde escuro semi-transparente */
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   user-select: none;
-  position: relative; /* Para posicionar o ícone */
-  opacity: 0.6; /* Mais transparente quando desativado */
+  position: relative;
+  opacity: 0.7; /* Transparente quando desativado */
 }
 
 .filtro-btn::before {
   content: '✕';
   position: absolute;
-  left: 15px;
+  left: 8px; /* Ajustado para botão menor */
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.2rem;
+  font-size: 0.9rem; /* Ícone menor */
   font-weight: bold;
-  color: rgba(211, 47, 47, 0.6); /* Mais opaco quando desativado */
+  color: rgba(211, 47, 47, 0.6);
   transition: all 0.3s ease;
 }
 
@@ -111,18 +113,18 @@
 }
 
 .filtro-btn.ativo {
-  background-color: #2e7d32; /* Verde sólido quando ativo */
-  color: white; /* Texto branco quando ativo */
-  border-color: #1b5e20;
-  box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
-  opacity: 1; /* Totalmente visível quando ativo */
+  background-color: rgba(46, 125, 50, 0.6); /* Verde mais escuro transparente quando ativo */
+  color: white;
+  border-color: rgba(27, 94, 32, 0.8);
+  box-shadow: 0 2px 4px rgba(46, 125, 50, 0.3);
+  opacity: 1;
 }
 
 .filtro-btn.ativo::before {
   content: '✓';
   color: white;
-  font-size: 1.3rem;
-  opacity: 1; /* Totalmente visível quando ativo */
+  font-size: 1rem; /* Ajustado para botão menor */
+  opacity: 1;
 }
 
 .filtro-btn:active {
@@ -136,18 +138,44 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%; /* Largura total da página */
-  padding: 20px 0;
-  margin-bottom: 30px; /* Espaço abaixo do título */
-  overflow: hidden; /* Permite que a imagem corte nas laterais */
+  width: 100%;
+  padding: 8px 0;
+  margin-bottom: 10px;
+  overflow: hidden;
 }
 
+/* ==== RESPONSIVIDADE PROGRESSIVA DA IMAGEM DO TÍTULO ==== */
+
+/* Tamanho base - mantém tamanho fixo em telas grandes */
 .tituloDoCatalogo img,
 .finaldocatalogo img {
-  width: 100%;
-  max-width: 100%;
+  width: 650px;
+  max-width: 650px;
   height: auto;
+  object-fit: contain;
+  object-position: center;
   display: block;
+}
+
+/* 481px a 649px: Diminui progressivamente com a janela */
+@media (max-width: 649px) and (min-width: 481px) {
+  .tituloDoCatalogo img,
+  .finaldocatalogo img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* 480px e menos: Para de diminuir, mantém largura fixa e corta laterais */
+@media (max-width: 480px) {
+  .tituloDoCatalogo img,
+  .finaldocatalogo img {
+    width: 480px;
+    max-width: none;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 .catalogo-carousel-wrapper {
@@ -378,36 +406,35 @@
   }
   
   .tituloDoCatalogo {
-    margin-bottom: 30px; /* Garante espaço abaixo */
+    margin-bottom: 30px;
   }
   
-  .tituloDoCatalogo img {
-    width: 100%; /* Tamanho normal - não aumenta */
-    max-width: 100%;
-    transform: scale(1); /* Sem zoom */
-    transform-origin: center;
-  }
+  /* Imagem do título: mantém responsividade progressiva definida acima */
 }
 
 @media (max-width: 771px) {
   #catalogo {
-    width: 95% !important; /* Aumenta a largura em telas menores */
+    width: 90% !important;
     padding: 8px;
     margin: 0 auto !important;
     box-sizing: border-box;
+    border-radius: 20px !important;
   }
   
   #filtros-tamanho {
-    gap: 10px;
-    padding: 12px;
-    flex-direction: column; /* Empilha os botões verticalmente */
+    gap: 8px;
+    padding: 0;
+    flex-direction: row; /* Mantém horizontal */
+    justify-content: flex-start;
+    margin-left: 15px;
+    flex-wrap: wrap; /* Permite quebra se necessário */
   }
   
   .filtro-btn {
-    padding: 10px 22px 10px 42px; /* Ajusta padding para melhor espaçamento */
-    font-size: 0.95rem; /* Reduz ligeiramente o tamanho da fonte */
-    width: 100%; /* Botões ocupam largura total */
-    max-width: 280px; /* Limita largura máxima */
+    padding: 8px 12px 8px 30px;
+    font-size: 0.85rem;
+    width: auto; /* Largura automática */
+    max-width: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -466,19 +493,15 @@
     padding: 8px 5px !important;
     box-sizing: border-box;
     overflow-x: hidden !important;
+    border-radius: 20px !important; /* Todas as pontas arredondadas */
   }
   
   .tituloDoCatalogo {
-    margin-bottom: 40px !important;
-    padding-bottom: 20px !important;
+    margin-bottom: 15px !important;
+    padding-bottom: 10px !important;
   }
   
-  .tituloDoCatalogo img {
-    width: 180%;
-    max-width: 180%;
-    transform: scale(1.8);
-    transform-origin: center;
-  }
+  /* Imagem do título: mantém responsividade progressiva definida no topo */
   
   .catalogo-carousel-wrapper {
     width: 100%;
@@ -528,6 +551,7 @@
   #catalogo {
     width: 98%;
     padding: 5px;
+    border-radius: 0 0 20px 20px !important; /* Mantém topo reto */
   }
   
   .planta-card {
@@ -541,16 +565,11 @@
   }
 
   .tituloDoCatalogo {
-    margin-bottom: 30px;
-    padding: 10px 0;
+    margin-bottom: 15px;
+    padding: 5px 0;
   }
   
-  .tituloDoCatalogo img {
-    width: 200%;
-    max-width: 200%;
-    transform: scale(2);
-    transform-origin: center;
-  }
+  /* Imagem do título: mantém responsividade progressiva definida no topo */
   
   .carousel-btn {
     width: 30px;
@@ -567,39 +586,36 @@
   #catalogo {
     width: 100% !important;
     padding: 5px 3px !important;
+    border-radius: 20px !important;
   }
   
   .tituloDoCatalogo {
-    margin-bottom: 35px;
-    padding: 15px 0;
-  }
-  
-  .tituloDoCatalogo img {
-    width: 220%;
-    max-width: 220%;
-    transform: scale(2.2);
-    transform-origin: center;
+    margin-bottom: 12px;
+    padding: 8px 0;
+    overflow: hidden;
   }
   
   #filtros-tamanho {
-    gap: 8px;
-    padding: 10px 5px;
-    flex-direction: column;
+    gap: 4px;
+    margin-left: 8px;
+    padding: 8px 4px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
   }
   
   .filtro-btn {
-    padding: 9px 18px 9px 38px;
-    font-size: 0.9rem;
-    width: 100%;
-    max-width: 240px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 3px 8px 3px 22px;
+    font-size: 0.7rem;
+    width: auto;
+    max-width: none;
+    flex-shrink: 1;
+    white-space: nowrap;
   }
   
   .filtro-btn::before {
-    left: 10px;
-    font-size: 1.1rem;
+    left: 6px;
+    font-size: 0.75rem;
   }
   
   .catalogo-carousel-wrapper {
@@ -634,5 +650,23 @@
   .btn-comprar {
     font-size: 0.9rem;
     padding: 10px 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .filtro-btn {
+    padding: 2px 6px 2px 18px;
+    font-size: 0.6rem;
+    border-width: 1px;
+  }
+  
+  .filtro-btn::before {
+    left: 4px;
+    font-size: 0.65rem;
+  }
+  
+  #filtros-tamanho {
+    gap: 3px;
+    margin-left: 5px;
   }
 }

@@ -1,79 +1,70 @@
+/* ==================================== */
+/* ABAS COMO "ALÇA" DOS CONTAINERS */
+/* ==================================== */
 
-#aba {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 30px; /* Zoom 70% */
-  margin-bottom: 30px; /* Zoom 70% */
-
-  border-radius: 20px;
-  padding: 10px; /* Zoom 70% */
-
-  width: auto;
-  height: auto;
-}
-
-#abasConteudo h2 {
-  font-size: 2rem; 
-  margin-bottom: 20px; 
-  margin-top: 20px; 
-  text-align: center; 
-}
-
-#abasConteudo {
-  min-height: 600px; /* Altura mínima para manter consistência */
-}
 
 .tab-pane {
-  min-height: 600px; /* Cada aba mantém altura mínima */
+  position: relative;
+  min-height: 600px;
+  margin-top: 0;
 }
 
-#abasMenu {
+.abas-alca {
   background-color: #fff2d4;
-  padding: 10px; /* Zoom 70% */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-  border-radius: 20px; 
-
-  margin-bottom: 20px; 
-  margin-left: auto; 
-  margin-right: auto; 
-  display: flex; 
-  justify-content: center; 
-  gap: 10px; 
-  transition: all 0.3s ease; /* Transição suave */
-}
-
-#abasMenu.sticky-ativo {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra mais forte quando fixo */
-  margin-bottom: 0; /* Remove margem quando fixo */
-  border-radius: 0; /* Remove bordas arredondadas quando fixo para ocupar toda largura */
-}
-
-#abasMenu .nav-link {
-  font-size: 1.5rem; 
-  border-radius: 8px; 
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 20px; /* TODAS as pontas arredondadas */
+  
   display: flex;
-  align-items: center; 
-  justify-content: center; 
-  text-align: center; 
-  gap: 10px; 
-  line-height: 1; 
+  justify-content: center;
+  gap: 10px;
+  
+  /* Espaçamento embaixo para NÃO colar no container */
+  margin-bottom: 30px !important; /* !important para sobrescrever Bootstrap */
+  z-index: 10;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.abas-alca .nav-link {
+  font-size: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  line-height: 1;
   background-color: #dbedc2;
-  color: #000; 
-  transition: background-color 0.3s ease, transform 0.3s ease; 
+  color: #000;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: none;
 }
 
-#abasMenu .nav-link:hover {
-  background-color: #edffb3; 
-  cursor: pointer; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-  transform: translateY(-2px); 
-  transform: scale(1.05); 
-  color: #000; 
+.abas-alca .nav-link:hover {
+  background-color: #edffb3;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px) scale(1.05);
+  color: #000;
 }
 
-#abasMenu .nav-link sl-icon {
-  font-size: 1.8rem; 
+.abas-alca .nav-link.active {
+  background-color: #bfe3c3;
+  font-weight: bold;
+}
+
+.abas-alca .nav-link sl-icon {
+  font-size: 1.8rem;
+}
+
+/* Ajusta os containers para receber a "alça" - Todos arredondados */
+#catalogo,
+#local,
+#contato {
+  margin-top: 0; /* Remove espaço extra */
+  border-radius: 20px; /* TODAS as pontas arredondadas */
 }
 
 
@@ -123,4 +114,15 @@
     max-width: 100%;
     box-sizing: border-box;
   }
+}
+
+/* ==================================== */
+/* SOBRESCREVE ESTILOS DO BOOTSTRAP */
+/* ==================================== */
+
+/* Garante que o margin-bottom das abas seja respeitado */
+ul.nav-tabs.abas-alca,
+.nav-tabs.abas-alca,
+.abas-alca.nav-tabs {
+  margin-bottom: 30px !important;
 }

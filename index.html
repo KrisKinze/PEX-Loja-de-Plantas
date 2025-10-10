@@ -197,50 +197,6 @@
     <!-- =========================== ABAS =============================== -->
     <!-- ================================================================ -->
     <section id="abas" class="container mt-5">
-      <ul class="nav nav-tabs" id="abasMenu" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button
-            class="nav-link active"
-            id="aba1-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#aba1"
-            type="button"
-            role="tab"
-            aria-controls="aba1"
-            aria-selected="true"
-          >
-            <sl-icon name="grid"></sl-icon> Nossas Plantas
-          </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button
-            class="nav-link"
-            id="aba2-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#aba2"
-            type="button"
-            role="tab"
-            aria-controls="aba2"
-            aria-selected="false"
-          >
-            <sl-icon name="geo-alt"></sl-icon> Localização
-          </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button
-            class="nav-link"
-            id="aba3-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#aba3"
-            type="button"
-            role="tab"
-            aria-controls="aba3"
-            aria-selected="false"
-          >
-            <sl-icon name="envelope"></sl-icon> Contato
-          </button>
-        </li>
-      </ul>
       <div class="tab-content" id="abasConteudo">
         <div
           class="tab-pane fade show active"
@@ -248,17 +204,63 @@
           role="tabpanel"
           aria-labelledby="aba1-tab"
         >
+          <!-- Menu de Abas como "alça" do container -->
+          <ul class="nav nav-tabs abas-alca" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="aba1-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#aba1"
+                type="button"
+                role="tab"
+                aria-controls="aba1"
+                aria-selected="true"
+              >
+                <sl-icon name="grid"></sl-icon> Nossas Plantas
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="aba2-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#aba2"
+                type="button"
+                role="tab"
+                aria-controls="aba2"
+                aria-selected="false"
+              >
+                <sl-icon name="geo-alt"></sl-icon> Localização
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="aba3-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#aba3"
+                type="button"
+                role="tab"
+                aria-controls="aba3"
+                aria-selected="false"
+              >
+                <sl-icon name="envelope"></sl-icon> Contato
+              </button>
+            </li>
+          </ul>
+
           <!-- Secao de Catalogo das Plantas-->
 
-          <!-- Título do Catálogo (fora do container verde) -->
-          <div class="tituloDoCatalogo">
-            <img
-              src="public/images/Icons/Inicio Catalogo de itens.svg"
-              alt="Catalogo de Plantas"
-            />
-          </div>
-
           <section id="catalogo" class="container">
+            <!-- Título do Catálogo (agora DENTRO do container verde) -->
+            <div class="tituloDoCatalogo">
+              <img
+                src="public/images/Icons/Inicio Catalogo de itens.svg"
+                alt="Catalogo de Plantas"
+              />
+            </div>
+
             <!-- Filtros de Tamanho -->
             <div id="filtros-tamanho">
               <button class="filtro-btn ativo" data-tamanho="Pequena">
@@ -303,6 +305,52 @@
           role="tabpanel"
           aria-labelledby="aba2-tab"
         >
+          <!-- Menu de Abas como "alça" do container -->
+          <ul class="nav nav-tabs abas-alca" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="aba1-tab-2"
+                data-bs-toggle="tab"
+                data-bs-target="#aba1"
+                type="button"
+                role="tab"
+                aria-controls="aba1"
+                aria-selected="false"
+              >
+                <sl-icon name="grid"></sl-icon> Nossas Plantas
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="aba2-tab-2"
+                data-bs-toggle="tab"
+                data-bs-target="#aba2"
+                type="button"
+                role="tab"
+                aria-controls="aba2"
+                aria-selected="true"
+              >
+                <sl-icon name="geo-alt"></sl-icon> Localização
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="aba3-tab-2"
+                data-bs-toggle="tab"
+                data-bs-target="#aba3"
+                type="button"
+                role="tab"
+                aria-controls="aba3"
+                aria-selected="false"
+              >
+                <sl-icon name="envelope"></sl-icon> Contato
+              </button>
+            </li>
+          </ul>
+
           <!------------------------------------------------ Seção de Local -------------------------------------------->
           <section id="local">
             <div class="texto-local">
@@ -343,6 +391,52 @@
           role="tabpanel"
           aria-labelledby="aba3-tab"
         >
+          <!-- Menu de Abas como "alça" do container -->
+          <ul class="nav nav-tabs abas-alca" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="aba1-tab-3"
+                data-bs-toggle="tab"
+                data-bs-target="#aba1"
+                type="button"
+                role="tab"
+                aria-controls="aba1"
+                aria-selected="false"
+              >
+                <sl-icon name="grid"></sl-icon> Nossas Plantas
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="aba2-tab-3"
+                data-bs-toggle="tab"
+                data-bs-target="#aba2"
+                type="button"
+                role="tab"
+                aria-controls="aba2"
+                aria-selected="false"
+              >
+                <sl-icon name="geo-alt"></sl-icon> Localização
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="aba3-tab-3"
+                data-bs-toggle="tab"
+                data-bs-target="#aba3"
+                type="button"
+                role="tab"
+                aria-controls="aba3"
+                aria-selected="true"
+              >
+                <sl-icon name="envelope"></sl-icon> Contato
+              </button>
+            </li>
+          </ul>
+
           <!-- Seção de Contato -->
           <section id="contato" class="container">
             <h2 style="font-size: 2em; line-height: normal">
@@ -480,7 +574,8 @@
     <!-- <script src="public/js/script.js"></script> -->
     <script src="public/js/carrousel.js"></script>
     <script src="public/js/autorolagemAbasMenu.js"></script>
-    <script src="public/js/stickyAbas.js"></script>
+    <!-- <script src="public/js/stickyAbas.js"></script> --> <!-- DESATIVADO: Abas agora são alças fixas -->
+    <script src="public/js/sincronizarAbas.js"></script> <!-- NOVO: Sincroniza todas as abas -->
     <script src="public/js/categoriasdocatalogo.js"></script>
     <script src="public/js/enviodoformulario.js"></script>
     <script src="public/js/adicionaraocarrinho.js"></script>
