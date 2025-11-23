@@ -7,12 +7,24 @@
   max-width: 100%;
   overflow-x: auto; /* Permite scroll horizontal */
   overflow-y: hidden;
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* Mudado de smooth para auto para movimento mais fluido ao arrastar */
   scrollbar-width: thin; /* Firefox */
   scrollbar-color: #bfe3c3 #dbedc2; /* Firefox */
   box-sizing: border-box;
   
-  scroll-snap-type: x mandatory;
+  /* REMOVIDO: scroll-snap-type para permitir scroll livre e fluido */
+  
+  /* Desabilita seleção de texto durante o arrasto */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  
+  /* Desabilita arrasto de imagens */
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
 }
 
 #catalogosDePlantas::-webkit-scrollbar {
@@ -70,26 +82,26 @@
   display: flex;
   justify-content: flex-start; /* Alinhado à esquerda */
   align-items: center;
-  gap: 6px; /* Espaço bem pequeno entre botões */
+  gap: 8px; /* Espaço entre botões */
   margin-bottom: 8px; /* BEM próximo do carrossel */
   margin-left: 15px; /* Pequeno espaçamento da borda */
   padding: 0;
   background-color: transparent;
   border-radius: 15px;
-  flex-wrap: nowrap; /* Mantém todos em uma linha */
+  flex-wrap: wrap; /* Permite quebra em múltiplas linhas */
 }
 
 .filtro-btn {
-  padding: 4px 10px 4px 26px; /* MUITO menor verticalmente */
-  font-size: 0.85rem; /* Fonte bem menor */
+  padding: 6px 16px 6px 40px; /* Um pouco menor que 2x */
+  font-size: 1.3rem; /* Diminuído */
   font-weight: 600;
-  border: 2px solid rgba(139, 195, 74, 0.4); /* Verde claro transparente */
-  border-radius: 18px;
+  border: 3px solid rgba(139, 195, 74, 0.4); /* Borda menor */
+  border-radius: 28px; /* Menor */
   background-color: rgba(139, 195, 74, 0.25); /* Verde claro BEM transparente */
   color: rgba(27, 94, 32, 0.8); /* Texto verde escuro semi-transparente */
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   user-select: none;
   position: relative;
   opacity: 0.7; /* Transparente quando desativado */
@@ -98,10 +110,10 @@
 .filtro-btn::before {
   content: '✕';
   position: absolute;
-  left: 8px; /* Ajustado para botão menor */
+  left: 12px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 0.9rem; /* Ícone menor */
+  font-size: 1.4rem;
   font-weight: bold;
   color: rgba(211, 47, 47, 0.6);
   transition: all 0.3s ease;
@@ -113,17 +125,17 @@
 }
 
 .filtro-btn.ativo {
-  background-color: rgba(46, 125, 50, 0.6); /* Verde mais escuro transparente quando ativo */
+  background-color: #2e7d32; /* Verde forte e sólido quando ativo */
   color: white;
-  border-color: rgba(27, 94, 32, 0.8);
-  box-shadow: 0 2px 4px rgba(46, 125, 50, 0.3);
+  border-color: #1b5e20;
+  box-shadow: 0 3px 6px rgba(46, 125, 50, 0.5);
   opacity: 1;
 }
 
 .filtro-btn.ativo::before {
   content: '✓';
   color: white;
-  font-size: 1rem; /* Ajustado para botão menor */
+  font-size: 1.5rem;
   opacity: 1;
 }
 
@@ -237,7 +249,7 @@
   min-width: 280px; /* Largura fixa para cada card no carrossel */
   max-width: 280px;
   flex-shrink: 0; /* Impede que os cards encolham */
-  scroll-snap-align: start; /* Alinha o scroll nos cards */
+  /* REMOVIDO: scroll-snap-align para permitir scroll livre */
   
   border-radius: 20px; 
   background-color: #fff2d4; 
@@ -245,6 +257,12 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
   transition: transform 0.3s; /* Transição suave para o efeito de hover */
   overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites do card */
+  
+  /* Desabilita seleção de texto e imagem */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .planta-card:hover {
@@ -314,6 +332,14 @@
   height: 225px; 
   object-fit: cover; 
   background-color: transparent; /* Garante que o fundo da imagem seja transparente */
+  
+  /* Desabilita arrasto de imagem */
+  pointer-events: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
 }
 
 .planta-card button.adicionar-carrinho {
@@ -431,8 +457,8 @@
   }
   
   .filtro-btn {
-    padding: 8px 12px 8px 30px;
-    font-size: 0.85rem;
+    padding: 6px 16px 6px 40px;
+    font-size: 1.3rem;
     width: auto; /* Largura automática */
     max-width: none;
     display: flex;
@@ -441,7 +467,7 @@
   }
   
   .filtro-btn::before {
-    left: 12px; /* Mais próximo da borda */
+    left: 12px;
   }
   
   .planta-card {
@@ -455,7 +481,7 @@
     padding: 10px 5px;
     display: flex;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    /* REMOVIDO: scroll-snap-type para scroll fluido */
   }
   
   .carousel-btn {
@@ -605,8 +631,8 @@
   }
   
   .filtro-btn {
-    padding: 3px 8px 3px 22px;
-    font-size: 0.7rem;
+    padding: 5px 14px 5px 36px;
+    font-size: 1.1rem;
     width: auto;
     max-width: none;
     flex-shrink: 1;
@@ -614,8 +640,8 @@
   }
   
   .filtro-btn::before {
-    left: 6px;
-    font-size: 0.75rem;
+    left: 10px;
+    font-size: 1.2rem;
   }
   
   .catalogo-carousel-wrapper {
@@ -655,18 +681,18 @@
 
 @media (max-width: 360px) {
   .filtro-btn {
-    padding: 2px 6px 2px 18px;
-    font-size: 0.6rem;
-    border-width: 1px;
+    padding: 4px 12px 4px 32px;
+    font-size: 1rem;
+    border-width: 2px;
   }
   
   .filtro-btn::before {
-    left: 4px;
-    font-size: 0.65rem;
+    left: 8px;
+    font-size: 1.1rem;
   }
   
   #filtros-tamanho {
-    gap: 3px;
-    margin-left: 5px;
+    gap: 6px;
+    margin-left: 10px;
   }
 }

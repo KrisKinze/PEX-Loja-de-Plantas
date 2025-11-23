@@ -49,32 +49,32 @@ body.modo-noturno .thumbnails__image.active {
   border-color: #026f6e; 
 }
 
-body.modo-noturno #abasMenu {
-  background-color: #160d18; 
+/* ==================================== */
+/* ABAS NO MODO NOTURNO */
+/* ==================================== */
+
+body.modo-noturno .abas-alca {
+  background-color: #271a45; /* Fundo roxo escuro */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+body.modo-noturno .abas-alca .nav-link {
+  background-color: #23145b; /* Roxo médio */
+  color: #ffffff; 
   border: none;
   box-shadow: none;
 }
 
-body.modo-noturno #abasMenu .nav-link {
-  text-decoration: none;
-  border: none;
-  box-shadow: none;
-
-  background-color: #23145b; 
-  color: rgb(255, 255, 255); 
-  box-shadow: #026f6e; 
+body.modo-noturno .abas-alca .nav-link:hover {
+  background-color: #026f6e; /* Verde azulado no hover */
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-body.modo-noturno #abasMenu .nav-link:hover {
-  text-decoration: none; 
-  border: none; 
-  box-shadow: none; 
-
-  background-color: #026f6e; 
-  cursor: pointer; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-  transform: scale(1.05); 
-  color: rgb(255, 255, 255); 
+body.modo-noturno .abas-alca .nav-link.active {
+  background-color: #1ca39e; /* Verde claro quando ativo */
+  color: #160d18; /* Texto escuro para contraste */
+  font-weight: bold;
 }
 
 /* Seção de Contato */
@@ -132,12 +132,35 @@ body.modo-noturno #menu-catalogo .menu-item:hover {
 
 /* Seção do Catálogo */
 
-body.modo-noturno .tituloDoCatalogo {
+body.modo-noturno .tituloDoCatalogo img {
   content: url("../images/Icons/Modo Escuro - Inicio Catalogo.svg");
 }
 
-body.modo-noturno .finaldocatalogo {
+body.modo-noturno .finaldocatalogo img {
   content: url("../images/Icons/Modo Escuro - Final Catalogo.svg");
+  width: 650px !important;
+  max-width: 650px !important;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Responsividade da imagem final no modo noturno */
+@media (max-width: 649px) and (min-width: 481px) {
+  body.modo-noturno .finaldocatalogo img {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.modo-noturno .finaldocatalogo img {
+    width: 480px !important;
+    max-width: none !important;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 body.modo-noturno #catalogo {
@@ -199,14 +222,8 @@ body.modo-noturno .planta-card p:nth-of-type(2) {
 
 body.modo-noturno .planta-card:hover h3,
 body.modo-noturno .planta-card:hover p {
-  transform: scale(1.05); 
-  transition: transform 0.3s ease, color 0.3s ease; 
+  transition: color 0.3s ease; 
   color: #fff649; 
-}
-
-body.modo-noturno .planta-card :hover {
-  transform: scale(1.05); 
-  transition: transform 0.3s ease; 
 }
 
 body.modo-noturno footer {

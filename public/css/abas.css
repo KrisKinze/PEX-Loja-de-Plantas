@@ -11,18 +11,18 @@
 
 .abas-alca {
   background-color: #fff2d4;
-  padding: 10px;
+  padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 20px; /* TODAS as pontas arredondadas */
   
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 40px;
   
   /* Espaçamento embaixo para NÃO colar no container */
   margin-bottom: 30px !important; /* !important para sobrescrever Bootstrap */
   z-index: 10;
-  width: fit-content;
+  width: 840px; /* Largura FIXA do container */
   margin-left: auto;
   margin-right: auto;
 }
@@ -40,6 +40,7 @@
   color: #000;
   transition: background-color 0.3s ease, transform 0.3s ease;
   border: none;
+  width: 240px; /* Largura FIXA para todos os botões ficarem iguais */
 }
 
 .abas-alca .nav-link:hover {
@@ -56,7 +57,7 @@
 }
 
 .abas-alca .nav-link sl-icon {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
 }
 
 /* Ajusta os containers para receber a "alça" - Todos arredondados */
@@ -67,12 +68,51 @@
   border-radius: 20px; /* TODAS as pontas arredondadas */
 }
 
+/* Responsividade do menu de abas */
+@media (max-width: 840px) {
+  .abas-alca {
+    width: 95%; /* Largura adaptável em telas menores */
+    max-width: 840px;
+  }
+}
 
 @media (max-width: 768px) {
+  .abas-alca {
+    width: 90%;
+    gap: 20px;
+    padding: 15px;
+  }
+  
+  .abas-alca .nav-link {
+    width: auto;
+    min-width: 150px;
+    font-size: 1.3rem;
+  }
+  
   #abasMenu .nav-link {
     font-size: 1rem;
     padding: 8px 12px; 
     width: auto; 
+    min-width: 0; /* Reseta a largura mínima em telas menores */
+  }
+}
+
+@media (max-width: 650px) {
+  .abas-alca {
+    width: 95%;
+    gap: 15px;
+    padding: 12px;
+  }
+  
+  .abas-alca .nav-link {
+    width: auto;
+    min-width: 120px;
+    font-size: 1.1rem;
+    padding: 8px 12px;
+  }
+  
+  .abas-alca .nav-link sl-icon {
+    font-size: 1.8rem;
   }
 }
 
