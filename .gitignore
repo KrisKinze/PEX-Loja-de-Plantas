@@ -12,9 +12,9 @@ node_modules/
 # Arquivo de Variáveis de Ambiente
 .env
 
-# Banco de Dados SQLite
-*.db
-api/database/*.db
+# Scripts auxiliares de banco (não necessários em produção)
+api/adicionar-tamanho.js
+api/atualizar-dados.js
 
 # Arquivos de trabalho/temporários
 *.md.backup
