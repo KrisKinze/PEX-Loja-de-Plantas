@@ -46,7 +46,7 @@ function renderizarCatalogo(plantas) {
                     <span class="planta-tamanho">${planta.tamanho}</span>
                     <p class="planta-valor">R$ ${planta.preco.toFixed(2)}</p>
                     <div class="planta-actions">
-                        <button class="btn-comprar" onclick="adicionarAoCarrinho(${planta.id})">
+                        <button class="btn-comprar" onclick="adicionarAoCarrinho('${planta.id}')">
                             Adicionar ao Carrinho
                         </button>
                     </div>
@@ -62,7 +62,7 @@ function renderizarCatalogo(plantas) {
 /* ============================================================ */
 
 function adicionarAoCarrinho(plantaId) {
-    const planta = todasPlantas.find(p => p.id === plantaId);
+    const planta = todasPlantas.find(p => String(p.id) === String(plantaId));
     if (!planta) return;
     
     const mensagemCarrinho = document.getElementById('mensagem-carrinho');
@@ -107,6 +107,7 @@ async function inicializarCatalogo() {
 
         window.todasPlantas = plantasOrdenadas;         // libera para filtros.js
         window.adicionarAoCarrinho = adicionarAoCarrinho; // libera para o onclick do HTML
+        window.renderizarCatalogo = renderizarCatalogo;   // (NOVO) libera para filtros.js renderizar após filtrar
 
         renderizarCatalogo(plantasOrdenadas);
         

@@ -10,7 +10,6 @@
 // simplificado permitido pelo EmailJS para frontend.
 // ======================================================
 const EMAILJS_PUBLIC_KEY  = 'JlAKq3PuykM_Heuzl';
-const EMAILJS_PUBLIC_KEY  = 'JlAKq3PuykM_Heuzl';
 const EMAILJS_SERVICE_ID  = 'service_ykvwu4f';
 const EMAILJS_TEMPLATE_ID = 'template_fszmgzo';
 
