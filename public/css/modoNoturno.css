@@ -54,7 +54,7 @@ body.modo-noturno .thumbnails__image.active {
 /* ==================================== */
 
 body.modo-noturno .abas-alca {
-  background-color: #271a45; /* Fundo roxo escuro */
+  background-color: #160d18;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -85,7 +85,7 @@ body.modo-noturno #contato {
 }
 
 body.modo-noturno #redes-contatos {
-  background-color: #160d18; 
+  background-color: #1e1435; 
   color: white;
 }
 
@@ -145,7 +145,22 @@ body.modo-noturno .finaldocatalogo img {
   object-position: center;
 }
 
+/* Elementos do rodapé no modo noturno */
+/* Botões do rodapé no modo noturno */
+body.modo-noturno #links-redesRodape .btn {
+  background-color: #23145b;
+  border-color: #23145b;
+  color: #ffffff;
+}
+
+body.modo-noturno #links-redesRodape .btn:hover {
+  background-color: #026f6e;
+  border-color: #026f6e;
+}
+
+
 /* Responsividade da imagem final no modo noturno */
+
 @media (max-width: 649px) and (min-width: 481px) {
   body.modo-noturno .finaldocatalogo img {
     width: 100% !important;

@@ -1,26 +1,19 @@
-
 #catalogosDePlantas {
   display: flex;
   gap: 20px;
   padding: 20px 10px;
   width: 100%;
   max-width: 100%;
-  overflow-x: auto; /* Permite scroll horizontal */
+  overflow-x: auto;
   overflow-y: hidden;
-  scroll-behavior: auto; /* Mudado de smooth para auto para movimento mais fluido ao arrastar */
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #bfe3c3 #dbedc2; /* Firefox */
+  scroll-behavior: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #bfe3c3 #dbedc2;
   box-sizing: border-box;
-  
-  /* REMOVIDO: scroll-snap-type para permitir scroll livre e fluido */
-  
-  /* Desabilita seleção de texto durante o arrasto */
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  
-  /* Desabilita arrasto de imagens */
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -46,74 +39,104 @@
 }
 
 #catalogosDePlantas .menu-item {
-  size: 2rem; 
-  flex: 1 1 calc(25% - 10px); 
-  max-width: 100%; 
-  padding: 10px; 
-  text-align: center; 
-  background-color: #99928e; 
-  border-radius: 10px; 
-  transition: background-color 1s ease; 
+  size: 2rem;
+  flex: 1 1 calc(25% - 10px);
+  max-width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #99928e;
+  border-radius: 10px;
+  transition: background-color 1s ease;
   cursor: pointer;
 }
 
 #catalogosDePlantas .menu-item:hover {
-  background-color: #bfe3c3; 
-  transform: translateY(-2px); 
-  transform: scale(1.05); 
+  background-color: #bfe3c3;
+  transform: scale(1.05);
 }
 
-/* Configuração de rolagem na seção */
+
+/* ============================================================ */
+/* CONTAINER PRINCIPAL DO CATÁLOGO                             */
+/* ============================================================ */
 
 #catalogo {
   padding: 8px;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #dbedc2; 
+  background-color: #dbedc2;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 85%;
-  margin-left: auto; 
-  margin-right: auto; 
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* ==== FILTROS DE TAMANHO ==== */
-#filtros-tamanho {
+
+/* ============================================================ */
+/* FILTROS DE TAMANHO E DISPONIBILIDADE                        */
+/* ============================================================ */
+
+#filtros-tamanho,
+#filtros-disponibilidade {
   display: flex;
-  justify-content: flex-start; /* Alinhado à esquerda */
+  justify-content: flex-start;
   align-items: center;
-  gap: 8px; /* Espaço entre botões */
-  margin-bottom: 8px; /* BEM próximo do carrossel */
-  margin-left: 15px; /* Pequeno espaçamento da borda */
+  gap: 8px;
+  margin-bottom: 8px;
+  margin-left: 15px;
   padding: 0;
   background-color: transparent;
   border-radius: 15px;
-  flex-wrap: wrap; /* Permite quebra em múltiplas linhas */
+  flex-wrap: wrap;
 }
 
 .filtro-btn {
-  padding: 6px 16px 6px 40px; /* Um pouco menor que 2x */
-  font-size: 1.3rem; /* Diminuído */
+  padding: 3px 10px 3px 28px;
+  font-size: 0.75rem;
   font-weight: 600;
-  border: 3px solid rgba(139, 195, 74, 0.4); /* Borda menor */
-  border-radius: 28px; /* Menor */
-  background-color: rgba(139, 195, 74, 0.25); /* Verde claro BEM transparente */
-  color: rgba(27, 94, 32, 0.8); /* Texto verde escuro semi-transparente */
+  border: 2px solid rgba(139, 195, 74, 0.4);
+  border-radius: 16px;
+  background-color: rgba(139, 195, 74, 0.25);
+  color: rgba(27, 94, 32, 0.8);
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   user-select: none;
   position: relative;
-  opacity: 0.7; /* Transparente quando desativado */
+  opacity: 0.7;
 }
+
+/* ============================================================ */
+/* FILTROS — TAMANHO AUMENTADO (acima de 480px)                */
+/* ============================================================ */
+
+@media (min-width: 481px) {
+  .filtro-btn {
+    padding: 5px 16px 5px 38px;
+    font-size: 1.05rem;
+    border-radius: 20px;
+  }
+
+  .filtro-btn::before {
+    left: 12px;
+    font-size: 1.1rem;
+  }
+
+  #filtros-tamanho,
+  #filtros-disponibilidade {
+    margin-bottom: 12px;
+  }
+}
+
 
 .filtro-btn::before {
   content: '✕';
   position: absolute;
-  left: 12px;
+  left: 8px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.4rem;
+  font-size: 0.8rem;
   font-weight: bold;
   color: rgba(211, 47, 47, 0.6);
   transition: all 0.3s ease;
@@ -125,7 +148,7 @@
 }
 
 .filtro-btn.ativo {
-  background-color: #2e7d32; /* Verde forte e sólido quando ativo */
+  background-color: #2e7d32;
   color: white;
   border-color: #1b5e20;
   box-shadow: 0 3px 6px rgba(46, 125, 50, 0.5);
@@ -135,7 +158,7 @@
 .filtro-btn.ativo::before {
   content: '✓';
   color: white;
-  font-size: 1.5rem;
+  font-size: 0.85rem;
   opacity: 1;
 }
 
@@ -143,6 +166,10 @@
   transform: translateY(0);
 }
 
+
+/* ============================================================ */
+/* TÍTULO E RODAPÉ DO CATÁLOGO                                 */
+/* ============================================================ */
 
 .tituloDoCatalogo,
 .finaldocatalogo {
@@ -156,9 +183,6 @@
   overflow: hidden;
 }
 
-/* ==== RESPONSIVIDADE PROGRESSIVA DA IMAGEM DO TÍTULO ==== */
-
-/* Tamanho base - mantém tamanho fixo em telas grandes */
 .tituloDoCatalogo img,
 .finaldocatalogo img {
   width: 650px;
@@ -169,26 +193,10 @@
   display: block;
 }
 
-/* 481px a 649px: Diminui progressivamente com a janela */
-@media (max-width: 649px) and (min-width: 481px) {
-  .tituloDoCatalogo img,
-  .finaldocatalogo img {
-    width: 100%;
-    max-width: 100%;
-  }
-}
 
-/* 480px e menos: Para de diminuir, mantém largura fixa e corta laterais */
-@media (max-width: 480px) {
-  .tituloDoCatalogo img,
-  .finaldocatalogo img {
-    width: 480px;
-    max-width: none;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-  }
-}
+/* ============================================================ */
+/* WRAPPER DO CARROSSEL (botões prev/next + trilho)            */
+/* ============================================================ */
 
 .catalogo-carousel-wrapper {
   position: relative;
@@ -199,7 +207,7 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  overflow: hidden; /* Previne overflow do wrapper */
+  overflow: hidden;
 }
 
 .carousel-btn {
@@ -244,21 +252,22 @@
   order: 1;
 }
 
+
+/* ============================================================ */
+/* CARDS DE PLANTAS                                            */
+/* ============================================================ */
+
 .planta-card {
-  position: relative; /* Necessário para posicionar a tag de tamanho */
-  min-width: 280px; /* Largura fixa para cada card no carrossel */
+  position: relative;
+  min-width: 280px;
   max-width: 280px;
-  flex-shrink: 0; /* Impede que os cards encolham */
-  /* REMOVIDO: scroll-snap-align para permitir scroll livre */
-  
-  border-radius: 20px; 
-  background-color: #fff2d4; 
-  padding: 0; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  transition: transform 0.3s; /* Transição suave para o efeito de hover */
-  overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites do card */
-  
-  /* Desabilita seleção de texto e imagem */
+  flex-shrink: 0;
+  border-radius: 20px;
+  background-color: #fff2d4;
+  padding: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -270,7 +279,6 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-
 .planta-card h3,
 .planta-card p {
   padding: 0 20px;
@@ -281,21 +289,21 @@
 }
 
 .planta-card h3 {
-  font-size: 1.5rem; /* Aumentado de 1.3rem para 1.5rem */
-  font-weight: bold; 
+  font-size: 1.5rem;
+  font-weight: bold;
   color: #2e7d32;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   text-align: center;
-  margin-bottom: 10px; /* Espaçamento entre nome e preço */
-  white-space: nowrap; /* Impede quebra de linha */
-  overflow: hidden; /* Esconde texto excedente */
-  text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .planta-card p:nth-of-type(1) {
-  font-size: 1.8rem; /* Aumentado de 1.3rem para 1.8rem */
-  font-weight: bold; 
-  color: #d32f2f; 
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #d32f2f;
 }
 
 .planta-valor {
@@ -305,35 +313,14 @@
   margin: 10px 0;
 }
 
-.planta-tamanho {
-  position: absolute; /* Posicionamento absoluto sobre a imagem */
-  top: 10px; /* Distância do topo */
-  left: 10px; /* Distância da esquerda */
-  display: inline-block;
-  font-size: 0.75rem; /* Tamanho menor */
-  color: white; /* Texto branco */
-  background-color: #b71c1c; /* Vermelho escuro não vibrante */
-  padding: 5px 12px;
-  border-radius: 12px;
-  font-weight: 700;
-  border: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-  z-index: 10; /* Garante que fica acima da imagem */
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
 .planta-card img {
-  border-bottom: none; 
-  margin: 0; 
-  border-radius: 20px; 
-  width: 100%; 
-  height: 225px; 
-  object-fit: cover; 
-  background-color: transparent; /* Garante que o fundo da imagem seja transparente */
-  
-  /* Desabilita arrasto de imagem */
+  border-bottom: none;
+  margin: 0;
+  border-radius: 20px;
+  width: 100%;
+  height: 225px;
+  object-fit: cover;
+  background-color: transparent;
   pointer-events: none;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
@@ -342,33 +329,94 @@
   user-select: none;
 }
 
+
+/* ============================================================ */
+/* TAG DE TAMANHO SOBRE O CARD                                 */
+/* ============================================================ */
+
+.planta-tamanho {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-block;
+  font-size: 0.75rem;
+  color: white;
+  background-color: #b71c1c;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+/* ============================================================ */
+/* BADGES DE DISPONIBILIDADE                                   */
+/* ============================================================ */
+
+.planta-badges {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 8px 10px 4px 10px;
+}
+
+.badge-planta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.badge-disponivel  { background-color: #2e7d32; color: #fff; }
+.badge-indisponivel { background-color: #b71c1c; color: #fff; }
+.badge-reservado   { background-color: #e65100; color: #fff; }
+
+
+/* ============================================================ */
+/* BOTÕES DE AÇÃO DO CARD                                      */
+/* ============================================================ */
+
 .planta-card button.adicionar-carrinho {
-  background-color: #2e7d32 !important; 
-  color: #fff; 
-  font-size: 1rem; 
-  font-weight: bold; 
-  border: none; 
-  border-radius: 10px; 
-  padding: 10px 20px; 
+  background-color: #2e7d32 !important;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
   text-align: center;
   display: block;
   margin: 10px auto;
-  width: 80%; 
-  cursor: pointer; 
-  transition: background-color 0.3s ease, transform 0.3s ease; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  width: 80%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .planta-card button.adicionar-carrinho:hover {
   background-color: #165f1b !important;
   transform: scale(1.05);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 .planta-card button.adicionar-carrinho:active {
-  background-color: #388e3c !important; 
-  transform: scale(0.95); 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  background-color: #388e3c !important;
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .planta-actions {
@@ -405,13 +453,15 @@
 }
 
 
+/* ============================================================ */
+/* RESPONSIVIDADE — 1200px                                     */
+/* ============================================================ */
 
 @media (max-width: 1200px) {
   .planta-card {
     min-width: 250px;
     max-width: 250px;
   }
-  
   .carousel-btn {
     width: 45px;
     height: 45px;
@@ -419,24 +469,30 @@
   }
 }
 
+
+/* ============================================================ */
+/* RESPONSIVIDADE — 992px                                      */
+/* ============================================================ */
+
 @media (max-width: 992px) {
   .planta-card {
     min-width: 220px;
     max-width: 220px;
   }
-  
   .carousel-btn {
     width: 40px;
     height: 40px;
     font-size: 1.6rem;
   }
-  
   .tituloDoCatalogo {
     margin-bottom: 30px;
   }
-  
-  /* Imagem do título: mantém responsividade progressiva definida acima */
 }
+
+
+/* ============================================================ */
+/* RESPONSIVIDADE — 771px                                      */
+/* ============================================================ */
 
 @media (max-width: 771px) {
   #catalogo {
@@ -446,50 +502,31 @@
     box-sizing: border-box;
     border-radius: 20px !important;
   }
-  
-  #filtros-tamanho {
+  #filtros-tamanho,
+  #filtros-disponibilidade {
     gap: 8px;
     padding: 0;
-    flex-direction: row; /* Mantém horizontal */
+    flex-direction: row;
     justify-content: flex-start;
     margin-left: 15px;
-    flex-wrap: wrap; /* Permite quebra se necessário */
+    flex-wrap: wrap;
   }
-  
-  .filtro-btn {
-    padding: 6px 16px 6px 40px;
-    font-size: 1.3rem;
-    width: auto; /* Largura automática */
-    max-width: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .filtro-btn::before {
-    left: 12px;
-  }
-  
   .planta-card {
-    min-width: calc(50% - 20px); /* 2 plantas lado a lado */
+    min-width: calc(50% - 20px);
     max-width: calc(50% - 20px);
     flex-shrink: 0;
   }
-  
   #catalogosDePlantas {
     gap: 12px;
     padding: 10px 5px;
     display: flex;
     overflow-x: auto;
-    /* REMOVIDO: scroll-snap-type para scroll fluido */
   }
-  
   .carousel-btn {
     width: 35px;
     height: 35px;
     font-size: 1.4rem;
   }
-  
   .catalogo-carousel-wrapper {
     gap: 10px;
     padding: 15px 0;
@@ -497,19 +534,21 @@
     align-items: center;
     width: 100%;
   }
-  
   .planta-card img {
-    height: 180px; /* Reduz altura da imagem */
+    height: 180px;
   }
-  
   .planta-card h3 {
     font-size: 1.1rem;
   }
-  
   .planta-valor {
     font-size: 1.5rem !important;
   }
 }
+
+
+/* ============================================================ */
+/* RESPONSIVIDADE — 650px                                      */
+/* ============================================================ */
 
 @media (max-width: 650px) {
   #catalogo {
@@ -519,16 +558,12 @@
     padding: 8px 5px !important;
     box-sizing: border-box;
     overflow-x: hidden !important;
-    border-radius: 20px !important; /* Todas as pontas arredondadas */
+    border-radius: 20px !important;
   }
-  
   .tituloDoCatalogo {
     margin-bottom: 15px !important;
     padding-bottom: 10px !important;
   }
-  
-  /* Imagem do título: mantém responsividade progressiva definida no topo */
-  
   .catalogo-carousel-wrapper {
     width: 100%;
     max-width: 100%;
@@ -537,7 +572,6 @@
     box-sizing: border-box;
     margin-top: 20px;
   }
-  
   #catalogosDePlantas {
     width: 100%;
     max-width: 100%;
@@ -545,19 +579,16 @@
     padding: 8px 3px;
     box-sizing: border-box;
   }
-  
   .planta-card {
     min-width: calc(50% - 15px);
     max-width: calc(50% - 15px);
   }
-  
   .carousel-btn {
     width: 32px;
     height: 32px;
     font-size: 1.3rem;
     flex-shrink: 0;
   }
-  
   .tituloDoCatalogo,
   .finaldocatalogo {
     width: 100%;
@@ -565,7 +596,6 @@
     padding: 15px 5px;
     box-sizing: border-box;
   }
-  
   .finaldocatalogo img {
     width: 100%;
     max-width: 100%;
@@ -573,40 +603,45 @@
   }
 }
 
+
+/* ============================================================ */
+/* RESPONSIVIDADE — 575px                                      */
+/* (2 cards, transição antes do 1 card)                        */
+/* ============================================================ */
+
 @media (max-width: 575px) {
   #catalogo {
     width: 98%;
     padding: 5px;
-    border-radius: 0 0 20px 20px !important; /* Mantém topo reto */
+    border-radius: 0 0 20px 20px !important;
   }
-  
   .planta-card {
     min-width: calc(50% - 10px);
     max-width: calc(50% - 10px);
   }
-  
   #catalogosDePlantas {
     gap: 8px;
     padding: 10px 3px;
   }
-
   .tituloDoCatalogo {
     margin-bottom: 15px;
     padding: 5px 0;
   }
-  
-  /* Imagem do título: mantém responsividade progressiva definida no topo */
-  
   .carousel-btn {
     width: 30px;
     height: 30px;
     font-size: 1.2rem;
   }
-  
   .catalogo-carousel-wrapper {
     gap: 5px;
   }
 }
+
+
+/* ============================================================ */
+/* RESPONSIVIDADE — 480px                                      */
+/* (1 card por vez, scroll horizontal)                         */
+/* ============================================================ */
 
 @media (max-width: 480px) {
   #catalogo {
@@ -614,70 +649,57 @@
     padding: 5px 3px !important;
     border-radius: 20px !important;
   }
-  
   .tituloDoCatalogo {
     margin-bottom: 12px;
     padding: 8px 0;
     overflow: hidden;
   }
-  
-  #filtros-tamanho {
+  #filtros-tamanho,
+  #filtros-disponibilidade {
     gap: 4px;
     margin-left: 8px;
     padding: 8px 4px;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: flex-start;
   }
-  
-  .filtro-btn {
-    padding: 5px 14px 5px 36px;
-    font-size: 1.1rem;
-    width: auto;
-    max-width: none;
-    flex-shrink: 1;
-    white-space: nowrap;
-  }
-  
-  .filtro-btn::before {
-    left: 10px;
-    font-size: 1.2rem;
-  }
-  
-  .catalogo-carousel-wrapper {
-    gap: 3px;
-    padding: 10px 3px;
-  }
-  
+
+  /* 1 card por vez — ocupa toda a largura do trilho */
   .planta-card {
     min-width: calc(100% - 10px);
     max-width: calc(100% - 10px);
+    flex-shrink: 0;
   }
-  
+
   #catalogosDePlantas {
     gap: 8px;
     padding: 8px 0;
   }
-  
+  .catalogo-carousel-wrapper {
+    gap: 3px;
+    padding: 10px 3px;
+  }
   .planta-card h3 {
     font-size: 1.1rem;
   }
-  
   .planta-card img {
     height: 200px;
   }
-  
   .carousel-btn {
     width: 28px;
     height: 28px;
     font-size: 1.1rem;
   }
-  
   .btn-comprar {
     font-size: 0.9rem;
     padding: 10px 15px;
   }
 }
+
+
+/* ============================================================ */
+/* RESPONSIVIDADE — 360px                                      */
+/* ============================================================ */
 
 @media (max-width: 360px) {
   .filtro-btn {
@@ -685,14 +707,37 @@
     font-size: 1rem;
     border-width: 2px;
   }
-  
   .filtro-btn::before {
     left: 8px;
     font-size: 1.1rem;
   }
-  
-  #filtros-tamanho {
+  #filtros-tamanho,
+  #filtros-disponibilidade {
     gap: 6px;
     margin-left: 10px;
+  }
+}
+
+
+/* ============================================================ */
+/* IMAGEM DO TÍTULO — RESPONSIVIDADE PROGRESSIVA               */
+/* ============================================================ */
+
+@media (max-width: 649px) and (min-width: 481px) {
+  .tituloDoCatalogo img,
+  .finaldocatalogo img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .tituloDoCatalogo img,
+  .finaldocatalogo img {
+    width: 480px;
+    max-width: none;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
   }
 }

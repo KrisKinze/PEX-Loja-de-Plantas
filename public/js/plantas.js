@@ -26,6 +26,7 @@ async function buscarPlantas() {
 /* ============================================================ */
 
 function renderizarCatalogo(plantas) {
+
     const catalogoContainer = document.getElementById('catalogosDePlantas');
     
     if (!catalogoContainer) return;
@@ -37,13 +38,28 @@ function renderizarCatalogo(plantas) {
         return;
     }
     
-    plantas.forEach(planta => {
+        plantas.forEach(planta => {
+        const qtdDisponivel = Number(planta.disponivel) || 0;
+        const qtdReservada = Number(planta.reservada) || 0;
+
+        const badgeDisponivel = qtdDisponivel > 0
+            ? `<span class="badge-planta badge-disponivel">🌿 Disponível: ${qtdDisponivel}</span>`
+            : `<span class="badge-planta badge-indisponivel">❌ Indisponível</span>`;
+
+        const badgeReservado = qtdReservada > 0
+            ? `<span class="badge-planta badge-reservado">📦 Reservado: ${qtdReservada}</span>`
+            : '';
+
         const plantaCard = `
             <div class="planta-card">
                 <img src="${planta.imagem_url}" alt="${planta.nome}" class="planta-img">
+                <span class="planta-tamanho">${planta.tamanho}</span>
                 <div class="planta-info">
                     <h3 class="planta-nome">${planta.nome}</h3>
-                    <span class="planta-tamanho">${planta.tamanho}</span>
+                    <div class="planta-badges">
+                        ${badgeDisponivel}
+                        ${badgeReservado}
+                    </div>
                     <p class="planta-valor">R$ ${planta.preco.toFixed(2)}</p>
                     <div class="planta-actions">
                         <button class="btn-comprar" onclick="adicionarAoCarrinho('${planta.id}')">
