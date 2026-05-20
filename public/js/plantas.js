@@ -2,25 +2,22 @@
 /* API E CONFIGURAÇÃO */
 /* ============================================================ */
 
-const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://localhost:3000'
-    : 'https://jardim-vital-backend-qxd7.onrender.com';
+import { supabase } from './supabase.js'
 
 let todasPlantas = [];
 
 async function buscarPlantas() {
     try {
-        const response = await fetch(`${API_URL}/api/plantas`);
-        const plantas = await response.json();
-        
-        if (response.ok) {
-            return plantas;
-        } else {
-            throw new Error('Erro ao buscar plantas');
-        }
+        const { data, error } = await supabase
+            .from('plantas')
+            .select('*')
+
+        if (error) throw error
+        return data
+
     } catch (error) {
-        console.error('Erro ao buscar plantas:', error);
-        return [];
+        console.error('Erro ao buscar plantas:', error)
+        return []
     }
 }
 
@@ -43,11 +40,11 @@ function renderizarCatalogo(plantas) {
     plantas.forEach(planta => {
         const plantaCard = `
             <div class="planta-card">
-                <img src="${planta.imagem}" alt="${planta.nome}" class="planta-img">
+                <img src="${planta.imagem_url}" alt="${planta.nome}" class="planta-img">
                 <div class="planta-info">
                     <h3 class="planta-nome">${planta.nome}</h3>
                     <span class="planta-tamanho">${planta.tamanho}</span>
-                    <p class="planta-valor">R$ ${planta.valor.toFixed(2)}</p>
+                    <p class="planta-valor">R$ ${planta.preco.toFixed(2)}</p>
                     <div class="planta-actions">
                         <button class="btn-comprar" onclick="adicionarAoCarrinho(${planta.id})">
                             Adicionar ao Carrinho
@@ -70,7 +67,7 @@ function adicionarAoCarrinho(plantaId) {
     
     const mensagemCarrinho = document.getElementById('mensagem-carrinho');
     if (mensagemCarrinho) {
-        const itemCarrinho = `\n- ${planta.nome} (${planta.tamanho}) - R$ ${planta.valor.toFixed(2)}`;
+        const itemCarrinho = `\n- ${planta.nome} (${planta.tamanho}) - R$ ${planta.preco.toFixed(2)}`;
         mensagemCarrinho.value += itemCarrinho;
     }
     
@@ -105,8 +102,12 @@ async function inicializarCatalogo() {
     const plantas = await buscarPlantas();
     
     if (plantas.length > 0) {
-        const plantasOrdenadas = plantas.sort((a, b) => a.valor - b.valor);
+        const plantasOrdenadas = plantas.sort((a, b) => a.preco - b.preco);
         todasPlantas = plantasOrdenadas;
+
+        window.todasPlantas = plantasOrdenadas;         // libera para filtros.js
+        window.adicionarAoCarrinho = adicionarAoCarrinho; // libera para o onclick do HTML
+
         renderizarCatalogo(plantasOrdenadas);
         
         if (typeof salvarPlantasParaFiltro === 'function') {

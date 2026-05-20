@@ -2,11 +2,14 @@
 /* SISTEMA DE FILTROS */
 /* ============================================================ */
 
+
 let tamanhosAtivos = new Set(['Pequena', 'Média', 'Grande']);
+
 
 function salvarPlantasParaFiltro(plantas) {
     inicializarFiltrosTamanho();
 }
+
 
 function inicializarFiltrosTamanho() {
     const botoesFiltro = document.querySelectorAll('.filtro-btn');
@@ -34,6 +37,7 @@ function inicializarFiltrosTamanho() {
     });
 }
 
+
 function filtrarPorTamanho() {
     if (tamanhosAtivos.size === 0) {
         renderizarCatalogo([]);
@@ -41,9 +45,10 @@ function filtrarPorTamanho() {
     }
     
     const plantasFiltradas = todasPlantas.filter(planta => tamanhosAtivos.has(planta.tamanho));
-    const plantasOrdenadas = plantasFiltradas.sort((a, b) => a.valor - b.valor);
+    const plantasOrdenadas = plantasFiltradas.sort((a, b) => a.preco - b.preco); // ✅ era a.valor
     renderizarCatalogo(plantasOrdenadas);
 }
+
 
 function filtrarPorDisponibilidade(disponiveis = true) {
     const plantasFiltradas = todasPlantas.filter(planta => 
@@ -52,13 +57,15 @@ function filtrarPorDisponibilidade(disponiveis = true) {
     renderizarCatalogo(plantasFiltradas);
 }
 
+
 function filtrarPorPreco(precoMin, precoMax) {
     const plantasFiltradas = todasPlantas.filter(planta => {
-        const valor = parseFloat(planta.valor);
+        const valor = parseFloat(planta.preco); // ✅ era planta.valor
         return valor >= precoMin && valor <= precoMax;
     });
     renderizarCatalogo(plantasFiltradas);
 }
+
 
 function ordenarPlantas(criterio) {
     let plantasOrdenadas = [...todasPlantas];
@@ -66,12 +73,13 @@ function ordenarPlantas(criterio) {
     switch(criterio) {
         case 'nome-asc': plantasOrdenadas.sort((a, b) => a.nome.localeCompare(b.nome)); break;
         case 'nome-desc': plantasOrdenadas.sort((a, b) => b.nome.localeCompare(a.nome)); break;
-        case 'preco-asc': plantasOrdenadas.sort((a, b) => a.valor - b.valor); break;
-        case 'preco-desc': plantasOrdenadas.sort((a, b) => b.valor - a.valor); break;
+        case 'preco-asc': plantasOrdenadas.sort((a, b) => a.preco - b.preco); break;   // ✅ era a.valor
+        case 'preco-desc': plantasOrdenadas.sort((a, b) => b.preco - a.preco); break;  // ✅ era b.valor
     }
     
     renderizarCatalogo(plantasOrdenadas);
 }
+
 
 function buscarPorNome(termo) {
     const termoLower = termo.toLowerCase();
@@ -80,6 +88,7 @@ function buscarPorNome(termo) {
     );
     renderizarCatalogo(plantasEncontradas);
 }
+
 
 function resetarFiltros() {
     renderizarCatalogo(todasPlantas);

@@ -1,0 +1,47 @@
+id,nome,preco,imagem_url,tamanho,disponibilidade
+275,"Espada São Jorge",15.0,public/images/Plantas/CatalogoDePlantas/Pequenas/p-espada-sao-jorge.jpeg,Pequena,1
+276,"Comigo-ninguém-pode",15.0,public/images/Plantas/CatalogoDePlantas/Medias/m-comigo-ninguem-pode.jpeg,"Média",1
+277,"Comigo-ninguém-pode",15.0,public/images/Plantas/CatalogoDePlantas/Grandes/g-comigo-ninguem-pode.jpeg,Grande,1
+278,"Dois Amores",15.0,public/images/Plantas/CatalogoDePlantas/Pequenas/p-dois-amores.jpeg,Pequena,1
+279,"Bambu da Sorte",20.0,public/images/Plantas/CatalogoDePlantas/Medias/m-bamboo-da-sorte.jpeg,"Média",1
+280,"Antúrio",10.0,public/images/Plantas/CatalogoDePlantas/Pequenas/p-anturio.jpeg,Pequena,1
+281,"Antúrio",15.0,public/images/Plantas/CatalogoDePlantas/Medias/m-anturio.jpeg,"Média",1
+282,"Antúrio",25.0,public/images/Plantas/CatalogoDePlantas/Grandes/g-anturio.jpeg,Grande,1
+283,"Ora-pro-nóbis",10.0,"public/images/Plantas/CatalogoDePlantas/Pequenas/p-ora-pro-nobis (2).jpeg",Pequena,1
+284,"Aglaonema Vermelho",20.0,public/images/Plantas/CatalogoDePlantas/Pequenas/p-aglaonema-vermelho.jpeg,Pequena,1
+285,"Aglaonema Vermelho",50.0,public/images/Plantas/CatalogoDePlantas/Medias/m-aglaonema-vermelho.jpg,"Média",1
+286,Avenca,20.0,public/images/Plantas/CatalogoDePlantas/Medias/m-avenca.jpeg,Pequena,1
+287,Avenca,40.0,public/images/Plantas/CatalogoDePlantas/Medias/m-avenca.jpeg,"Média",1
+288,"Árvore da Felicidade",20.0,public/images/Plantas/CatalogoDePlantas/Pequenas/p-arvore-da-felicidade-femea.jpeg,Pequena,1
+289,"Árvore da Felicidade",25.0,public/images/Plantas/CatalogoDePlantas/Medias/m-arvore-da-felicidade.jpeg,"Média",1
+290,"Dracena Vermelha",10.0,public/images/Plantas/CatalogoDePlantas/Pequenas/p-dracena-vermelha.jpeg,Pequena,1
+291,"Dracena Vermelha",20.0,public/images/Plantas/CatalogoDePlantas/Medias/m-dracena-vermelha.jpeg,"Média",1
+292,"Orquídea Iris",25.0,public/images/Plantas/CatalogoDePlantas/Medias/m-orquidia-iris.jpeg,"Média",1
+293,Jiboia,10.0,public/images/Plantas/CatalogoDePlantas/Grandes/g-jiboia.jpeg,Pequena,1
+294,Jiboia,20.0,public/images/Plantas/CatalogoDePlantas/Grandes/g-jiboia.jpeg,Grande,1
+295,"Aspargo Alfinete",20.0,public/images/Plantas/CatalogoDePlantas/Medias/m-aspargo-alfinete.jpeg,"Média",1
+296,"Palmeira Ráfia",30.0,public/images/Plantas/CatalogoDePlantas/Grandes/g-palmeira-rafia.jpg,"Média",1
+297,"Palmeira Ráfia",50.0,public/images/Plantas/CatalogoDePlantas/Grandes/g-palmeira-rafia.jpg,Grande,1
+298,"Cróton",40.0,public/images/Plantas/CatalogoDePlantas/Medias/m-croton.jpg,"Média",1
+299,"Costela de Adão",80.0,public/images/Plantas/CatalogoDePlantas/Grandes/g-costela-de-adao.jpg,Grande,1
+300,Dinheiro-em-penca,15.0,public/images/Plantas/CatalogoDePlantas/Medias/m-dinheiro-em-penca.jpg,"Média",1
+301,"Cróton Brasileirinho",20.0,public/images/Plantas/CatalogoDePlantas/Medias/m-croton.jpg,"Média",1
+302,"Cróton Brasileirinho",40.0,public/images/Plantas/CatalogoDePlantas/Grandes/g-croton-brasileirinho.jpg,Grande,1
+303,"Lírio do Amazonas",35.0,public/images/Plantas/CatalogoDePlantas/Grandes/g-lirio-amazonas.jpeg,Grande,1
+304,"Lírio da Paz",35.0,public/images/Plantas/CatalogoDePlantas/Pequenas/p-lirio-da-paz.jpeg,Pequena,1
+305,"Lírio da Paz",35.0,public/images/Plantas/CatalogoDePlantas/Medias/m-lirio-da-paz.jpeg,"Média",1
+306,"Lírio da Paz",35.0,public/images/Plantas/CatalogoDePlantas/Grandes/g-lirio-da-paz.jpeg,Grande,1
+307,"Palmeira Ráfia (Variados)",30.0,public/images/Plantas/CatalogoDePlantas/Medias/m-palmeira-rafia-misto.jpg,"Média",1
+308,Maranta-cinza,30.0,public/images/Plantas/CatalogoDePlantas/Pequenas/p-maranta-cinza.jpg,Pequena,1
+309,Zamioculca,15.0,public/images/Plantas/CatalogoDePlantas/Pequenas/p-zamiocuca.jpeg,Pequena,1
+310,Zamioculca,25.0,public/images/Plantas/CatalogoDePlantas/Medias/m-zamiocuca.jpeg,"Média",1
+311,Zamioculca,50.0,public/images/Plantas/CatalogoDePlantas/Grandes/g-zamiocuca.jpeg,Grande,1
+312,"Aglaonema Café de Salão",40.0,public/images/Plantas/CatalogoDePlantas/Grandes/g-cafe-de-salao.jpeg,Grande,1
+313,"Areca Bambu",25.0,public/images/Plantas/CatalogoDePlantas/Medias/m-areca-bambu.jpg,"Média",1
+314,Grama-Pelo-de-Urso,35.0,public/images/Plantas/CatalogoDePlantas/Medias/m-grama-pelo-de-urso.jpg,"Média",1
+315,Cheflera,30.0,public/images/Plantas/CatalogoDePlantas/Medias/m-cheflera.jpeg,"Média",1
+316,"Tapete de Rainha",10.0,public/images/Plantas/CatalogoDePlantas/Pequenas/p-tapete-de-rainha.jpeg,Pequena,1
+317,"Mudas de Dama da Noite",10.0,public/images/Plantas/CatalogoDePlantas/Pequenas/p-mudas-de-dama-da-noite.jpeg,Pequena,1
+318,"Espada Santa Bárbara",15.0,public/images/Plantas/CatalogoDePlantas/Pequenas/p-espada-santa-barbara.jpeg,Pequena,1
+319,"Espadadinha Santa Bárbara",20.0,public/images/Plantas/CatalogoDePlantas/Pequenas/p-espada-sao-jorge-clara.jpeg,Pequena,1
+320,"Comigo-ninguém-pode",15.0,public/images/Plantas/CatalogoDePlantas/Pequenas/p-comigo-ninguem-pode.jpeg,Pequena,1
