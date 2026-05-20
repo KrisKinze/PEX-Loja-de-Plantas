@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: jardim-vital-backend
-    runtime: node
-    buildCommand: npm install
-    startCommand: node api/server.js
-    envVars:
-      - key: NODE_ENV
-        value: production
