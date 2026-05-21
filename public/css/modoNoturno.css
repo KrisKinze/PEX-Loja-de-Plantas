@@ -258,3 +258,48 @@ body.modo-noturno #toast-container .toast {
     background-image: url("../images/Background/MODO ESCURO MENOR.svg"); /* Imagem otimizada para telas menores */
   }
 }
+
+/* ---- Ajustes específicos para o novo filtro do Catalgo de plantas ---- */
+body.modo-noturno .catalogo-filtros-box {
+  background-color: rgba(35, 20, 91, 0.45);
+  border-color: rgba(28, 163, 158, 0.22);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+}
+
+body.modo-noturno .catalogo-filtros-titulo {
+  color: #ffffff;
+}
+
+body.modo-noturno .catalogo-filtros-label {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.modo-noturno .filtro-btn {
+  background-color: rgba(2, 111, 110, 0.26);
+  color: #b9f3ef;
+  border-color: rgba(28, 163, 158, 0.28);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.24);
+}
+
+body.modo-noturno .filtro-btn:hover {
+  background-color: rgba(28, 163, 158, 0.2);
+  border-color: #1ca39e;
+}
+
+body.modo-noturno .filtro-btn.ativo {
+  background-color: #1ca39e;
+  color: #160d18;
+  border-color: #1ca39e;
+}
+
+body.modo-noturno .catalogo-limpar-btn {
+  background-color: #23145b;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+body.modo-noturno .catalogo-limpar-btn:hover {
+  background-color: #1ca39e;
+  color: #160d18;
+  border-color: #1ca39e;
+}

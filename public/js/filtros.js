@@ -1,151 +1,94 @@
 /* ============================================================ */
-/* SISTEMA DE FILTROS                                           */
-/* ============================================================ */
-
-
-
-/* ============================================================ */
-/* ESTADO DOS FILTROS ATIVOS                                    */
-/* ============================================================ */
-
-let tamanhosAtivos = new Set(['Pequena', 'Média', 'Grande']);
-
-// true = mostra apenas disponíveis (padrão ativo)
-let apenasDisponiveis = true;
-
-
-
-/* ============================================================ */
-/* INICIALIZAÇÃO — chamada pelo plantas.js após carregar dados  */
+/* SISTEMA DE FILTROS — versão com selects + busca             */
 /* ============================================================ */
 
 function salvarPlantasParaFiltro(plantas) {
-    inicializarFiltrosTamanho();
-    inicializarFiltroDisponibilidade();
+    inicializarFiltros();
 }
 
+function inicializarFiltros() {
+    const busca     = document.getElementById('busca-planta');
+    const tamanho   = document.getElementById('filtro-tamanho');
+    const disp      = document.getElementById('filtro-disponibilidade');
+    const ordem     = document.getElementById('filtro-ordem');
+    const btnLimpar = document.getElementById('btn-limpar-filtros');
 
+    if (!busca && !tamanho && !disp && !ordem) return;
 
-/* ============================================================ */
-/* FILTROS DE TAMANHO                                           */
-/* ============================================================ */
-
-function inicializarFiltrosTamanho() {
-    const botoesFiltro = document.querySelectorAll('.filtro-btn[data-tamanho]');
-
-    botoesFiltro.forEach(botao => {
-        botao.addEventListener('click', function(e) {
-            e.preventDefault();
-            const scrollAtual = window.scrollY;
-            const tamanho = this.getAttribute('data-tamanho');
-
-            this.classList.toggle('ativo');
-
-            if (this.classList.contains('ativo')) {
-                tamanhosAtivos.add(tamanho);
-            } else {
-                tamanhosAtivos.delete(tamanho);
-            }
-
-            aplicarFiltrosCombinados();
-
-            requestAnimationFrame(() => {
-                window.scrollTo({ top: scrollAtual, behavior: 'instant' });
-            });
-        });
+    // Dispara filtro ao interagir com qualquer campo
+    [busca, tamanho, disp, ordem].forEach(el => {
+        if (!el) return;
+        el.addEventListener('input', aplicarFiltrosCombinados);
+        el.addEventListener('change', aplicarFiltrosCombinados);
     });
-}
 
-
-
-/* ============================================================ */
-/* FILTRO DE DISPONIBILIDADE                                    */
-/* ============================================================ */
-
-function inicializarFiltroDisponibilidade() {
-    const btn = document.getElementById('btn-apenas-disponiveis');
-    if (!btn) return;
-
-    btn.classList.toggle('ativo', apenasDisponiveis);
-
-    btn.addEventListener('click', function(e) {
+    btnLimpar?.addEventListener('click', function (e) {
         e.preventDefault();
-        const scrollAtual = window.scrollY;
-
-        apenasDisponiveis = !apenasDisponiveis;
-        this.classList.toggle('ativo', apenasDisponiveis);
-
+        if (busca)   busca.value   = '';
+        if (tamanho) tamanho.value = '';
+        if (disp)    disp.value    = '';
+        if (ordem)   ordem.value   = 'preco-asc';
         aplicarFiltrosCombinados();
-
-        requestAnimationFrame(() => {
-            window.scrollTo({ top: scrollAtual, behavior: 'instant' });
-        });
     });
+
+    // Aplica filtros iniciais respeitando o select "Disponíveis" pré-selecionado
+    aplicarFiltrosCombinados();
 }
 
-
-
 /* ============================================================ */
-/* FILTRO COMBINADO (tamanho + disponibilidade)                 */
+/* FILTRO COMBINADO                                             */
 /* ============================================================ */
 
 function aplicarFiltrosCombinados() {
+    const termoBusca = document.getElementById('busca-planta')?.value.toLowerCase().trim() || '';
+    const tamanhoVal = document.getElementById('filtro-tamanho')?.value || '';
+    const dispVal    = document.getElementById('filtro-disponibilidade')?.value || '';
+    const ordemVal   = document.getElementById('filtro-ordem')?.value || 'preco-asc';
+
     let resultado = [...todasPlantas];
 
-    // Aplica filtro de tamanho — se nenhum ativo, mostra nenhuma
-    if (tamanhosAtivos.size === 0) {
-        renderizarCatalogo([]);
-        return;
-    }
-    resultado = resultado.filter(planta => tamanhosAtivos.has(planta.tamanho));
-
-    // Aplica filtro de disponibilidade — só filtra se o botão estiver ativo
-    if (apenasDisponiveis) {
-        resultado = resultado.filter(planta => planta.disponivel !== 0 && planta.disponivel !== null);    
+    // Busca por nome
+    if (termoBusca) {
+        resultado = resultado.filter(p =>
+            p.nome.toLowerCase().includes(termoBusca)
+        );
     }
 
-    resultado.sort((a, b) => a.preco - b.preco);
+    // Tamanho
+    if (tamanhoVal) {
+        resultado = resultado.filter(p => p.tamanho === tamanhoVal);
+    }
+
+    // Disponibilidade
+    if (dispVal === 'disponivel') {
+        resultado = resultado.filter(p => Number(p.disponivel) > 0);
+    } else if (dispVal === 'indisponivel') {
+        resultado = resultado.filter(p => Number(p.disponivel) === 0);
+    }
+
+    // Ordenação
+    switch (ordemVal) {
+        case 'preco-asc':  resultado.sort((a, b) => a.preco - b.preco); break;
+        case 'preco-desc': resultado.sort((a, b) => b.preco - a.preco); break;
+        case 'nome-asc':   resultado.sort((a, b) => a.nome.localeCompare(b.nome)); break;
+        case 'nome-desc':  resultado.sort((a, b) => b.nome.localeCompare(a.nome)); break;
+    }
+
     renderizarCatalogo(resultado);
 }
 
-
-
-/* ============================================================ */
-/* ORDENAÇÃO                                                    */
-/* ============================================================ */
-
+/* Mantidas por compatibilidade com chamadas externas */
 function ordenarPlantas(criterio) {
-    let plantasOrdenadas = [...todasPlantas];
-
-    switch (criterio) {
-        case 'nome-asc':   plantasOrdenadas.sort((a, b) => a.nome.localeCompare(b.nome)); break;
-        case 'nome-desc':  plantasOrdenadas.sort((a, b) => b.nome.localeCompare(a.nome)); break;
-        case 'preco-asc':  plantasOrdenadas.sort((a, b) => a.preco - b.preco); break;
-        case 'preco-desc': plantasOrdenadas.sort((a, b) => b.preco - a.preco); break;
-    }
-
-    renderizarCatalogo(plantasOrdenadas);
+    const ordemSelect = document.getElementById('filtro-ordem');
+    if (ordemSelect) ordemSelect.value = criterio;
+    aplicarFiltrosCombinados();
 }
-
-
-
-/* ============================================================ */
-/* BUSCA POR NOME                                               */
-/* ============================================================ */
 
 function buscarPorNome(termo) {
-    const termoLower = termo.toLowerCase();
-    const plantasEncontradas = todasPlantas.filter(planta =>
-        planta.nome.toLowerCase().includes(termoLower)
-    );
-    renderizarCatalogo(plantasEncontradas);
+    const buscaInput = document.getElementById('busca-planta');
+    if (buscaInput) buscaInput.value = termo;
+    aplicarFiltrosCombinados();
 }
-
-
-
-/* ============================================================ */
-/* RESET GERAL                                                  */
-/* ============================================================ */
 
 function resetarFiltros() {
     renderizarCatalogo(todasPlantas);

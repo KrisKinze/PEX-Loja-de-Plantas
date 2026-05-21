@@ -1,110 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loja de Plantas - Jardim Vital</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="public/css/reset.css" />
-    <link rel="stylesheet" href="public/css/global.css" />
-    <link rel="stylesheet" href="public/css/modoNoturno.css" />
-    <link rel="stylesheet" href="public/css/header.css" />
-    <link rel="stylesheet" href="public/css/logoCentral.css" />
-    <link rel="stylesheet" href="public/css/carrousel.css" />
-    <link rel="stylesheet" href="public/css/carrouselThumbnails.css" />
-    <link rel="stylesheet" href="public/css/abas.css" />
-    <link rel="stylesheet" href="public/css/catalogoDePlantas.css" />
-    <link rel="stylesheet" href="public/css/localizacao.css" />
-    <link rel="stylesheet" href="public/css/contato.css" />
-    <link rel="stylesheet" href="public/css/notificacao.css" />
-    <link rel="stylesheet" href="public/css/rodape.css" />
-    <link rel="stylesheet" href="public/css/shoelace-override.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loja de Plantas - Jardim Vital</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="public/css/reset.css" />
+  <link rel="stylesheet" href="public/css/global.css" />
+  <link rel="stylesheet" href="public/css/modoNoturno.css" />
+  <link rel="stylesheet" href="public/css/header.css" />
+  <link rel="stylesheet" href="public/css/logoCentral.css" />
+  <link rel="stylesheet" href="public/css/carrousel.css" />
+  <link rel="stylesheet" href="public/css/carrouselThumbnails.css" />
+  <link rel="stylesheet" href="public/css/abas.css" />
+  <link rel="stylesheet" href="public/css/catalogoDePlantas.css" />
+  <link rel="stylesheet" href="public/css/localizacao.css" />
+  <link rel="stylesheet" href="public/css/contato.css" />
+  <link rel="stylesheet" href="public/css/notificacao.css" />
+  <link rel="stylesheet" href="public/css/rodape.css" />
+  <link rel="stylesheet" href="public/css/shoelace-override.css" />
 
 
-    <!--Bibliotecas de CSS-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
+  <!--Bibliotecas de CSS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'" />
 
-    <!--Icones-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <!--Icones-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    onload="this.onload=null;this.rel='stylesheet'">
 
-    <!--Fontes-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&display=swap"
-      rel="stylesheet"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-  </head>
+  <!--Fontes-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&display=swap" rel="stylesheet"
+    onload="this.onload=null;this.rel='stylesheet'" />
+</head>
 
-  <body>
-    <div class="page-wrapper">
+<body>
+  <div class="page-wrapper">
     <!-- ================================================================ -->
     <!-- ========================== HEADER ============================== -->
     <!-- ================================================================ -->
     <header>
-      <div id="logo-redonda">
-        <img
-          src="public/images/logos/Logo redonda JV sem fundo.svg"
-          alt="Logo da Loja Jardim Vital"
-        />
+      <div class="topbar-esquerda">
+        <div id="logo-redonda">
+          <img src="public/images/logos/Logo redonda JV sem fundo.svg" alt="Logo da Loja Jardim Vital">
+        </div>
+
+        <a href="admin.html" class="admin-btn-home" aria-label="Ir para a área administrativa"
+          title="Área administrativa">
+          <i class="bi bi-gear-fill"></i>
+        </a>
       </div>
 
       <div id="iconesdasredes">
         <div>
           <a href="https://maps.app.goo.gl/Ln3XPQQstazAvj7G6" target="_blank">
-            <sl-icon-button
-              name="geo-alt"
-              class="icone-contato icone-localizacao"
-            ></sl-icon-button>
+            <sl-icon-button name="geo-alt" class="icone-contato icone-localizacao"></sl-icon-button>
           </a>
         </div>
         <div>
           <a href="#" target="_blank" class="whatsapp-notification-trigger">
-            <sl-icon-button
-              name="whatsapp"
-              class="icone-contato icone-whatsapp"
-            ></sl-icon-button>
+            <sl-icon-button name="whatsapp" class="icone-contato icone-whatsapp"></sl-icon-button>
           </a>
         </div>
         <div>
           <a href="https://www.instagram.com/jardimdavital/" target="_blank">
-            <sl-icon-button
-              name="instagram"
-              class="icone-contato icone-instagram"
-            ></sl-icon-button>
+            <sl-icon-button name="instagram" class="icone-contato icone-instagram"></sl-icon-button>
           </a>
         </div>
         <div>
           <a href="#contato" id="link-contato">
-            <sl-icon-button
-              name="envelope"
-              class="icone-contato icone-email"
-            ></sl-icon-button>
+            <sl-icon-button name="envelope" class="icone-contato icone-email"></sl-icon-button>
           </a>
         </div>
         <div>
-          <a
-            href="#"
-            id="toggle-modo-noturno"
-            aria-label="Alternar Modo Noturno"
-          >
-            <sl-icon
-              name="moon"
-              class="icone-contato icone-modo-noturno"
-            ></sl-icon>
+          <a href="#" id="toggle-modo-noturno" aria-label="Alternar Modo Noturno">
+            <sl-icon name="moon" class="icone-contato icone-modo-noturno"></sl-icon>
           </a>
         </div>
       </div>
@@ -116,10 +93,7 @@
 
     <section id="container-logo-central" class="container">
       <div class="logo-central">
-        <img
-          src="public/images/logos/Logo completa sem fundo.svg"
-          alt="Logo da Loja Jardim da Vital"
-        />
+        <img src="public/images/logos/Logo completa sem fundo.svg" alt="Logo da Loja Jardim da Vital" />
       </div>
     </section>
 
@@ -130,65 +104,35 @@
       <div class="produtos-grid">
         <sl-carousel loop navigation autoplay autoplay-interval="4000" class="carousel-thumbnails">
           <sl-carousel-item>
-            <img
-              src="public/images/Plantas/Carousel/PlantasCarousel1.svg"
-              alt="Planta 1"
-            />
+            <img src="public/images/Plantas/Carousel/PlantasCarousel1.svg" alt="Planta 1" />
           </sl-carousel-item>
           <sl-carousel-item>
-            <img
-              src="public/images/Plantas/Carousel/PlantasCarousel2.svg"
-              alt="Planta 2"
-            />
+            <img src="public/images/Plantas/Carousel/PlantasCarousel2.svg" alt="Planta 2" />
           </sl-carousel-item>
           <sl-carousel-item>
-            <img
-              src="public/images/Plantas/Carousel/PlantasCarousel3.svg"
-              alt="Planta 3"
-            />
+            <img src="public/images/Plantas/Carousel/PlantasCarousel3.svg" alt="Planta 3" />
           </sl-carousel-item>
           <sl-carousel-item>
-            <img
-              src="public/images/Plantas/Carousel/PlantasCarousel4.svg"
-              alt="Planta 4"
-            />
+            <img src="public/images/Plantas/Carousel/PlantasCarousel4.svg" alt="Planta 4" />
           </sl-carousel-item>
           <sl-carousel-item>
-            <img
-              src="public/images/Plantas/Carousel/PlantasCarousel5.svg"
-              alt="Planta 5"
-            />
+            <img src="public/images/Plantas/Carousel/PlantasCarousel5.svg" alt="Planta 5" />
           </sl-carousel-item>
         </sl-carousel>
       </div>
 
       <div class="thumbnails">
         <div class="thumbnails__scroller">
-          <img
-            alt="Thumbnail by 1"
-            class="thumbnails__image active"
-            src="public/images/Plantas/Carousel/PlantasCarousel1.svg"
-          />
-          <img
-            alt="Thumbnail by 2"
-            class="thumbnails__image"
-            src="public/images/Plantas/Carousel/PlantasCarousel2.svg"
-          />
-          <img
-            alt="Thumbnail by 3"
-            class="thumbnails__image"
-            src="public/images/Plantas/Carousel/PlantasCarousel3.svg"
-          />
-          <img
-            alt="Thumbnail by 4"
-            class="thumbnails__image"
-            src="public/images/Plantas/Carousel/PlantasCarousel4.svg"
-          />
-          <img
-            alt="Thumbnail by 5"
-            class="thumbnails__image"
-            src="public/images/Plantas/Carousel/PlantasCarousel5.svg"
-          />
+          <img alt="Thumbnail by 1" class="thumbnails__image active"
+            src="public/images/Plantas/Carousel/PlantasCarousel1.svg" />
+          <img alt="Thumbnail by 2" class="thumbnails__image"
+            src="public/images/Plantas/Carousel/PlantasCarousel2.svg" />
+          <img alt="Thumbnail by 3" class="thumbnails__image"
+            src="public/images/Plantas/Carousel/PlantasCarousel3.svg" />
+          <img alt="Thumbnail by 4" class="thumbnails__image"
+            src="public/images/Plantas/Carousel/PlantasCarousel4.svg" />
+          <img alt="Thumbnail by 5" class="thumbnails__image"
+            src="public/images/Plantas/Carousel/PlantasCarousel5.svg" />
         </div>
       </div>
     </section>
@@ -198,53 +142,24 @@
     <!-- ================================================================ -->
     <section id="abas" class="container mt-5">
       <div class="tab-content" id="abasConteudo">
-        <div
-          class="tab-pane fade show active"
-          id="aba1"
-          role="tabpanel"
-          aria-labelledby="aba1-tab"
-        >
+        <div class="tab-pane fade show active" id="aba1" role="tabpanel" aria-labelledby="aba1-tab">
           <!-- Menu de Abas como "alça" do container -->
           <ul class="nav nav-tabs abas-alca" role="tablist">
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link active"
-                id="aba1-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#aba1"
-                type="button"
-                role="tab"
-                aria-controls="aba1"
-                aria-selected="true"
-              >
+              <button class="nav-link active" id="aba1-tab" data-bs-toggle="tab" data-bs-target="#aba1" type="button"
+                role="tab" aria-controls="aba1" aria-selected="true">
                 <sl-icon name="grid"></sl-icon> Nossas Plantas
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="aba2-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#aba2"
-                type="button"
-                role="tab"
-                aria-controls="aba2"
-                aria-selected="false"
-              >
+              <button class="nav-link" id="aba2-tab" data-bs-toggle="tab" data-bs-target="#aba2" type="button"
+                role="tab" aria-controls="aba2" aria-selected="false">
                 <sl-icon name="geo-alt"></sl-icon> Localização
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="aba3-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#aba3"
-                type="button"
-                role="tab"
-                aria-controls="aba3"
-                aria-selected="false"
-              >
+              <button class="nav-link" id="aba3-tab" data-bs-toggle="tab" data-bs-target="#aba3" type="button"
+                role="tab" aria-controls="aba3" aria-selected="false">
                 <sl-icon name="envelope"></sl-icon> Contato
               </button>
             </li>
@@ -255,30 +170,68 @@
           <section id="catalogo" class="container">
             <!-- Título do Catálogo (agora DENTRO do container verde) -->
             <div class="tituloDoCatalogo">
-              <img
-                src="public/images/Icons/Inicio Catalogo de itens.svg"
-                alt="Catalogo de Plantas"
-              />
+              <img src="public/images/Icons/Inicio Catalogo de itens.svg" alt="Catalogo de Plantas" />
             </div>
 
-            <!-- Filtros de Tamanho -->
-            <div id="filtros-tamanho">
-              <button class="filtro-btn ativo" data-tamanho="Pequena">
-                🌱 Pequenas
-              </button>
-              <button class="filtro-btn ativo" data-tamanho="Média">
-                🌿 Médias
-              </button>
-              <button class="filtro-btn ativo" data-tamanho="Grande">
-                🌳 Grandes
-              </button>
-            </div>
+            <!-- Painel de filtros do catálogo -->
+            <div class="catalogo-filtros-box" id="filtros-catalogo">
+              <div class="catalogo-filtros-inner">
 
-            <!-- Disponibilidade — agora 1 único botão -->
-            <div id="filtros-disponibilidade">
-              <button class="filtro-btn filtro-disp ativo" id="btn-apenas-disponiveis">
-                ✅ Apenas Disponíveis
-              </button>
+                <!-- Busca por nome -->
+                <div class="filtro-campo">
+                  <label class="catalogo-filtros-label" for="busca-planta">
+                    <i class="bi bi-search"></i> Buscar
+                  </label>
+                  <input type="search" id="busca-planta" class="filtro-input" placeholder="Nome da planta..."
+                    autocomplete="off" aria-label="Buscar planta por nome" />
+                </div>
+
+                <!-- Filtro de tamanho -->
+                <div class="filtro-campo">
+                  <label class="catalogo-filtros-label" for="filtro-tamanho">
+                    <i class="bi bi-tree"></i> Tamanho
+                  </label>
+                  <select id="filtro-tamanho" class="filtro-select" aria-label="Filtrar por tamanho">
+                    <option value="">Todos</option>
+                    <option value="Pequena">🌱 Pequenas</option>
+                    <option value="Média">🌿 Médias</option>
+                    <option value="Grande">🌳 Grandes</option>
+                  </select>
+                </div>
+
+                <!-- Filtro de disponibilidade -->
+                <div class="filtro-campo">
+                  <label class="catalogo-filtros-label" for="filtro-disponibilidade">
+                    <i class="bi bi-check-circle"></i> Status
+                  </label>
+                  <select id="filtro-disponibilidade" class="filtro-select" aria-label="Filtrar por disponibilidade">
+                    <option value="">Todos</option>
+                    <option value="disponivel" selected>✅ Disponíveis</option>
+                    <option value="indisponivel">🚫 Indisponíveis</option>
+                  </select>
+                </div>
+
+                <!-- Ordenação -->
+                <div class="filtro-campo">
+                  <label class="catalogo-filtros-label" for="filtro-ordem">
+                    <i class="bi bi-sort-down"></i> Ordenar
+                  </label>
+                  <select id="filtro-ordem" class="filtro-select" aria-label="Ordenar plantas">
+                    <option value="preco-asc">💲 Menor preço</option>
+                    <option value="preco-desc">💲 Maior preço</option>
+                    <option value="nome-asc">🔤 A → Z</option>
+                    <option value="nome-desc">🔤 Z → A</option>
+                  </select>
+                </div>
+
+                <!-- Botão limpar -->
+                <div class="filtro-campo filtro-campo-limpar">
+                  <button type="button" class="catalogo-limpar-btn" id="btn-limpar-filtros">
+                    <i class="bi bi-arrow-counterclockwise"></i> Limpar
+                  </button>
+                </div>
+
+              </div>
             </div>
 
             <!-- Container do Carrossel de Plantas -->
@@ -286,12 +239,12 @@
               <button class="carousel-btn carousel-btn-prev" id="btnPrev" aria-label="Anterior">
                 &#8249;
               </button>
-              
+
               <!-- Catálogo de Plantas (Carrossel) -->
               <div id="catalogosDePlantas">
                 <!-- As plantas serão carregadas dinamicamente aqui pelo plantas.js -->
               </div>
-              
+
               <button class="carousel-btn carousel-btn-next" id="btnNext" aria-label="Próximo">
                 &#8250;
               </button>
@@ -300,59 +253,27 @@
 
           <!-- Final do Catálogo (fora do container verde) -->
           <div class="finaldocatalogo">
-            <img
-              src="public/images/Icons/Final Catalogo de itens.svg"
-              alt="Final Do Catalogo de Plantas"
-            />
+            <img src="public/images/Icons/Final Catalogo de itens.svg" alt="Final Do Catalogo de Plantas" />
           </div>
         </div>
-        <div
-          class="tab-pane fade"
-          id="aba2"
-          role="tabpanel"
-          aria-labelledby="aba2-tab"
-        >
+        <div class="tab-pane fade" id="aba2" role="tabpanel" aria-labelledby="aba2-tab">
           <!-- Menu de Abas como "alça" do container -->
           <ul class="nav nav-tabs abas-alca" role="tablist">
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="aba1-tab-2"
-                data-bs-toggle="tab"
-                data-bs-target="#aba1"
-                type="button"
-                role="tab"
-                aria-controls="aba1"
-                aria-selected="false"
-              >
+              <button class="nav-link" id="aba1-tab-2" data-bs-toggle="tab" data-bs-target="#aba1" type="button"
+                role="tab" aria-controls="aba1" aria-selected="false">
                 <sl-icon name="grid"></sl-icon> Nossas Plantas
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link active"
-                id="aba2-tab-2"
-                data-bs-toggle="tab"
-                data-bs-target="#aba2"
-                type="button"
-                role="tab"
-                aria-controls="aba2"
-                aria-selected="true"
-              >
+              <button class="nav-link active" id="aba2-tab-2" data-bs-toggle="tab" data-bs-target="#aba2" type="button"
+                role="tab" aria-controls="aba2" aria-selected="true">
                 <sl-icon name="geo-alt"></sl-icon> Localização
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="aba3-tab-2"
-                data-bs-toggle="tab"
-                data-bs-target="#aba3"
-                type="button"
-                role="tab"
-                aria-controls="aba3"
-                aria-selected="false"
-              >
+              <button class="nav-link" id="aba3-tab-2" data-bs-toggle="tab" data-bs-target="#aba3" type="button"
+                role="tab" aria-controls="aba3" aria-selected="false">
                 <sl-icon name="envelope"></sl-icon> Contato
               </button>
             </li>
@@ -383,62 +304,30 @@
               <div class="google-maps">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3678.2760650478763!2d-43.29385647499555!3d-22.792232383786466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997af550566a8b%3A0x9c6403027af6e759!2sParque%20Beira%20Mar%2C%20Duque%20de%20Caxias%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1743201448279!5m2!1spt-BR!2sbr"
-                  allowfullscreen=""
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                >
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
               </div>
             </div>
           </section>
         </div>
-        <div
-          class="tab-pane fade"
-          id="aba3"
-          role="tabpanel"
-          aria-labelledby="aba3-tab"
-        >
+        <div class="tab-pane fade" id="aba3" role="tabpanel" aria-labelledby="aba3-tab">
           <!-- Menu de Abas como "alça" do container -->
           <ul class="nav nav-tabs abas-alca" role="tablist">
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="aba1-tab-3"
-                data-bs-toggle="tab"
-                data-bs-target="#aba1"
-                type="button"
-                role="tab"
-                aria-controls="aba1"
-                aria-selected="false"
-              >
+              <button class="nav-link" id="aba1-tab-3" data-bs-toggle="tab" data-bs-target="#aba1" type="button"
+                role="tab" aria-controls="aba1" aria-selected="false">
                 <sl-icon name="grid"></sl-icon> Nossas Plantas
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="aba2-tab-3"
-                data-bs-toggle="tab"
-                data-bs-target="#aba2"
-                type="button"
-                role="tab"
-                aria-controls="aba2"
-                aria-selected="false"
-              >
+              <button class="nav-link" id="aba2-tab-3" data-bs-toggle="tab" data-bs-target="#aba2" type="button"
+                role="tab" aria-controls="aba2" aria-selected="false">
                 <sl-icon name="geo-alt"></sl-icon> Localização
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button
-                class="nav-link active"
-                id="aba3-tab-3"
-                data-bs-toggle="tab"
-                data-bs-target="#aba3"
-                type="button"
-                role="tab"
-                aria-controls="aba3"
-                aria-selected="true"
-              >
+              <button class="nav-link active" id="aba3-tab-3" data-bs-toggle="tab" data-bs-target="#aba3" type="button"
+                role="tab" aria-controls="aba3" aria-selected="true">
                 <sl-icon name="envelope"></sl-icon> Contato
               </button>
             </li>
@@ -453,44 +342,23 @@
 
             <div id="redes-contatos">
               <div class="redes-contatos-item">
-                <a
-                  href="#"
-                  target="_blank"
-                  class="whatsapp-notification-trigger"
-                >
-                  <sl-icon
-                    name="whatsapp"
-                    class="icone-contato icone-whatsapp"
-                  ></sl-icon>
+                <a href="#" target="_blank" class="whatsapp-notification-trigger">
+                  <sl-icon name="whatsapp" class="icone-contato icone-whatsapp"></sl-icon>
                   <span>WhatsApp</span>
                 </a>
               </div>
 
-              <div
-                class="redes-contatos-item"
-                id="redes-contatos-item-instagram"
-              >
-                <a
-                  href="https://www.instagram.com/jardimdavital/"
-                  target="_blank"
-                >
-                  <sl-icon
-                    name="instagram"
-                    class="icone-contato icone-instagram"
-                  ></sl-icon>
+              <div class="redes-contatos-item" id="redes-contatos-item-instagram">
+                <a href="https://www.instagram.com/jardimdavital/" target="_blank">
+                  <sl-icon name="instagram" class="icone-contato icone-instagram"></sl-icon>
                   <span>@JardimDaVital</span>
                 </a>
               </div>
 
               <div class="redes-contatos-item">
-                <a
-                  href="mailto:jardimdavital@gmail.com?subject=Contato%20de%20compra%20para%20Jardim%20da%20Vital&body=Olá,%20gostaria%20de%20saber%20mais%20sobre%20as%20plantas%20disponíveis.%20Estou%20interessado%20nas:"
-                  target="_blank"
-                >
-                  <sl-icon
-                    name="envelope"
-                    class="icone-contato icone-email"
-                  ></sl-icon>
+                <a href="mailto:jardimdavital@gmail.com?subject=Contato%20de%20compra%20para%20Jardim%20da%20Vital&body=Olá,%20gostaria%20de%20saber%20mais%20sobre%20as%20plantas%20disponíveis.%20Estou%20interessado%20nas:"
+                  target="_blank">
+                  <sl-icon name="envelope" class="icone-contato icone-email"></sl-icon>
                   <span>Jardimdavital@gmail.com</span>
                 </a>
               </div>
@@ -510,11 +378,8 @@
 
               <label for="mensagem-carrinho">Itens do Carrinho:</label>
               <button type="button" id="resetar-carrinho" class="btn-resetar-carrinho">Resetar Carrinho</button>
-              <textarea
-                id="mensagem-carrinho"
-                placeholder="Itens adicionados ao carrinho aparecerão aqui..."
-                readonly
-              ></textarea>
+              <textarea id="mensagem-carrinho" placeholder="Itens adicionados ao carrinho aparecerão aqui..."
+                readonly></textarea>
 
               <button type="submit" id="botao-enviar">Enviar</button>
             </form>
@@ -527,32 +392,49 @@
     <!-- ========================== RODAPÉ ============================== -->
     <!-- ================================================================ -->
     <footer>
-      
+
       <div class="container" id="redesRodape">
 
         <hr class="footer-divisor" />
-        
+
         <p>
-          Este projeto foi desenvolvido como parte do Programa de Extensão (PEX) da Faculdade de Análise e Desenvolvimento de Sistemas (ADS). 
-          A landing page foi criada com o objetivo de apoiar a comunidade local, promovendo a venda de plantas e incentivando práticas sustentáveis e o cuidado com o meio ambiente. 
-          Agradecemos sinceramente por visitar nossa página! Caso tenha interesse em entrar em contato, utilize uma das redes sociais abaixo.
+          Este projeto foi desenvolvido como parte do Programa de Extensão (PEX) da Faculdade de Análise e
+          Desenvolvimento de Sistemas (ADS).
+          A landing page foi criada com o objetivo de apoiar a comunidade local, promovendo a venda de plantas e
+          incentivando práticas sustentáveis e o cuidado com o meio ambiente.
+          Agradecemos sinceramente por visitar nossa página! Caso tenha interesse em entrar em contato, utilize uma das
+          redes sociais abaixo.
         </p>
 
         <hr class="footer-divisor" />
 
-          <div id="links-redesRodape">
+        <div id="links-redesRodape">
           <a href="https://www.linkedin.com/in/cristhian-campelo" target="_blank" class="btn btn-dark">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin"
+              viewBox="0 0 16 16">
+              <path
+                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+            </svg>
             Cristhian Campelo
-          </a> 
+          </a>
 
           <a href="https://github.com/cristhian-campelo" target="_blank" class="btn btn-dark">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 4.01 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
+              viewBox="0 0 16 16">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 4.01 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+            </svg>
             cristhian-campelo
-          </a> 
+          </a>
 
-          <a href="mailto:campelo.cfc@gmail.com"  target="_blank" class="btn btn-dark">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-at-fill" viewBox="0 0 16 16"><path d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671"/><path d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791"/></svg>
+          <a href="mailto:campelo.cfc@gmail.com" target="_blank" class="btn btn-dark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-envelope-at-fill" viewBox="0 0 16 16">
+              <path
+                d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
+              <path
+                d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791" />
+            </svg>
             campelo.cfc@gmail.com
           </a>
         </div>
@@ -562,46 +444,44 @@
       <hr class="footer-divisor" />
 
       <div class="container" id="direitosRodape">
-        <p>&copy; 2025 Jardim Vital. Todos os direitos reservados.</p>
-        <p>Desenvolvido por <a href="https://github.com/cristhian-campelo" target="_blank">Cristhian Campelo / @cristhian-campelo</a></p>
+        <p>&copy; 2026 Jardim Vital. Todos os direitos reservados.</p>
+        <p>Desenvolvido por <a href="https://github.com/cristhian-campelo" target="_blank">Cristhian Campelo /
+            @cristhian-campelo</a></p>
       </div>
 
     </footer>
-    </div>
-    <!-- ================================================================ -->
-    <!-- ========================== NOTIFICACOES ======================== -->
-    <!-- ================================================================ -->
+  </div>
+  <!-- ================================================================ -->
+  <!-- ========================== NOTIFICACOES ======================== -->
+  <!-- ================================================================ -->
 
-    <div id="toast-container" class="container"></div>
+  <div id="toast-container" class="container"></div>
 
-    <!-- ================================================================ -->
-    <!-- ========================== SCRIPTS ============================== -->
-    <!-- ================================================================ -->
+  <!-- ================================================================ -->
+  <!-- ========================== SCRIPTS ============================== -->
+  <!-- ================================================================ -->
 
-    <!-- <script src="public/js/script.js"></script> -->
-    <script src="public/js/carrousel.js"></script>
-    <script src="public/js/autorolagemAbasMenu.js"></script>
-    <!-- <script src="public/js/stickyAbas.js"></script> --> <!-- DESATIVADO: Abas agora são alças fixas -->
-    <script src="public/js/sincronizarAbas.js"></script> <!-- NOVO: Sincroniza todas as abas -->
-    <script src="public/js/categoriasdocatalogo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="public/js/enviodoformulario.js"></script>
-    <script src="public/js/whatsappNotification.js"></script>
-    <!-- <script src="public/js/teste.js"></script> -->
-    <script src="public/js/iconedeemaildohead.js"></script>
-    <script src="public/js/scrollToTop.js"></script>
-    <script src="public/js/modoNoturno.js"></script>
-    <script src="public/js/filtros.js"></script>
-    <script type="module" src="public/js/plantas.js"></script>
+  <!-- <script src="public/js/script.js"></script> -->
+  <script src="public/js/carrousel.js"></script>
+  <script src="public/js/autorolagemAbasMenu.js"></script>
+  <!-- <script src="public/js/stickyAbas.js"></script> --> <!-- DESATIVADO: Abas agora são alças fixas -->
+  <script src="public/js/sincronizarAbas.js"></script> <!-- NOVO: Sincroniza todas as abas -->
+  <script src="public/js/categoriasdocatalogo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="public/js/enviodoformulario.js"></script>
+  <script src="public/js/whatsappNotification.js"></script>
+  <!-- <script src="public/js/teste.js"></script> -->
+  <script src="public/js/iconedeemaildohead.js"></script>
+  <script src="public/js/scrollToTop.js"></script>
+  <script src="public/js/modoNoturno.js"></script>
+  <script src="public/js/filtros.js"></script>
+  <script type="module" src="public/js/plantas.js"></script>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"
-    ></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script type="module"
+    src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+</body>
+
 </html>

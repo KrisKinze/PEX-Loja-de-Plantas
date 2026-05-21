@@ -1,0 +1,154 @@
+/* ================================================================
+   ADMINMODO NOTURNO.CSS — Sobrescritas do modo escuro do admin
+   ================================================================= */
+
+/* Containers escuros */
+body.modo-noturno #admin-login-card,
+body.modo-noturno #admin-topbar,
+body.modo-noturno .admin-secao,
+body.modo-noturno .admin-planta-card,
+body.modo-noturno #admin-form-card {
+  background-color: #160d18;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+/* Títulos principais */
+body.modo-noturno .admin-login-titulo,
+body.modo-noturno #admin-titulo-painel,
+body.modo-noturno #admin-form-titulo,
+body.modo-noturno .admin-card-nome,
+body.modo-noturno .admin-field label,
+body.modo-noturno .admin-checkbox-label {
+  color: #ffffff;
+}
+
+/* Textos secundários */
+body.modo-noturno .admin-login-subtitulo,
+body.modo-noturno .admin-card-detalhe,
+body.modo-noturno #admin-contador,
+body.modo-noturno .admin-empty,
+body.modo-noturno .admin-btn-secundario {
+  color: #d8d8d8;
+}
+
+/* Inputs, selects e textarea */
+body.modo-noturno .admin-field input,
+body.modo-noturno .admin-field select,
+body.modo-noturno .admin-field textarea,
+body.modo-noturno #admin-filtros input,
+body.modo-noturno #admin-filtros select {
+  color: #ffffff;
+  background-color: #221326;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Placeholder */
+body.modo-noturno .admin-field input::placeholder,
+body.modo-noturno .admin-field textarea::placeholder,
+body.modo-noturno #admin-filtros input::placeholder {
+  color: #b9b9b9;
+}
+
+/* Botão secundário */
+body.modo-noturno .admin-btn-secundario {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+body.modo-noturno .admin-btn-secundario:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Ícone do olho da senha */
+body.modo-noturno #toggle-senha {
+  color: #d8d8d8;
+}
+
+body.modo-noturno #toggle-senha:hover {
+  color: #ffffff;
+}
+
+/* ================================================================
+   ABAS DO ADMIN NO MODO ESCURO
+   ================================================================= */
+body.modo-noturno #admin-abas .admin-aba {
+  background-color: #23145b;
+  color: #ffffff;
+  border: 1px solid #23145b;
+}
+
+body.modo-noturno #admin-abas .admin-aba:hover {
+  background-color: #026f6e;
+  color: #ffffff;
+  border-color: #026f6e;
+}
+
+body.modo-noturno #admin-abas .admin-aba.ativa {
+  background-color: #1ca39e;
+  color: #160d18;
+  border-color: #1ca39e;
+  font-weight: 700;
+}
+
+body.modo-noturno .admin-planta-card {
+  background-color: #170f28;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ------ Botões dentro do card da planta ------ */
+/* --- Botões de ação dos cards — modo noturno --*/
+
+body.modo-noturno .admin-btn-editar {
+  background: #0c3547;
+  color: #7dd3f0;
+  border-color: #1a5a78;
+}
+
+body.modo-noturno .admin-btn-editar:hover {
+  background: #1a5a78;
+}
+
+body.modo-noturno .admin-btn-toggle {
+  background: #3d2e00;
+  color: #f5c842;
+  border-color: #6b4e00;
+}
+
+body.modo-noturno .admin-btn-toggle:hover {
+  background: #6b4e00;
+}
+
+body.modo-noturno .admin-btn-excluir {
+  background: #3d0a0a;
+  color: #f87171;
+  border-color: #6b1111;
+}
+
+body.modo-noturno .admin-btn-excluir:hover {
+  background: #6b1111;
+}
+
+/* ================================================================
+   BADGES DE STATUS — MODO ESCURO
+================================================================= */
+
+body.modo-noturno .admin-card-badge.disponivel,
+body.modo-noturno .admin-badge.admin-badge-disponivel {
+  background: #163a2b;
+  color: #86efac;
+  border: 1.5px solid #22c55e;
+}
+
+body.modo-noturno .admin-card-badge.indisponivel,
+body.modo-noturno .admin-badge.admin-badge-indisponivel {
+  background: #3a1616;
+  color: #fca5a5;
+  border: 1.5px solid #ef4444;
+}
+
+body.modo-noturno .admin-card-badge.reservado,
+body.modo-noturno .admin-badge.admin-badge-reservado {
+  background: #3b2412;
+  color: #fdba74;
+  border: 1.5px solid #f59e0b;
+}
