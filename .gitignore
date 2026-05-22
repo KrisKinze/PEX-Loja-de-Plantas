@@ -1,25 +1,25 @@
 # Arquivos do Sistema Operacional
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Arquivos de IDEs
+# Arquivos de IDEs e Editores
 .vscode/
 *.swp
 
-# Arquivos de Dependências
+# Pastas de ferramentas (Prevenção)
 node_modules/
-
-# Arquivo de Variáveis de Ambiente
 .env
 
-# Scripts auxiliares de banco (não necessários em produção)
-api/adicionar-tamanho.js
-api/atualizar-dados.js
-
-# Arquivos de trabalho/temporários
+# Arquivos de trabalho, logs e rascunhos locais
 *.md.backup
+*.log
 limpar_*.py
 LIMPEZA_*.md
 CONFIGURACAO_*.md
 domain.txt
 GUIA.md
+
+# Pasta legada do backend (opcional, caso ainda exista na sua máquina e não queira upar)
+api/
+server.js
