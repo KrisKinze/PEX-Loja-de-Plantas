@@ -113,6 +113,10 @@
             <button type="submit" class="admin-btn-primario" id="btn-entrar">
               <i class="bi bi-box-arrow-in-right"></i> Entrar
             </button>
+            <button type="button" class="admin-btn-secundario" id="btn-visitante"
+              style="margin-top: 15px; width: 100%; border: 2px solid var(--cor-textos); background: transparent;">
+              <i class="bi bi-person-badge"></i> Entrar como Visitante
+            </button>
           </form>
         </div>
       </div>
@@ -122,128 +126,135 @@
       <!-- ============================================================ -->
       <div id="admin-painel" hidden>
 
+        <!-- NOVO: Banner Visitante -->
+        <div id="banner-visitante"
+          style="background-color: #ffc107; color: #856404; padding: 12px; text-align: center; font-weight: 500; width: 100%; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #ffeeba; display: none;">
+          <i class="bi bi-exclamation-triangle-fill"></i> Você está em modo visitante. Nenhuma alteração pode ser salva.
+        </div>
+
         <!-- Barra superior do painel -->
-        <div id="admin-topbar">
-          <h1 id="admin-titulo-painel">
-            <i class="bi bi-shield-lock-fill"></i> Painel Admin — Jardim Vital
-          </h1>
-          <button id="btn-sair" class="admin-btn-secundario">
-            <i class="bi bi-box-arrow-right"></i> Sair
-          </button>
-        </div>
+            <div id="admin-topbar">
+              <h1 id="admin-titulo-painel">
+                <i class="bi bi-shield-lock-fill"></i> Painel Admin — Jardim Vital
+              </h1>
+              <button id="btn-sair" class="admin-btn-secundario">
+                <i class="bi bi-box-arrow-right"></i> Sair
+              </button>
+            </div>
 
-        <!-- Abas do painel -->
-        <div id="admin-abas">
-          <button class="admin-aba ativa" data-aba="plantas">
-            <i class="bi bi-flower2"></i> Gerenciar Plantas
-          </button>
-          <button class="admin-aba" data-aba="adicionar">
-            <i class="bi bi-plus-circle"></i> Adicionar Planta
-          </button>
-        </div>
+            <!-- Abas do painel -->
+            <div id="admin-abas">
+              <button class="admin-aba ativa" data-aba="plantas">
+                <i class="bi bi-flower2"></i> Gerenciar Plantas
+              </button>
+              <button class="admin-aba" data-aba="adicionar">
+                <i class="bi bi-plus-circle"></i> Adicionar Planta
+              </button>
+            </div>
 
-        <!-- ======================= ABA: GERENCIAR ======================= -->
-        <section id="aba-plantas" class="admin-secao">
-          <div id="admin-filtros">
-            <input type="search" id="admin-busca" placeholder="🔍 Buscar por nome..." aria-label="Buscar planta" />
-            <select id="admin-filtro-tamanho" aria-label="Filtrar por tamanho">
-              <option value="">Todos os tamanhos</option>
-              <option value="Pequena">🌱 Pequenas</option>
-              <option value="Média">🌿 Médias</option>
-              <option value="Grande">🌳 Grandes</option>
-            </select>
-            <select id="admin-filtro-disponibilidade">
-              <option value="">🌿 Todos os status</option>
-              <option value="disponivel">✅ Disponíveis</option>
-              <option value="reservado">🔒 Reservadas</option>
-              <option value="indisponivel">🚫 Indisponíveis</option>
-            </select>
-          </div>
-
-          <div id="admin-contador">
-            <span id="admin-total-plantas">0 plantas cadastradas</span>
-          </div>
-
-          <div id="admin-lista-plantas">
-            <!-- Cards gerados pelo admin.js -->
-          </div>
-        </section>
-
-        <!-- ======================= ABA: ADICIONAR ======================= -->
-        <section id="aba-adicionar" class="admin-secao" hidden>
-
-          <!-- Preview só aparece no modo edição -->
-          <div id="admin-preview-imagem" hidden>
-            <img id="admin-preview-img" src="" alt="Imagem atual da planta" />
-            <p id="admin-preview-nome"></p>
-          </div>
-
-          <div id="admin-form-card">
-            <h2 id="admin-form-titulo">
-              <i class="bi bi-plus-circle"></i> Adicionar Nova Planta
-            </h2>
-
-            <form id="form-planta">
-              <input type="hidden" id="planta-id-edit" value="" />
-
-              <div class="admin-form-grid">
-                <div class="admin-field">
-                  <label for="planta-nome">Nome da Planta *</label>
-                  <input type="text" id="planta-nome" placeholder="Ex: Espada São Jorge" required />
-                </div>
-
-                <div class="admin-field">
-                  <label for="planta-tamanho">Tamanho *</label>
-                  <select id="planta-tamanho" required>
-                    <option value="">Selecione...</option>
-                    <option value="Pequena">🌱 Pequena</option>
-                    <option value="Média">🌿 Média</option>
-                    <option value="Grande">🌳 Grande</option>
-                  </select>
-                </div>
-
-                <div class="admin-field">
-                  <label for="planta-preco">Preço (R$) *</label>
-                  <input type="number" id="planta-preco" placeholder="Ex: 25.00" min="0" step="0.01" required />
-                </div>
-
-                <div class="admin-field">
-                  <label for="planta-imagem">URL da Imagem <span class="admin-field-hint">(opcional)</span></label>
-                  <input type="text" id="planta-imagem" placeholder="Ex: https://exemplo.com/imagens/planta.svg" />
-                </div>
-
-                <div class="admin-field">
-                  <label for="planta-disponivel">Quantidade Disponível *</label>
-                  <input type="number" id="planta-disponivel" placeholder="Ex: 5" min="0" step="1" value="0" required />
-                </div>
-
-                <div class="admin-field" id="campo-reservada">
-                  <label for="planta-reservada">Quantidade Reservada</label>
-                  <input type="number" id="planta-reservada" placeholder="Ex: 0" min="0" step="1" value="0" />
-                  <small class="admin-field-hint">
-                    ⚠️ A quantidade reservada não pode ser maior que a disponível.
-                  </small>
-                </div>
+            <!-- ======================= ABA: GERENCIAR ======================= -->
+            <section id="aba-plantas" class="admin-secao">
+              <div id="admin-filtros">
+                <input type="search" id="admin-busca" placeholder="🔍 Buscar por nome..." aria-label="Buscar planta" />
+                <select id="admin-filtro-tamanho" aria-label="Filtrar por tamanho">
+                  <option value="">Todos os tamanhos</option>
+                  <option value="Pequena">🌱 Pequenas</option>
+                  <option value="Média">🌿 Médias</option>
+                  <option value="Grande">🌳 Grandes</option>
+                </select>
+                <select id="admin-filtro-disponibilidade">
+                  <option value="">🌿 Todos os status</option>
+                  <option value="disponivel">✅ Disponíveis</option>
+                  <option value="reservado">🔒 Reservadas</option>
+                  <option value="indisponivel">🚫 Indisponíveis</option>
+                </select>
               </div>
 
-              <div class="admin-form-acoes">
-                <button type="submit" class="admin-btn-primario" id="btn-salvar-planta">
-                  <i class="bi bi-floppy"></i> Salvar Planta
-                </button>
-                <button type="button" class="admin-btn-secundario" id="btn-cancelar-edicao" hidden>
-                  <i class="bi bi-x-circle"></i> Cancelar Edição
-                </button>
-                <!-- NOVO -->
-                <button type="button" class="admin-btn-excluir" id="btn-excluir-edicao" hidden>
-                  <i class="bi bi-trash"></i> Excluir Planta
-                </button>
+              <div id="admin-contador">
+                <span id="admin-total-plantas">0 plantas cadastradas</span>
               </div>
-            </form>
-          </div>
-        </section>
 
-      </div>
-      <!-- /admin-painel -->
+              <div id="admin-lista-plantas">
+                <!-- Cards gerados pelo admin.js -->
+              </div>
+            </section>
+
+            <!-- ======================= ABA: ADICIONAR ======================= -->
+            <section id="aba-adicionar" class="admin-secao" hidden>
+
+              <!-- Preview só aparece no modo edição -->
+              <div id="admin-preview-imagem" hidden>
+                <img id="admin-preview-img" src="" alt="Imagem atual da planta" />
+                <p id="admin-preview-nome"></p>
+              </div>
+
+              <div id="admin-form-card">
+                <h2 id="admin-form-titulo">
+                  <i class="bi bi-plus-circle"></i> Adicionar Nova Planta
+                </h2>
+
+                <form id="form-planta">
+                  <input type="hidden" id="planta-id-edit" value="" />
+
+                  <div class="admin-form-grid">
+                    <div class="admin-field">
+                      <label for="planta-nome">Nome da Planta *</label>
+                      <input type="text" id="planta-nome" placeholder="Ex: Espada São Jorge" required />
+                    </div>
+
+                    <div class="admin-field">
+                      <label for="planta-tamanho">Tamanho *</label>
+                      <select id="planta-tamanho" required>
+                        <option value="">Selecione...</option>
+                        <option value="Pequena">🌱 Pequena</option>
+                        <option value="Média">🌿 Média</option>
+                        <option value="Grande">🌳 Grande</option>
+                      </select>
+                    </div>
+
+                    <div class="admin-field">
+                      <label for="planta-preco">Preço (R$) *</label>
+                      <input type="number" id="planta-preco" placeholder="Ex: 25.00" min="0" step="0.01" required />
+                    </div>
+
+                    <div class="admin-field">
+                      <label for="planta-imagem">URL da Imagem <span class="admin-field-hint">(opcional)</span></label>
+                      <input type="text" id="planta-imagem" placeholder="Ex: https://exemplo.com/imagens/planta.svg" />
+                    </div>
+
+                    <div class="admin-field">
+                      <label for="planta-disponivel">Quantidade Disponível *</label>
+                      <input type="number" id="planta-disponivel" placeholder="Ex: 5" min="0" step="1" value="0"
+                        required />
+                    </div>
+
+                    <div class="admin-field" id="campo-reservada">
+                      <label for="planta-reservada">Quantidade Reservada</label>
+                      <input type="number" id="planta-reservada" placeholder="Ex: 0" min="0" step="1" value="0" />
+                      <small class="admin-field-hint">
+                        ⚠️ A quantidade reservada não pode ser maior que a disponível.
+                      </small>
+                    </div>
+                  </div>
+
+                  <div class="admin-form-acoes">
+                    <button type="submit" class="admin-btn-primario" id="btn-salvar-planta">
+                      <i class="bi bi-floppy"></i> Salvar Planta
+                    </button>
+                    <button type="button" class="admin-btn-secundario" id="btn-cancelar-edicao" hidden>
+                      <i class="bi bi-x-circle"></i> Cancelar Edição
+                    </button>
+                    <!-- NOVO -->
+                    <button type="button" class="admin-btn-excluir" id="btn-excluir-edicao" hidden>
+                      <i class="bi bi-trash"></i> Excluir Planta
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </section>
+
+          </div>
+          <!-- /admin-painel -->
 
     </main>
 

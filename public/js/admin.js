@@ -32,6 +32,10 @@ function formatarPreco(valor) {
 // LOGIN
 // ================================================================
 
+let modoVisitante = false; // Flag em memória solicitada
+const btnVisitante = document.getElementById("btn-visitante");
+const bannerVisitante = document.getElementById("banner-visitante");
+
 const loginOverlay = document.getElementById("admin-login-overlay");
 const adminPainel = document.getElementById("admin-painel");
 const formLogin = document.getElementById("form-login");
@@ -48,6 +52,9 @@ toggleSenha.addEventListener("click", () => {
 // MARCADOR ASYNC AQUI
 formLogin.addEventListener("submit", async (e) => {
     e.preventDefault();
+    modoVisitante = false; // Força desligar
+    if(bannerVisitante) bannerVisitante.style.display = "none";
+
     const btnEntrar = document.getElementById("btn-entrar");
     btnEntrar.disabled = true;
     btnEntrar.textContent = "Carregando...";
@@ -76,9 +83,31 @@ formLogin.addEventListener("submit", async (e) => {
     btnEntrar.innerHTML = 'Entrar <i class="bi bi-box-arrow-in-right"></i>';
 });
 
+if (btnVisitante) {
+    btnVisitante.addEventListener("click", async () => {
+        // SEGURANÇA: Expurga qualquer credencial "fantasma" salva no navegador
+        await supabase.auth.signOut();
+
+        modoVisitante = true;
+        if(bannerVisitante) bannerVisitante.style.display = "block"; // Mostra a faixa amarela
+        
+        await carregarPlantas(); // Tenta ler as plantas (Leitura pública é permitida pelo RLS)
+        
+        loginOverlay.hidden = true;
+        adminPainel.hidden = false;
+        renderizarLista();
+    });
+}
+
 document.getElementById("btn-sair").addEventListener("click", async () => {
 
-    await supabase.auth.signOut();
+    if (!modoVisitante) {
+        await supabase.auth.signOut();
+    }
+    
+    // Reseta estado local
+    modoVisitante = false;
+    if(bannerVisitante) bannerVisitante.style.display = "none";
 
     estadoPlantas = [];
     document.getElementById("admin-lista-plantas").innerHTML = "";
@@ -215,6 +244,11 @@ function renderizarLista() {
 // ================================================================
 
 window.toggleDisponibilidade = async function (id) {
+    if (modoVisitante) {
+        alert("Ação bloqueada: Você está visualizando o painel em modo visitante.");
+        return;
+    }
+
     const planta = estadoPlantas.find((p) => String(p.id) === String(id));
     if (!planta) return;
 
@@ -236,6 +270,11 @@ window.toggleDisponibilidade = async function (id) {
 };
 
 window.excluirPlanta = async function (id) {
+    if (modoVisitante) {
+        alert("Ação bloqueada: Você está visualizando o painel em modo visitante.");
+        return;
+    }
+
     const planta = estadoPlantas.find((p) => String(p.id) === String(id));
     if (!planta) return;
     if (!confirm(`Excluir "${planta.nome}" permanentemente do BD?`)) return;
@@ -358,6 +397,11 @@ btnCancelarEdicao.addEventListener("click", () => {
 
 formPlanta.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    if (modoVisitante) {
+        alert("Ação bloqueada: Nenhuma alteração pode ser salva no modo visitante.");
+        return;
+    }
 
     const btnSalvarRef = e.submitter || document.querySelector('#form-planta button[type="submit"]');
     const labelOriginal = btnSalvarRef.innerHTML;
