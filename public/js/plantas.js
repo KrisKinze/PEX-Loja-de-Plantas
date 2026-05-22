@@ -60,7 +60,7 @@ function renderizarCatalogo(plantas) {
                         ${badgeDisponivel}
                         ${badgeReservado}
                     </div>
-                    <p class="planta-valor">R$ ${planta.preco.toFixed(2)}</p>
+                    <p class="planta-valor">R$ ${Number(planta.preco || 0).toFixed(2).replace('.', ',')}</p>
                     <div class="planta-actions">
                         <button class="btn-comprar" onclick="adicionarAoCarrinho('${planta.id}')">
                             Adicionar ao Carrinho
@@ -83,7 +83,7 @@ function adicionarAoCarrinho(plantaId) {
     
     const mensagemCarrinho = document.getElementById('mensagem-carrinho');
     if (mensagemCarrinho) {
-        const itemCarrinho = `\n- ${planta.nome} (${planta.tamanho}) - R$ ${planta.preco.toFixed(2)}`;
+        const itemCarrinho = `\n- ${planta.nome} (${planta.tamanho}) - R$ ${Number(planta.preco || 0).toFixed(2).replace('.', ',')}`;
         mensagemCarrinho.value += itemCarrinho;
     }
     
@@ -118,7 +118,7 @@ async function inicializarCatalogo() {
     const plantas = await buscarPlantas();
     
     if (plantas.length > 0) {
-        const plantasOrdenadas = plantas.sort((a, b) => a.preco - b.preco);
+        const plantasOrdenadas = plantas.sort((a, b) => Number(a.preco || 0) - Number(b.preco || 0));
         todasPlantas = plantasOrdenadas;
 
         window.todasPlantas = plantasOrdenadas;         // libera para filtros.js

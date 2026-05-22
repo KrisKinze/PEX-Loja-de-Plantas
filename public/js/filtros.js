@@ -68,10 +68,10 @@ function aplicarFiltrosCombinados() {
 
     // Ordenação
     switch (ordemVal) {
-        case 'preco-asc':  resultado.sort((a, b) => a.preco - b.preco); break;
-        case 'preco-desc': resultado.sort((a, b) => b.preco - a.preco); break;
-        case 'nome-asc':   resultado.sort((a, b) => a.nome.localeCompare(b.nome)); break;
-        case 'nome-desc':  resultado.sort((a, b) => b.nome.localeCompare(a.nome)); break;
+        case 'preco-asc':  resultado.sort((a, b) => Number(a.preco || 0) - Number(b.preco || 0)); break;
+        case 'preco-desc': resultado.sort((a, b) => Number(b.preco || 0) - Number(a.preco || 0)); break;
+        case 'nome-asc':   resultado.sort((a, b) => (a.nome || '').localeCompare(b.nome || '')); break;
+        case 'nome-desc':  resultado.sort((a, b) => (b.nome || '').localeCompare(a.nome || '')); break;
     }
 
     renderizarCatalogo(resultado);
