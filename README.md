@@ -14,6 +14,47 @@ Desenvolvimento de uma landing page interativa e responsiva para a loja de plant
 
 ***
 
+## 🎬 Demonstração
+
+> 📂 Todos os GIFs estão na pasta [`/gifs`](./gifs/) e os prints na pasta [`/screenshots`](./screenshots/).
+
+### Catálogo com Filtros
+![usando filtros do catalogo de plantas](/gifs/gif%20-%20página%20inicial%20-%20usando%20filtros%20do%20catalogo%20de%20plantas.gif)
+
+### Carrinho de Compras
+![usando carrinho de compras da página inicial](/gifs/gif%20-%20página%20inicial%20-%20usando%20carrinho.gif)
+
+
+### Painel Administrativo
+![Logando no painel administrativo](/gifs/gif%20-%20página%20administrativa%20-%20logando%20no%20Painel.gif)
+
+### Modo Visitante
+![Entrando no painel administrativo como visitante](/gifs/gif%20-%20página%20administrativa%20-%20entrando%20no%20modo%20visitante.gif)
+
+***
+
+## 📸 Screenshots
+
+> 📂 Todos os prints estão disponíveis na pasta [`/screenshots`](./screenshots/) para visualização detalhada.
+
+
+*Página inicial no modo claro.*
+![](/screenshots/print%20-%20pagina%20inicial%201%20-%20modo%20claro.png)
+
+*Painel administrativo com listagem de plantas.*
+![](/screenshots/print%20-%20pagina%20administrativa%20-%20gerenciador%20de%20plantas%20-%20modo%20claro.png)
+
+*Catálogo dinâmico com filtros por tamanho.*
+![](/screenshots/print%20-%20pagina%20inicial%20-%20catalogo%20de%20plantas%20-%20modo%20claro.png)
+
+*Formulário de contato integrado ao EmailJS.*
+![](/screenshots/print%20-%20pagina%20inicial%20-%20filtros%20do%20catalogo%20de%20plantas%20-%20modo%20claro.png)
+
+*Seção de localização com Google Maps.*
+![](/screenshots/print%20-%20pagina%20inicial%20-%20localizacao%20-%20modo%20claro.png)
+
+***
+
 ## 🆕 v3.0 — Migração para Supabase + Painel Administrativo (2026)
 
 Esta versão representa uma refatoração completa da arquitetura do projeto, eliminando o backend próprio e substituindo por serviços externos gerenciados.
@@ -66,15 +107,9 @@ A proteção do banco de dados opera em duas camadas independentes:
 
 > A `anon key` do Supabase exposta no front-end é **intencional e segura**: ela só concede permissão de leitura pública. Todas as operações de escrita exigem autenticação.
 
-***
-
 ### 👁️ Modo Visitante
 
-A página de login oferece a opção **"Entrar como Visitante"**, permitindo explorar o layout
-e a interface da área administrativa sem autenticação. Nenhuma modificação é possível neste
-modo: todas as operações de escrita são bloqueadas diretamente pelas políticas de segurança
-(RLS) do Supabase, independentemente da interface. Um banner de aviso é exibido no topo da
-tela para indicar que o usuário está em modo somente leitura.
+A página de login oferece a opção **"Entrar como Visitante"**, permitindo explorar o layout e a interface da área administrativa sem autenticação. Nenhuma modificação é possível neste modo: todas as operações de escrita são bloqueadas diretamente pelas políticas de segurança (RLS) do Supabase, independentemente da interface. Um banner de aviso é exibido no topo da tela para indicar que o usuário está em modo somente leitura.
 
 ***
 
@@ -95,18 +130,19 @@ tela para indicar que o usuário está em modo somente leitura.
 ## 📁 Estrutura do Projeto
 
 ```
-PEX-Loja-de-Plantas/
-├── index.html              # Página pública da loja
-├── admin.html              # Painel administrativo protegido
+Jardim-da-Vital/
+├── index.html                    # Página pública da loja
+├── admin.html                    # Painel administrativo protegido
 ├── public/
 │   ├── css/
 │   │   └── style.css
 │   └── js/
-│       ├── supabase.js         # Configuração e conexão com o Supabase
-│       ├── plantas.js          # Carregamento do catálogo público
-│       ├── admin.js            # Lógica completa do painel administrativo
-│       └── enviodoformulario.js # Integração com EmailJS
-└── screenshots/
+│       ├── supabase.js               # Configuração e conexão com o Supabase
+│       ├── plantas.js                # Carregamento do catálogo público
+│       ├── admin.js                  # Lógica completa do painel administrativo
+│       └── enviodoformulario.js      # Integração com EmailJS
+├── screenshots/                  # Prints estáticos do projeto
+└── gifs/                         # Demonstrações animadas das funcionalidades
 ```
 
 ***
@@ -129,30 +165,9 @@ O projeto é **100% estático** — não requer instalação de dependências ou
 
 3. **Para acessar o painel administrativo:**
    Abra `admin.html` e faça login com as credenciais cadastradas no Supabase Auth.
+   Ou clique em **"Entrar como Visitante"** para explorar o layout sem autenticação.
 
 > **Nota:** As integrações com Supabase e EmailJS dependem das chaves de API configuradas no `supabase.js` e `enviodoformulario.js`. Para rodar uma instância própria, substitua pelas suas chaves nos respectivos projetos.
-
-***
-
-## 📸 Screenshots
-
-
-*Página inicial no modo claro.*
-
-
-*Cabeçalho com navegação sticky.*
-
-
-*Carrossel de destaques.*
-
-
-*Catálogo dinâmico com filtros por tamanho.*
-
-
-*Formulário de contato integrado ao EmailJS.*
-
-
-*Seção de localização com Google Maps.*
 
 ***
 
@@ -160,7 +175,7 @@ O projeto é **100% estático** — não requer instalação de dependências ou
 
 | Versão | Descrição |
 |---|---|
-| **v3.0** (2026) | Migração para Supabase, criação do painel administrativo, autenticação real com RLS, remoção completa do backend Node.js |
+| **v3.0** (2026) | Migração para Supabase, criação do painel administrativo, autenticação real com RLS, modo visitante, remoção completa do backend Node.js |
 | **v2.0** (Nov/2025) | Correção de caminhos de imagens para GitHub Pages, deploy no Render, expansão do catálogo para 46 espécies |
 | **v1.0** | Versão inicial — landing page com backend Node.js/Express + SQLite |
 
